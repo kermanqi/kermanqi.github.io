@@ -1,1 +1,4 @@
 /* css styles */
+#quarto-document-content p {
+    text-indent: 2em;
+}

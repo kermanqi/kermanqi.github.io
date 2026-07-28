@@ -1,0 +1,16 @@
+---
+title: "Optics Notes"
+author: "Qi Huang"
+date: "2026-07-22"
+categories: [optics, notes]
+image: "Dispersive prism.png"
+
+listing:
+  contents: .
+  sort: "date desc"
+  type: default
+---
+
+This is a collection of Optics Notes
+
+<!-- [Optics Notes 1](optics-notes-1/) -->

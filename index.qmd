@@ -1,5 +1,5 @@
 ---
-title: "kermanqi.github.io"
+title: "Just Call It Action"
 listing:
   contents: posts
   feed: true

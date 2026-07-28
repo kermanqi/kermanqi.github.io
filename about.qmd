@@ -4,15 +4,15 @@ image: profile.jpg
 about:
   template: jolla
   links:
-    - icon: bluesky
+    - icon: D
       text: Bluesky
       href: https://bsky.app/
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/qi-huang-848652421/
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/kermanqi
 
 ---
 

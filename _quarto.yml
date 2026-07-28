@@ -3,15 +3,19 @@ project:
 
 website:
   description: "A blog built with Quarto"
-  site-url: https://kermanqi.github.io # you must change this appropriately for RSS feeds to work properly
-  title: "kermanqi.github.io"
+  site-url: https://justcallitaction.cfd # you must change this appropriately for RSS feeds to work properly
+  title: "Just Call It Action"
   navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: posts/optics-notes/index.qmd
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
+        href: https://github.com/kermanqi
       - icon: bluesky
-        href: https://bsky.app/
+        href: https://bsky.app/profile/justcallitaction.cfd
 format:
   html:
     theme:
