@@ -5,16 +5,141 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>kermanqi.github.io</title>
-<link>https://kermanqi.github.io/</link>
-<atom:link href="https://kermanqi.github.io/index.xml" rel="self" type="application/rss+xml"/>
+<title>Just Call It Action</title>
+<link>https://justcallitaction.cfd/</link>
+<atom:link href="https://justcallitaction.cfd/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog built with Quarto</description>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Mon, 20 Jul 2026 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 21 Jul 2026 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>Optics Notes#1: Electromagnetic Field</title>
+  <dc:creator>Qi Huang</dc:creator>
+  <link>https://justcallitaction.cfd/posts/optics-notes/optics-notes-1/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This note introduces basic properties of the electromagnetic field.</p>
+<section id="maxwells-equations" class="level1">
+<h1>Maxwell’s Equations</h1>
+<p>The effect of fields on material objects: <span id="eq-maxwell-curl"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cnabla%20%5Ctimes%20%5Cmathbf%7BH%7D%0A%20%20%20%20-%20%5Cfrac%7B1%7D%7Bc%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BD%7D%7D%7B%5Cpartial%20t%7D%0A%20%20%20%20&amp;=%20%5Cfrac%7B4%5Cpi%7D%7Bc%7D%5Cmathbf%7Bj%7D,%5C%5C%0A%5Cnabla%20%5Ctimes%20%5Cmathbf%7BE%7D%0A%20%20%20%20+%20%5Cfrac%7B1%7D%7Bc%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BB%7D%7D%7B%5Cpartial%20t%7D%0A%20%20%20%20&amp;=%20%5Cmathbf%7B0%7D,%0A%5Cend%7Baligned%7D%0A%5Ctag%7B1%7D"></span> Here, <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BH%7D"> is the <strong><em>magnetic vector</em></strong>, <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BD%7D"> is the <strong><em>electric displacement</em></strong>, and <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bj%7D"> is the <strong><em>current density</em></strong>.</p>
+<p>They are supplemented by two scalar relations: <span id="eq-gauss-maxwell"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cnabla%20%5Ccdot%20%5Cmathbf%7BD%7D%20&amp;=%204%5Cpi%5Crho,%5C%5C%0A%5Cnabla%20%5Ccdot%20%5Cmathbf%7BB%7D%20&amp;=%200.%0A%5Cend%7Baligned%7D%0A%5Ctag%7B2%7D"></span> The first equation relates the electric displacement to the charge density, while the second implies that no free magnetic poles exist.</p>
+<p>From Equation&nbsp;1 it follows that <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cnabla%20%5Ccdot%20(%5Cnabla%20%5Ctimes%20%5Cmathbf%7BH%7D)%0A%20%20%20%20-%20%5Cnabla%20%5Ccdot%20(%5Cfrac%7B1%7D%7Bc%7D%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BD%7D%7D%7B%5Cpartial%20t%7D)%0A%20%20%20%20&amp;=%20%5Cnabla%20%5Ccdot%20(%5Cfrac%7B4%5Cpi%7D%7Bc%7D%5Cmathbf%7Bj%7D)%0A%5C%5C%0A-%20%5Cfrac%7B1%7D%7B4%20%5Cpi%7D%20%5Cnabla%20%5Ccdot%20%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BD%7D%7D%7B%5Cpartial%20t%7D%20=%5Cnabla%20%5Ccdot%20%5Cmathbf%7Bj%7D%0A%5Cend%7Baligned%7D%0A"> using Equation&nbsp;2, <span id="eq-continuity"><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%5Cpartial%20%5Crho%7D%7B%5Cpartial%20t%7D%20+%20%5Cnabla%20%5Ccdot%20%5Cmathbf%7Bj%7D%20=%200,%0A%5Ctag%7B3%7D"></span> The continuity equation is analogous to the equation encountered in hydrodynamics. It expresses the fact that charge is conserved in the neighbourhood of any point. Indeed, if one integrates Equation&nbsp;3 over any region of space, one obtains, with the help of Gauss’s theorem, <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7Bd%7D%7Bdt%7D%20%5Cint%20%5Crho%20dV%20+%20%5Cint%20%5Cmathbf%7Bj%7D%20%5Ccdot%20%5Cmathbf%7Bn%7D%20dS%20=%200,%0A"> <!-- the second integral being taken over the surface bounding the region and the first throughout the volume, $\mathbf{n}$ denoting the unit outward normal.  --> This equation implies that the total charge: <span id="eq-total-charge"><img src="https://latex.codecogs.com/png.latex?%0Ae%20=%20%5Cint%20%5Crho%20dV%0A%5Ctag%7B4%7D"></span></p>
+<p>In optical fields, the field vectors vary rapidly with time. The word <strong><em>stationary</em></strong> is often used in a wider sense. <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Barray%7D%7Bc%7Cc%7Cc%7D%0A%5Ctextbf%7BField%20type%7D%0A&amp;%0A%5Ctextbf%7BTime%20dependence%7D%0A&amp;%0A%5Ctextbf%7BCurrent%20density%7D%0A%5C%5C%5B4pt%5D%0A%5Chline%0A%5Ctext%7BStatic%20field%7D%0A&amp;%0A%5Cdisplaystyle%20%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BE%7D%7D%7B%5Cpartial%20t%7D=%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BD%7D%7D%7B%5Cpartial%20t%7D=%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BB%7D%7D%7B%5Cpartial%20t%7D=%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BH%7D%7D%7B%5Cpartial%20t%7D=%5Cmathbf%7B0%7D%0A&amp;%0A%5Cmathbf%7Bj%7D=%5Cmathbf%7B0%7D%0A%5C%5C%5B10pt%5D%0A%5Ctext%7BStationary%20field%7D%0A&amp;%0A%5Cdisplaystyle%20%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BE%7D%7D%7B%5Cpartial%20t%7D=%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BD%7D%7D%7B%5Cpartial%20t%7D=%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BB%7D%7D%7B%5Cpartial%20t%7D=%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BH%7D%7D%7B%5Cpartial%20t%7D=%5Cmathbf%7B0%7D%0A&amp;%0A%5Cmathbf%7Bj%7D%5Cneq%5Cmathbf%7B0%7D%0A%5Cend%7Barray%7D%0A"></p>
+</section>
+<section id="material-equations" class="level1">
+<h1>Material equations</h1>
+<p>If the bodies are at rest or move very slowly relative to one another, and if the material is <strong><em>isotropic</em></strong>, the material equations usually take the following relatively simple form: <span id="eq-material-equations"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cmathbf%7Bj%7D%20&amp;=%20%5Csigma%20%5Cmathbf%7BE%7D,%0A%5C%5C%0A%5Cmathbf%7BD%7D%20&amp;=%20%5Cepsilon%20%5Cmathbf%7BE%7D,%0A%5C%5C%0A%5Cmathbf%7BB%7D%20&amp;=%20%5Cmu%20%5Cmathbf%7BH%7D.%0A%5Cend%7Baligned%7D%0A%5Ctag%7B5%7D"></span> Here <img src="https://latex.codecogs.com/png.latex?%5Csigma"> is called the <strong><em>specific conductivity</em></strong>, <img src="https://latex.codecogs.com/png.latex?%5Cepsilon"> is known as the <strong><em>dielectric constant</em></strong> (or permittivity), and <img src="https://latex.codecogs.com/png.latex?%5Cmu"> is called the <strong><em>magnetic permeability</em></strong>.</p>
+</section>
+<section id="boundary-conditions-at-a-surface-of-discontinuity" class="level1">
+<h1>Boundary conditions at a surface of discontinuity</h1>
+<section id="magnetic-induction-and-electric-displacement" class="level2">
+<h2 class="anchored" data-anchor-id="magnetic-induction-and-electric-displacement">Magnetic Induction and Electric Displacement</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://justcallitaction.cfd/posts/optics-notes/optics-notes-1/Derivationof boundary conditions for B and D.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Derivation of boundary conditions for the <strong>normal</strong> components of <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BB%7D"> and <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BD%7D">.</figcaption>
+</figure>
+</div>
+<!-- Since $\mathbf{B}$ and its derivatives may be assumed to be continuous throughout the cylinder, we can apply Gauss' theorem to the integral of $\nabla \cdot \mathbf{B}$ taken throughout the volume of the cylinder and obtain from -->
+<p><span id="eq-gauss-magnetic-induction"><img src="https://latex.codecogs.com/png.latex?%0A%5Cint%20%5Cnabla%20%5Ccdot%20%5Cmathbf%7BB%7D%20dV%20=%20%5Cint%20%5Cmathbf%7BB%7D%20%5Ccdot%20%5Cmathbf%7Bn%7D%20dS%20=%200%0A%5Ctag%7B6%7D"></span> Since the areas <img src="https://latex.codecogs.com/png.latex?%5Cdelta%20A_1"> and <img src="https://latex.codecogs.com/png.latex?%5Cdelta%20A_2"> are assumed to be small, <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BB%7D"> may be considered to have constant values <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BB%7D%5E%7B(1)%7D"> and <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BB%7D%5E%7B(2)%7D"> on <img src="https://latex.codecogs.com/png.latex?%5Cdelta%20A_1"> and <img src="https://latex.codecogs.com/png.latex?%5Cdelta%20A_2">, and <img src="https://latex.codecogs.com/png.latex?(12)"> may then be replaced by <img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7BB%7D%5E%7B(1)%7D%20%5Ccdot%20%5Cmathbf%7Bn%7D_1%20%5Cdelta%20A_1%20+%20%5Cmathbf%7BB%7D%5E%7B(2)%7D%20%5Ccdot%20%5Cmathbf%7Bn%7D_2%20%5Cdelta%20A_2%20+%20%5Ctext%7Bcontribution%20from%20walls%7D%20=%200%0A"> When the cylinder shrinks to zero, <img src="https://latex.codecogs.com/png.latex?%0A(%5Cmathbf%7BB%7D%5E%7B(1)%7D%20%5Ccdot%20%5Cmathbf%7Bn%7D_1%20+%20%5Cmathbf%7BB%7D%5E%7B(2)%7D%20%5Ccdot%20%5Cmathbf%7Bn%7D_2)%20%5Cdelta%20A%20=%200%0A"> <span id="eq-magnetic-induction-continuous"><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7Bn%7D_%7B12%7D%20%5Ccdot%20(%5Cmathbf%7BB%7D%5E%7B(2)%7D%20-%20%5Cmathbf%7BB%7D%5E%7B(1)%7D)%20=%200%0A%5Ctag%7B7%7D"></span> The normal component of the <strong><em>magnetic induction</em></strong> is <strong>continuous</strong> across the boundary.</p>
+<p>From Equation&nbsp;2, we have the <strong><em>electric displacement</em></strong> <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BD%7D">: <span id="eq-gauss-electric-displacement"><img src="https://latex.codecogs.com/png.latex?%0A%5Cint%20%5Cnabla%20%5Ccdot%20%5Cmathbf%7BD%7D%20dV%20=%20%5Cint%20%5Cmathbf%7BD%7D%20%5Ccdot%20%5Cmathbf%7Bn%7D%20dS%20=%204%5Cpi%20%5Cint%20%5Crho%20dV%0A%5Ctag%7B8%7D"></span> When the contribution from the walls tends to zero, the derivation is identical to that of Equation&nbsp;7. <span id="eq-electric-displacement-discontinuous"><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7Bn%7D_%7B12%7D%20%5Ccdot%20(%5Cmathbf%7BD%7D%5E%7B(2)%7D%20-%20%5Cmathbf%7BD%7D%5E%7B(1)%7D)%20=%204%20%5Cpi%20%5Chat%7B%5Crho%7D%0A%5Ctag%7B9%7D"></span> The normal component of the <strong><em>electric displacement</em></strong> is <strong>discontinuous</strong> across the boundary.</p>
+</section>
+<section id="surface-density" class="level2">
+<h2 class="anchored" data-anchor-id="surface-density">Surface Density</h2>
+<p>As <img src="https://latex.codecogs.com/png.latex?%5Cdelta%20A_1"> and <img src="https://latex.codecogs.com/png.latex?%5Cdelta%20A_2"> shrink together, the total charge remains finite, so that the volume density becomes infinite. Instead of the volume charge density <img src="https://latex.codecogs.com/png.latex?%5Crho">, the concept of <strong><em>surface charge density</em></strong> <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Crho%7D"> must be used. <span id="eq-surface-charge-density"><img src="https://latex.codecogs.com/png.latex?%0A%5Clim_%7B%5Cdelta%20h%20%5Cto%200%7D%20%5Cint%20%5Crho%20dV%20=%20%5Cint%20%5Chat%7B%5Crho%7D%20dA%0A%5Ctag%7B10%7D"></span> The <strong><em>surface current density</em></strong> <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Cmathbf%7Bj%7D%7D"> is defined in a similar way: <span id="eq-surface-current-density"><img src="https://latex.codecogs.com/png.latex?%0A%5Clim_%7B%5Cdelta%20h%20%5Cto%200%7D%20%5Cint%20%5Cmathbf%7Bj%7D%20dV%20=%20%5Cint%20%5Chat%7B%5Cmathbf%7Bj%7D%7D%20dA%0A%5Ctag%7B11%7D"></span></p>
+</section>
+<section id="electric-vector-and-magnetic-vector" class="level2">
+<h2 class="anchored" data-anchor-id="electric-vector-and-magnetic-vector">Electric Vector and Magnetic Vector</h2>
+<div id="fig-boundary-conditions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-boundary-conditions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://justcallitaction.cfd/posts/optics-notes/optics-notes-1/Derivationof boundary conditions for E and H.png" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boundary-conditions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Derivation of boundary conditions for the <strong>tangential</strong> components of <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BE%7D"> and <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BH%7D">.
+</figcaption>
+</figure>
+</div>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bb%7D"> is the unit vector perpendicular to the plane of the rectangle. It follows from Equation&nbsp;1 and from Stokes’ theorem that <img src="https://latex.codecogs.com/png.latex?%0A%5Cint%20(%5Cnabla%20%5Ctimes%20%5Cmathbf%7BE%7D)%20%5Ccdot%20%5Cmathbf%7Bb%7D%20dS%20=%20%5Cint%20%5Cmathbf%7BE%7D%20%5Ccdot%20d%20%5Cmathbf%7Br%7D%20=%20-%20%5Cfrac%7B1%7D%7Bc%7D%20%5Cint%20%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BB%7D%7D%7B%5Cpartial%20t%7D%20%5Ccdot%20%5Cmathbf%7Bb%7D%20dS%0A"> If the lengths <img src="https://latex.codecogs.com/png.latex?P_1%20Q_1%20=%20%5Cdelta%20s_1"> and <img src="https://latex.codecogs.com/png.latex?P_2%20Q_2%20=%20%5Cdelta%20s_2"> are small: <img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7BE%7D%5E%7B(1)%7D%20%5Ccdot%20%5Cmathbf%7Bt%7D_1%20%5Cdelta%20s_1%20+%20%5Cmathbf%7BE%7D%5E%7B(2)%7D%20%5Ccdot%20%5Cmathbf%7Bt%7D_2%20%5Cdelta%20s_2%20+%20%5Ctext%7Bcontribution%20from%20ends%7D%20=%20-%5Cfrac%7B1%7D%7Bc%7D%20%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BB%7D%7D%7B%5Cpartial%20t%7D%20%5Ccdot%20%5Cmathbf%7Bb%7D%20%5Cdelta%20s%20%5Cdelta%20h%0A"> where <img src="https://latex.codecogs.com/png.latex?%5Cdelta%20s"> is the line element along which the rectangle intersects the surface. <img src="https://latex.codecogs.com/png.latex?%0A(%5Cmathbf%7BE%7D%5E%7B(1)%7D%20%5Ccdot%20%5Cmathbf%7Bt%7D_1%20+%20%5Cmathbf%7BE%7D%5E%7B(2)%7D%20%5Ccdot%20%5Cmathbf%7Bt%7D_2)%20%5Cdelta%20s%20=%200%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7Bb%7D%20%5Ccdot%20%5B%5Cmathbf%7Bn%7D_%7B12%7D%20%5Ctimes%20(%5Cmathbf%7BE%7D%5E%7B(2)%7D%20-%20%5Cmathbf%7BE%7D%5E%7B(1)%7D)%5D%20=%200%0A"> <span id="eq-electric-vector-continuous"><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7Bn%7D_%7B12%7D%20%5Ctimes%20(%5Cmathbf%7BE%7D%5E%7B(2)%7D%20-%20%5Cmathbf%7BE%7D%5E%7B(1)%7D)%20=%200%0A%5Ctag%7B12%7D"></span> The tangential component of the <strong><em>electric vector</em></strong> is <strong>continuous</strong> across the boundary.</p>
+<p>Consider the behaviour of the tangential component of the magnetic vector. The analysis is similar, but there is an additional term if currents are present. <img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7BH%7D%5E%7B(1)%7D%20%5Ccdot%20%5Cmathbf%7Bt%7D_1%20%5Cdelta%20s_1%20+%20%5Cmathbf%7BH%7D%5E%7B(2)%7D%20%5Ccdot%20%5Cmathbf%7Bt%7D_2%20%5Cdelta%20s_2%20+%20%5Ctext%7Bcontribution%20from%20ends%7D%20=%20%5Cfrac%7B1%7D%7Bc%7D%20%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BD%7D%7D%7B%5Cpartial%20t%7D%20%5Ccdot%20%5Cmathbf%7Bb%7D%20%5Cdelta%20s%20%5Cdelta%20h%20+%20%5Cfrac%7B4%20%5Cpi%7D%7Bc%7D%20%5Chat%7B%5Cmathbf%7Bj%7D%7D%20%5Ccdot%20%5Cmathbf%7Bb%7D%20%5Cdelta%20s%0A"> When <img src="https://latex.codecogs.com/png.latex?%5Cdelta%20h%20%5Cto%200">, the derivation is identical to that of Equation&nbsp;12. <span id="eq-magnetic-vector-discontinuous"><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7Bn%7D_%7B12%7D%20%5Ctimes%20(%5Cmathbf%7BH%7D%5E%7B(2)%7D%20-%20%5Cmathbf%7BH%7D%5E%7B(1)%7D)%20=%20%5Cfrac%7B4%20%5Cpi%7D%7Bc%7D%20%5Chat%7B%5Cmathbf%7Bj%7D%7D%0A%5Ctag%7B13%7D"></span> The tangential component of the <strong><em>magnetic vector</em></strong> is <strong>discontinuous</strong> across the boundary.</p>
+</section>
+</section>
+<section id="the-energy-law-of-the-electromagnetic-field" class="level1">
+<h1>The energy law of the electromagnetic field</h1>
+<p>From Equation&nbsp;1 it follows that <img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7BE%7D%20%5Ccdot%20(%5Cnabla%20%5Ctimes%20%5Cmathbf%7BH%7D)%20-%20%5Cmathbf%7BH%7D%20%5Ccdot%20(%5Cnabla%20%5Ctimes%20%5Cmathbf%7BE%7D)%20=%20%5Cfrac%7B4%20%5Cpi%7D%7Bc%7D%20%5Cmathbf%7Bj%7D%20%5Ccdot%20%5Cmathbf%7BE%7D%20+%20%5Cfrac%7B1%7D%7Bc%7D%20%5Cmathbf%7BE%7D%20%5Ccdot%20%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BD%7D%7D%7B%5Cpartial%20t%7D%20+%20%5Cfrac%7B1%7D%7Bc%7D%20%5Cmathbf%7BH%7D%20%5Ccdot%20%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BB%7D%7D%7B%5Cpartial%20t%7D%0A"> From <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Cnabla%20%5Ccdot%20(%5Cmathbf%20A%20%5Ctimes%20%5Cmathbf%20B)%20&amp;=%20%5Cepsilon_%7Bijk%7D%20%5Cpartial_k%20(A_i%20B_j)%20%5C%5C%0A&amp;=%20%5Cepsilon_%7Bijk%7D%20%5B(%5Cpartial_k%20A_i)%20B_j%20+%20A_i%20(%5Cpartial_k%20B_j)%5D%20%5C%5C%0A&amp;=%20B_j%20(%5Cepsilon_%7Bijk%7D%20%5Cpartial_k%20A_i)%20+%20A_i%20(%5Cepsilon_%7Bijk%7D%20%5Cpartial_k%20B_j)%20%5C%5C%0A&amp;=%20B_j%20(%5Cepsilon_%7Bkij%7D%20%5Cpartial_k%20A_i)%20+%20A_i%20(-%5Cepsilon_%7Bkji%7D%20%5Cpartial_k%20B_j)%20%5C%5C%0A&amp;=%20%5Cmathbf%7BB%7D%20%5Ccdot%20(%5Cnabla%20%5Ctimes%20%5Cmathbf%7BA%7D)%20-%20%5Cmathbf%7BA%7D%20%5Ccdot%20(%5Cnabla%20%5Ctimes%20%5Cmathbf%7BB%7D)%0A%5Cend%7Balign%7D%0A"> We have that <img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7BE%7D%20%5Ccdot%20(%5Cnabla%20%5Ctimes%20%5Cmathbf%7BH%7D)%20-%20%5Cmathbf%7BH%7D%20%5Ccdot%20(%5Cnabla%20%5Ctimes%20%5Cmathbf%7BE%7D)%20=%20-%20%5Cnabla%20%5Ccdot%20(%5Cmathbf%7BE%7D%20%5Ctimes%20%5Cmathbf%7BH%7D)%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B1%7D%7Bc%7D%20(%5Cmathbf%7BE%7D%20%5Ccdot%20%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BD%7D%7D%7B%5Cpartial%20t%7D%20+%20%5Cmathbf%7BH%7D%20%5Ccdot%20%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BB%7D%7D%7B%5Cpartial%20t%7D)%20+%20%5Cfrac%7B4%20%5Cpi%7D%7Bc%7D%20%5Cmathbf%7Bj%7D%20%5Ccdot%20%5Cmathbf%7BE%7D%20+%20%5Cnabla%20%5Ccdot%20(%5Cmathbf%7BE%7D%20%5Ctimes%20%5Cmathbf%7BH%7D)%20=%200%0A"> Integrating over an arbitrary volume and applying Gauss’s theorem, we obtain <span id="eq-energy-law"><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B1%7D%7B4%20%5Cpi%7D%20%5Cint%20(%5Cmathbf%7BE%7D%20%5Ccdot%20%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BD%7D%7D%7B%5Cpartial%20t%7D%20+%20%5Cmathbf%7BH%7D%20%5Ccdot%20%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BB%7D%7D%7B%5Cpartial%20t%7D)%20dV%20+%20%5Cint%20%5Cmathbf%7Bj%7D%20%5Ccdot%20%5Cmathbf%7BE%7D%20dV%20+%20%5Cfrac%7Bc%7D%7B4%20%5Cpi%7D%20%5Cint%20(%5Cmathbf%7BE%7D%20%5Ctimes%20%5Cmathbf%7BH%7D)%20%5Ccdot%20%5Cmathbf%7Bn%7D%20dS%20=%200%0A%5Ctag%7B14%7D"></span></p>
+<p>On using the material equations Equation&nbsp;5, we have <img src="https://latex.codecogs.com/png.latex?%0A%5Cleft.%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7B1%7D%7B4%20%5Cpi%7D%0A(%5Cmathbf%7BE%7D%20%5Ccdot%20%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BD%7D%7D%7B%5Cpartial%20t%7D)%0A&amp;=%20%5Cfrac%7B1%7D%7B4%20%5Cpi%7D%0A%5Cmathbf%7BE%7D%20%5Ccdot%20%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20t%7D(%5Cepsilon%20%5Cmathbf%7BE%7D)%0A=%20%5Cfrac%7B1%7D%7B8%20%5Cpi%7D%0A%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20t%7D(%5Cepsilon%20%5Cmathbf%7BE%7D%5E2)%0A=%20%5Cfrac%7B1%7D%7B8%20%5Cpi%7D%0A%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20t%7D(%5Cmathbf%7BE%7D%20%5Ccdot%20%5Cmathbf%7BD%7D)%0A%5C%5C%0A%5Cfrac%7B1%7D%7B4%20%5Cpi%7D%0A(%5Cmathbf%7BH%7D%20%5Ccdot%20%5Cfrac%7B%5Cpartial%20%5Cmathbf%7BH%7D%7D%7B%5Cpartial%20t%7D)%0A&amp;=%20%5Cfrac%7B1%7D%7B4%20%5Cpi%7D%0A%5Cmathbf%7BH%7D%20%5Ccdot%20%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20t%7D(%5Cmu%20%5Cmathbf%7BH%7D)%0A=%20%5Cfrac%7B1%7D%7B8%20%5Cpi%7D%0A%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20t%7D(%5Cmu%20%5Cmathbf%7BH%7D%5E2)%0A=%20%5Cfrac%7B1%7D%7B8%20%5Cpi%7D%0A%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20t%7D(%5Cmathbf%7BH%7D%20%5Ccdot%20%5Cmathbf%7BB%7D)%0A%5Cend%7Baligned%7D%0A%5Cright%5C%7D%0A"> Setting <span id="eq-energy-density"><img src="https://latex.codecogs.com/png.latex?%0Aw_e%20=%20%5Cfrac%7B1%7D%7B8%20%5Cpi%7D%20%5Cmathbf%7BE%7D%20%5Ccdot%20%5Cmathbf%7BD%7D,%5Cqquad%20w_m%20=%20%5Cfrac%7B1%7D%7B8%20%5Cpi%7D%20%5Cmathbf%7BH%7D%20%5Ccdot%20%5Cmathbf%7BB%7D%0A%5Ctag%7B15%7D"></span> and <span id="eq-total-energy"><img src="https://latex.codecogs.com/png.latex?%0AW=%5Cint%20(w_e%20+%20w_m)%20dV%0A%5Ctag%7B16%7D"></span> Equation&nbsp;14 becomes <span id="eq-w-energy-law"><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7Bd%20W%7D%7Bd%20t%7D%20+%20%5Cint%20%5Cmathbf%7Bj%7D%20%5Ccdot%20%5Cmathbf%7BE%7D%20dV%20+%20%5Cfrac%7Bc%7D%7B4%20%5Cpi%7D%20%5Cint%20(%5Cmathbf%7BE%7D%20%5Ctimes%20%5Cmathbf%7BH%7D)%20%5Ccdot%20%5Cmathbf%7Bn%7D%20dS%20=%200%0A%5Ctag%7B17%7D"></span> <img src="https://latex.codecogs.com/png.latex?W"> represents the total energy contained within the volume, <img src="https://latex.codecogs.com/png.latex?w_e"> may be identified with the <strong><em>electric energy density</em></strong> and <img src="https://latex.codecogs.com/png.latex?w_m"> with the <strong><em>magnetic energy density</em></strong> of the field.</p>
+<p>To justify the interpretation of <img src="https://latex.codecogs.com/png.latex?W"> as the total energy we can assume the material bodies to be so small that they can be regarded as point charges <img src="https://latex.codecogs.com/png.latex?e_k%20(k%20=%201,%202,%20%5Cdots)">. The force exerted by a field <img src="https://latex.codecogs.com/png.latex?(%5Cmathbf%7BE%7D,%20%5Cmathbf%7BB%7D)"> on a charge <img src="https://latex.codecogs.com/png.latex?e"> moving with velocity <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bv%7D"> is given by the so-called <strong><em>Lorentz law</em></strong> <img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7BF%7D%20=%20e(%5Cmathbf%7BE%7D%20+%20%5Cfrac%7B1%7D%7Bc%7D%20%5Cmathbf%7Bv%7D%20%5Ctimes%20%5Cmathbf%7BB%7D)%0A"> It follows that if all the charges <img src="https://latex.codecogs.com/png.latex?e_k"> are displaced by <img src="https://latex.codecogs.com/png.latex?%5Cdelta%20%5Cmathbf%7Bx%7D_k"> (<img src="https://latex.codecogs.com/png.latex?k%20=%201,%202,%20%5Cdots">) during a time interval <img src="https://latex.codecogs.com/png.latex?%5Cdelta%20t">, the total work done is <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cdelta%20A%0A&amp;=%20%5Csum_k%20%5Cmathbf%7BF%7D_k%20%5Ccdot%20%5Cdelta%20%5Cmathbf%7Bx%7D_k%0A=%20%5Csum_k%20e_k(%5Cmathbf%7BE%7D_k%20+%20%5Cfrac%7B1%7D%7Bc%7D%5Cmathbf%7Bv%7D_k%20%5Ctimes%20%5Cmathbf%7BB%7D)%20%5Ccdot%20%5Cmathbf%7Bv%7D_k%20%5Cdelta%20t%5C%5C%0A&amp;=%20%5Csum_k%20e_k%20%5Cmathbf%7BE%7D_k%20%5Ccdot%20%5Cmathbf%7Bv%7D_k%20%5Cdelta%20t%20+%0A%5Csum_k(%5Cfrac%7B1%7D%7Bc%7D%5Cmathbf%7Bv%7D_k%20%5Ctimes%20%5Cmathbf%7BB%7D)%20%5Ccdot%20%5Cmathbf%7Bv%7D_k%20%5Cdelta%20t%0A=%20%5Csum_k%20e_k%20%5Cmathbf%7BE%7D_k%20%5Ccdot%20%5Cmathbf%7Bv%7D_k%20%5Cdelta%20t%0A%5Cend%7Baligned%7D%0A"> <img src="https://latex.codecogs.com/png.latex?%0A(%5Cfrac%7B1%7D%7Bc%7D%5Cmathbf%7Bv%7D_k%20%5Ctimes%20%5Cmathbf%7BB%7D)%20%5Ccdot%20%5Cdelta%20%5Cmathbf%7Bx%7D_k%20=%20(%5Cfrac%7B1%7D%7Bc%7D%5Cmathbf%7Bv%7D_k%20%5Ctimes%20%5Cmathbf%7BB%7D)%20%5Ccdot%20%5Cmathbf%7Bv%7D_k%20%5Cdelta%20t%0A"> If the number of charged particles is large, we can consider the distribution to be continuous. We introduce the charge density <img src="https://latex.codecogs.com/png.latex?%5Crho">: <img src="https://latex.codecogs.com/png.latex?%0A%5Cdelta%20A%20=%20%5Cdelta%20t%20%5Cint%20%5Crho%20%5Cmathbf%7Bv%7D%20%5Ccdot%20%5Cmathbf%7BE%7D%20dV%0A"> The current density <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bj%7D"> appearing in Maxwell’s equations can be split into two parts: <img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7Bj%7D%20=%20%5Cmathbf%7Bj%7D_c%20+%20%5Cmathbf%7Bj%7D_%5Cnu%0A"> where <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cmathbf%7Bj%7D_c%20&amp;=%20%5Csigma%20%5Cmathbf%7BE%7D%0A%5C%5C%0A%5Cmathbf%7Bj%7D_%5Cnu%20&amp;=%20%5Crho%20%5Cmathbf%7Bv%7D%0A%5Cend%7Baligned%7D%0A"> Using Equation&nbsp;17, <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7Bd%20W%7D%7Bd%20t%7D%0A+%20%5Cint%20%5Cmathbf%7Bj%7D%20%5Ccdot%20%5Cmathbf%7BE%7D%20dV%0A&amp;+%20%5Cfrac%7Bc%7D%7B4%20%5Cpi%7D%20%5Cint%20(%5Cmathbf%7BE%7D%20%5Ctimes%20%5Cmathbf%7BH%7D)%20%5Ccdot%20%5Cmathbf%7Bn%7D%20dS%20=%200%0A%5C%5C%0A%5Cfrac%7Bd%20W%7D%7Bd%20t%7D%0A+%20%5Cint%20%5Cmathbf%7Bj%7D_c%20%5Ccdot%20%5Cmathbf%7BE%7D%20dV%20+%20%5Cint%20%5Cmathbf%7Bj%7D_%5Cnu%20%5Ccdot%20%5Cmathbf%7BE%7D%20dV%0A&amp;+%20%5Cfrac%7Bc%7D%7B4%20%5Cpi%7D%20%5Cint%20(%5Cmathbf%7BE%7D%20%5Ctimes%20%5Cmathbf%7BH%7D)%20%5Ccdot%20%5Cmathbf%7Bn%7D%20dS%20=%200%0A%5C%5C%0A%5Cfrac%7Bd%20W%7D%7Bd%20t%7D%0A+%20%5Cint%20%5Csigma%20%5Cmathbf%7BE%7D%5E2%20dV%20+%20%5Cint%20%5Crho%20%5Cmathbf%7Bv%7D%20%5Ccdot%20%5Cmathbf%7BE%7D%20dV%0A&amp;+%20%5Cfrac%7Bc%7D%7B4%20%5Cpi%7D%20%5Cint%20(%5Cmathbf%7BE%7D%20%5Ctimes%20%5Cmathbf%7BH%7D)%20%5Ccdot%20%5Cmathbf%7Bn%7D%20dS%20=%200%0A%5C%5C%0A%5Cfrac%7Bd%20W%7D%7Bd%20t%7D%0A+%20Q%20+%20%5Cfrac%7B%5Cdelta%20A%7D%7B%5Cdelta%20t%7D%0A&amp;+%20%5Cint%20%5Cmathbf%7BS%7D%20%5Ccdot%20%5Cmathbf%7Bn%7D%20dS%20=%200%0A%5Cend%7Baligned%7D%0A"> <span id="eq-poynting-vector"><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7Bd%20W%7D%7Bd%20t%7D%20=%0A-%20%5Cfrac%7B%5Cdelta%20A%7D%7B%5Cdelta%20t%7D%0A-%20Q%0A-%20%5Cint%20%5Cmathbf%7BS%7D%20%5Ccdot%20%5Cmathbf%7Bn%7D%20dS%0A%5Ctag%7B18%7D"></span> where the term <img src="https://latex.codecogs.com/png.latex?Q"> represents Joule heating, and the vector <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7BS%7D"> is the Poynting vector.</p>
+<p>In a nonconducting medium (<img src="https://latex.codecogs.com/png.latex?%5Csigma%20=%200">) where no mechanical work is done (<img src="https://latex.codecogs.com/png.latex?A%20=%200">), the energy equation becomes: <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%5Cpartial%20w%7D%7B%5Cpartial%20t%7D%20+%20%5Cnabla%20%5Ccdot%20%5Cmathbf%7BS%7D%20=%200%0A"></p>
+
+
+</section>
+
+ ]]></description>
+  <category>optics</category>
+  <category>notes</category>
+  <guid>https://justcallitaction.cfd/posts/optics-notes/optics-notes-1/</guid>
+  <pubDate>Tue, 21 Jul 2026 16:00:00 GMT</pubDate>
+  <media:content url="https://justcallitaction.cfd/posts/optics-notes/optics-notes-1/Electromagnetic Field.png" medium="image" type="image/png" height="96" width="144"/>
+</item>
+<item>
+  <title>Optics Notes</title>
+  <dc:creator>Qi Huang</dc:creator>
+  <link>https://justcallitaction.cfd/posts/optics-notes/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This is a collection of Optics Notes</p>
+<!-- [Optics Notes 1](optics-notes-1/) -->
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="b3B0aWNzJTJDbm90ZXM=" data-listing-date-sort="1784649600000" data-listing-file-modified-sort="1785266329253" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1505">
+<div class="thumbnail"><a href="../../posts/optics-notes/optics-notes-1/index.html" class="no-external">
+
+<img loading="lazy" src="https://justcallitaction.cfd/posts/optics-notes/optics-notes-1/Electromagnetic Field.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../posts/optics-notes/optics-notes-1/index.html" class="no-external">Optics Notes#1: Electromagnetic Field</a>
+</h3>
+<div class="delink listing-description"><a href="../../posts/optics-notes/optics-notes-1/index.html" class="no-external">
+<!-- desc(5A0113B34292)[max=175]:posts/optics-notes/optics-notes-1/index.html -->
+</a></div>
+</div>
+<div class="metadata">
+<a href="../../posts/optics-notes/optics-notes-1/index.html" class="no-external">
+<div class="listing-date">
+Jul 22, 2026
+</div>
+<div class="listing-author">
+Qi Huang
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div> ]]></description>
+  <category>optics</category>
+  <category>notes</category>
+  <guid>https://justcallitaction.cfd/posts/optics-notes/</guid>
+  <pubDate>Tue, 21 Jul 2026 16:00:00 GMT</pubDate>
+  <media:content url="https://justcallitaction.cfd/posts/optics-notes/Dispersive prism.png" medium="image" type="image/png" height="96" width="144"/>
+</item>
 <item>
   <title>Post With Code</title>
   <dc:creator>Harlow Malloc</dc:creator>
-  <link>https://kermanqi.github.io/posts/post-with-code/</link>
+  <link>https://justcallitaction.cfd/posts/post-with-code/</link>
   <description><![CDATA[ 
 
 
@@ -29,14 +154,14 @@
   <category>news</category>
   <category>code</category>
   <category>analysis</category>
-  <guid>https://kermanqi.github.io/posts/post-with-code/</guid>
+  <guid>https://justcallitaction.cfd/posts/post-with-code/</guid>
   <pubDate>Mon, 20 Jul 2026 16:00:00 GMT</pubDate>
-  <media:content url="https://kermanqi.github.io/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://justcallitaction.cfd/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Welcome To My Blog</title>
   <dc:creator>Tristan O&#39;Malley</dc:creator>
-  <link>https://kermanqi.github.io/posts/welcome/</link>
+  <link>https://justcallitaction.cfd/posts/welcome/</link>
   <description><![CDATA[ 
 
 
@@ -44,14 +169,14 @@
 
 
 <p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="https://kermanqi.github.io/posts/welcome/thumbnail.jpg" class="img-fluid"></p>
+<p><img src="https://justcallitaction.cfd/posts/welcome/thumbnail.jpg" class="img-fluid"></p>
 <p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
 
 
 
  ]]></description>
   <category>news</category>
-  <guid>https://kermanqi.github.io/posts/welcome/</guid>
+  <guid>https://justcallitaction.cfd/posts/welcome/</guid>
   <pubDate>Fri, 17 Jul 2026 16:00:00 GMT</pubDate>
 </item>
 </channel>

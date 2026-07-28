@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://kermanqi.github.io/about.html</loc>
-    <lastmod>2026-07-21T13:25:59.075Z</lastmod>
+    <loc>https://justcallitaction.cfd/about.html</loc>
+    <lastmod>2026-07-28T19:18:49.233Z</lastmod>
   </url>
   <url>
-    <loc>https://kermanqi.github.io/posts/welcome/index.html</loc>
+    <loc>https://justcallitaction.cfd/posts/optics-notes/index.html</loc>
+    <lastmod>2026-07-28T19:18:49.243Z</lastmod>
+  </url>
+  <url>
+    <loc>https://justcallitaction.cfd/posts/welcome/index.html</loc>
     <lastmod>2026-07-21T13:25:59.077Z</lastmod>
   </url>
   <url>
-    <loc>https://kermanqi.github.io/posts/post-with-code/index.html</loc>
+    <loc>https://justcallitaction.cfd/posts/post-with-code/index.html</loc>
     <lastmod>2026-07-21T13:25:59.076Z</lastmod>
   </url>
   <url>
-    <loc>https://kermanqi.github.io/index.html</loc>
-    <lastmod>2026-07-21T13:25:59.075Z</lastmod>
+    <loc>https://justcallitaction.cfd/posts/optics-notes/optics-notes-1/index.html</loc>
+    <lastmod>2026-07-28T19:18:49.253Z</lastmod>
+  </url>
+  <url>
+    <loc>https://justcallitaction.cfd/index.html</loc>
+    <lastmod>2026-07-28T19:18:49.233Z</lastmod>
   </url>
 </urlset>
