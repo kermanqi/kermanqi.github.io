@@ -5,6 +5,7 @@ website:
   description: "A blog built with Quarto"
   site-url: https://justcallitaction.cfd # you must change this appropriately for RSS feeds to work properly
   title: "Just Call It Action"
+  favicon: favicon.svg
   navbar:
     left:
       - href: index.qmd
