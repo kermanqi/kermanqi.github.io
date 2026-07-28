@@ -22,6 +22,10 @@ format:
     theme:
       - cosmo
       - brand
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    smooth-scroll: true
     css: styles.css
 
 
