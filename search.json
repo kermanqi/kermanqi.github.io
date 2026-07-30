@@ -7,25 +7,25 @@
     "text": "About this blog"
   },
   {
-    "objectID": "posts/optics-notes/index.html",
-    "href": "posts/optics-notes/index.html",
-    "title": "Optics Notes",
+    "objectID": "posts/optics-notes/optics-notes-2/index.html",
+    "href": "posts/optics-notes/optics-notes-2/index.html",
+    "title": "Optics Notes#2: The wave equation and the velocity of light",
     "section": "",
-    "text": "This is a collection of Optics Notes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptics Notes#1: Electromagnetic Field\n\n\n\n\n\n\n\n\nJul 22, 2026\n\n\nQi Huang\n\n\n\n\n\nNo matching items"
+    "text": "This note explains how to derive Maxwell’s wave equations."
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+    "objectID": "posts/optics-notes/optics-notes-2/index.html#maxwell-equations-in-a-source-free-medium",
+    "href": "posts/optics-notes/optics-notes-2/index.html#maxwell-equations-in-a-source-free-medium",
+    "title": "Optics Notes#2: The wave equation and the velocity of light",
+    "section": "Maxwell equations in a source-free medium",
+    "text": "Maxwell equations in a source-free medium\nWe consider a region containing no free current or free charge. Thus \\(\\mathbf{j}=0\\) and \\(\\rho=0\\). This does not mean that the electromagnetic field vanishes; it only means that the field is propagating through the region without local sources. In this case Maxwell’s equations are \\[\n\\begin{aligned}\n\\nabla \\times \\mathbf{H}\n    - \\frac{1}{c}\\frac{\\partial \\mathbf{D}}{\\partial t}\n    &= \\frac{4\\pi}{c}\\mathbf{j},\\\\\n\\nabla \\times \\mathbf{E}\n    + \\frac{1}{c}\\frac{\\partial \\mathbf{B}}{\\partial t}\n    &= \\mathbf{0},\n\\end{aligned}\n\\tag{3}\\] \\[\n\\begin{aligned}\n\\nabla \\cdot \\mathbf{D} &= 4\\pi\\rho,\\\\\n\\nabla \\cdot \\mathbf{B} &= 0.\n\\end{aligned}\n\\tag{4}\\] \\[\n\\begin{aligned}\n\\mathbf{j} &= \\sigma \\mathbf{E},\n\\\\\n\\mathbf{D} &= \\epsilon \\mathbf{E},\n\\\\\n\\mathbf{B} &= \\mu \\mathbf{H}.\n\\end{aligned}\n\\tag{5}\\] The first curl equation in Equation 3, after setting \\(\\mathbf{j}=\\mathbf{0}\\), differentiating with respect to time, and using \\(\\mathbf{D}=\\epsilon\\mathbf{E}\\) from Equation 5, gives \\[\n\\begin{aligned}\n\\nabla \\times \\frac{\\partial \\mathbf{H}}{\\partial t}\n    - \\frac{1}{c}\\frac{\\partial^2 \\mathbf{D}}{\\partial t^2}\n    &= 0,\\\\\n\\nabla \\times \\frac{\\partial \\mathbf{H}}{\\partial t}\n    - \\frac{\\epsilon}{c}\\frac{\\partial^2 \\mathbf{E}}{\\partial t^2}\n    &= 0,\\\\\n\\end{aligned}\n\\tag{6}\\] This relation connects the time variation of the magnetic vector to the second time derivative of the electric vector. The other curl equation in Equation 3 connects the two fields in the opposite direction: \\[\n\\begin{aligned}\n\\nabla \\times \\mathbf{E}\n    + \\frac{1}{c}\\frac{\\partial \\mathbf{B}}{\\partial t}\n    = 0\n\\implies\n\\nabla \\times (\\frac{1}{\\mu} \\nabla \\times \\mathbf{E})\n    + \\frac{1}{c} \\nabla \\times \\frac{\\partial \\mathbf{H}}{\\partial t}\n    &= 0\n\\\\\n\\implies\n\\nabla \\times (\\frac{1}{\\mu} \\nabla \\times \\mathbf{E})\n    + \\frac{\\epsilon}{c^2} \\frac{\\partial^2 \\mathbf{E}}{\\partial t^2} = 0\n\\end{aligned}\n\\tag{7}\\] Using \\(\\mathbf{B}=\\mu\\mathbf{H}\\) from Equation 5, divide Faraday’s law in Equation 3 by \\(\\mu\\) and take its curl. The result contains the same term \\(\\nabla\\times\\partial_t\\mathbf{H}\\) as Equation 6. Substituting Equation 6 eliminates \\(\\mathbf{H}\\) and produces Equation 7, an equation involving only \\(\\mathbf{E}\\):\nThe coefficient \\(1/\\mu\\) is inside the curl because the permeability may depend on position. Applying the product rule in Equation 2 and the double-curl identity in Equation 1 gives\n\\[\n\\begin{aligned}\n\\nabla \\times (\\frac{1}{\\mu} \\nabla \\times \\mathbf{E})\n    + \\frac{\\epsilon}{c^2} \\frac{\\partial^2 \\mathbf{E}}{\\partial t^2} = 0\n\\\\\n(\\nabla \\frac{1}{\\mu}) \\times (\\nabla \\times \\mathbf{E})\n    + \\frac{1}{\\mu} \\nabla \\times (\\nabla \\times \\mathbf{E})\n    + \\frac{\\epsilon}{c^2} \\frac{\\partial^2 \\mathbf{E}}{\\partial t^2}\n    &= 0\n\\\\\n- \\mu \\frac{1}{\\mu^2}(\\nabla \\mu) \\times (\\nabla \\times \\mathbf{E})\n    + \\nabla (\\nabla \\cdot \\mathbf{E}) - \\nabla^2 \\mathbf{E}\n    + \\frac{\\epsilon \\mu}{c^2} \\frac{\\partial^2 \\mathbf{E}}{\\partial t^2}\n    &= 0\n\\\\\n\\nabla^2 \\mathbf{E}\n- \\frac{\\epsilon \\mu}{c^2} \\frac{\\partial^2 \\mathbf{E}}{\\partial t^2} + (\\nabla \\ln{\\mu}) \\times (\\nabla \\times \\mathbf{E}) - \\nabla (\\nabla \\cdot \\mathbf{E})\n    &= 0\n\\end{aligned}\n\\tag{8}\\] The last line of Equation 8 is the wave equation for \\(\\mathbf{E}\\) before using the divergence condition. Its terms have a simple origin: the Laplacian describes the spatial structure of the field, the second time derivative describes its temporal evolution, and the terms containing \\(\\nabla\\mu\\) and \\(\\nabla\\cdot\\mathbf{E}\\) account for the material and vector-field constraints.\nTo remove \\(\\nabla\\cdot\\mathbf{E}\\), use the electric part of Gauss’s law in Equation 4. Since \\(\\rho=0\\) and \\(\\mathbf{D}=\\epsilon\\mathbf{E}\\) from Equation 5, \\[\n\\begin{aligned}\n\\nabla \\cdot (u \\mathbf{v}) &= \\partial_i (u v_i) \\\\\n&= (\\partial_i u) v_i + u (\\partial_i v_i) \\\\\n&= \\mathbf{v} \\cdot (\\nabla u) + u \\nabla \\cdot \\mathbf{v}\n\\end{aligned}\n\\tag{9}\\] Therefore, applying Equation 9 to \\(\\mathbf{D}=\\epsilon\\mathbf{E}\\) from Equation 5, \\[\n\\begin{aligned}\n\\nabla \\cdot (\\epsilon \\mathbf{E}) &= \\partial_i (\\epsilon E_i) \\\\\n&= (\\partial_i \\epsilon) E_i + \\epsilon (\\partial_i E_i) \\\\\n&= \\mathbf{E} \\cdot (\\nabla \\epsilon) + \\epsilon \\nabla \\cdot \\mathbf{E}\n\\end{aligned}\n\\tag{10}\\] where \\(\\rho=0\\) has been used from Equation 4. Hence Equation 4 and Equation 10 give \\[\n\\mathbf{E} \\cdot (\\nabla \\epsilon) + \\epsilon \\nabla \\cdot \\mathbf{E} = 0\n\\tag{11}\\] \\[\n\\begin{aligned}\n\\mathbf{E} \\cdot (\\nabla \\epsilon) &+ \\epsilon \\nabla \\cdot \\mathbf{E} = 0 \\\\\n\\nabla \\cdot \\mathbf{E} &= - \\frac{1}{\\epsilon} \\mathbf{E} \\cdot (\\nabla \\epsilon)\\\\\n\\nabla \\cdot \\mathbf{E} &= - \\mathbf{E} \\cdot \\nabla \\ln{\\epsilon}\n\\end{aligned}\n\\tag{12}\\]\nSubstituting Equation 12 into Equation 8 gives the electric-field wave equation in an inhomogeneous isotropic medium: \\[\n\\nabla^2 \\mathbf{E}\n- \\frac{\\epsilon \\mu}{c^2} \\frac{\\partial^2 \\mathbf{E}}{\\partial t^2} + (\\nabla \\ln{\\mu}) \\times (\\nabla \\times \\mathbf{E}) + \\nabla (\\mathbf{E} \\cdot \\nabla \\ln{\\epsilon})\n    = 0\n\\tag{13}\\] The two additional terms describe the effect of spatially varying material properties. The term containing \\(\\nabla\\ln\\mu\\) comes from the magnetic response of the medium, while the term containing \\(\\nabla\\ln\\epsilon\\) comes from the electric response. They vanish when the corresponding material parameter is constant.\nBy interchanging the roles of the electric and magnetic fields, and simultaneously interchanging \\(\\epsilon\\) and \\(\\mu\\), we obtain the corresponding equation for \\(\\mathbf{H}\\): \\[\n\\nabla^2 \\mathbf{H}\n- \\frac{\\epsilon \\mu}{c^2} \\frac{\\partial^2 \\mathbf{H}}{\\partial t^2} + (\\nabla \\ln{\\epsilon}) \\times (\\nabla \\times \\mathbf{H}) + \\nabla (\\mathbf{H} \\cdot \\nabla \\ln{\\mu})\n    = 0\n\\tag{14}\\] The electric and magnetic wave equations Equation 13 and Equation 14 are therefore not independent assumptions. They are two forms of the same Maxwell structure, related by the substitutions \\(\\mathbf{E}\\leftrightarrow\\mathbf{H}\\) and \\(\\epsilon\\leftrightarrow\\mu\\)."
   },
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
+    "objectID": "posts/optics-notes/optics-notes-2/index.html#homogeneous-medium",
+    "href": "posts/optics-notes/optics-notes-2/index.html#homogeneous-medium",
+    "title": "Optics Notes#2: The wave equation and the velocity of light",
+    "section": "Homogeneous medium",
+    "text": "Homogeneous medium\nIf the medium is homogeneous, \\(\\epsilon\\) and \\(\\mu\\) are constants, so \\(\\nabla \\ln{\\epsilon} = \\nabla \\ln{\\mu} = 0\\). The equations reduce to\n\\[\n\\nabla^2 \\mathbf{E} - \\frac{\\epsilon \\mu}{c^2} \\frac{\\partial^2 \\mathbf{E}}{\\partial t^2} = 0\n\\qquad\n\\nabla^2 \\mathbf{H} - \\frac{\\epsilon \\mu}{c^2} \\frac{\\partial^2 \\mathbf{H}}{\\partial t^2} = 0\n\\tag{15}\\] Both fields are governed by the same wave operator in Equation 15. Maxwell’s curl equations in Equation 3 still determine how their directions and amplitudes are related; the two equations should not be interpreted as two unrelated waves."
   },
   {
     "objectID": "posts/optics-notes/optics-notes-1/index.html",
@@ -56,10 +56,31 @@
     "text": "Electric Vector and Magnetic Vector\n\n\n\n\n\n\nFigure 1: Derivation of boundary conditions for the tangential components of \\(\\mathbf{E}\\) and \\(\\mathbf{H}\\).\n\n\n\n\\(\\mathbf{b}\\) is the unit vector perpendicular to the plane of the rectangle. It follows from Equation 1 and from Stokes’ theorem that \\[\n\\int (\\nabla \\times \\mathbf{E}) \\cdot \\mathbf{b} dS = \\int \\mathbf{E} \\cdot d \\mathbf{r} = - \\frac{1}{c} \\int \\frac{\\partial \\mathbf{B}}{\\partial t} \\cdot \\mathbf{b} dS\n\\] If the lengths \\(P_1 Q_1 = \\delta s_1\\) and \\(P_2 Q_2 = \\delta s_2\\) are small: \\[\n\\mathbf{E}^{(1)} \\cdot \\mathbf{t}_1 \\delta s_1 + \\mathbf{E}^{(2)} \\cdot \\mathbf{t}_2 \\delta s_2 + \\text{contribution from ends} = -\\frac{1}{c} \\frac{\\partial \\mathbf{B}}{\\partial t} \\cdot \\mathbf{b} \\delta s \\delta h\n\\] where \\(\\delta s\\) is the line element along which the rectangle intersects the surface. \\[\n(\\mathbf{E}^{(1)} \\cdot \\mathbf{t}_1 + \\mathbf{E}^{(2)} \\cdot \\mathbf{t}_2) \\delta s = 0\n\\] \\[\n\\mathbf{b} \\cdot [\\mathbf{n}_{12} \\times (\\mathbf{E}^{(2)} - \\mathbf{E}^{(1)})] = 0\n\\] \\[\n\\mathbf{n}_{12} \\times (\\mathbf{E}^{(2)} - \\mathbf{E}^{(1)}) = 0\n\\tag{12}\\] The tangential component of the electric vector is continuous across the boundary.\nConsider the behaviour of the tangential component of the magnetic vector. The analysis is similar, but there is an additional term if currents are present. \\[\n\\mathbf{H}^{(1)} \\cdot \\mathbf{t}_1 \\delta s_1 + \\mathbf{H}^{(2)} \\cdot \\mathbf{t}_2 \\delta s_2 + \\text{contribution from ends} = \\frac{1}{c} \\frac{\\partial \\mathbf{D}}{\\partial t} \\cdot \\mathbf{b} \\delta s \\delta h + \\frac{4 \\pi}{c} \\hat{\\mathbf{j}} \\cdot \\mathbf{b} \\delta s\n\\] When \\(\\delta h \\to 0\\), the derivation is identical to that of Equation 12. \\[\n\\mathbf{n}_{12} \\times (\\mathbf{H}^{(2)} - \\mathbf{H}^{(1)}) = \\frac{4 \\pi}{c} \\hat{\\mathbf{j}}\n\\tag{13}\\] The tangential component of the magnetic vector is discontinuous across the boundary."
   },
   {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/optics-notes/index.html",
+    "href": "posts/optics-notes/index.html",
+    "title": "Optics Notes",
+    "section": "",
+    "text": "This is a collection of Optics Notes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptics Notes#2: The wave equation and the velocity of light\n\n\n\n\n\n\n\n\nJul 29, 2026\n\n\nQi Huang\n\n\n\n\n\n\n\n\n\n\n\n\nOptics Notes#1: Electromagnetic Field\n\n\n\n\n\n\n\n\nJul 22, 2026\n\n\nQi Huang\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Just Call It Action",
     "section": "",
-    "text": "Optics Notes#1: Electromagnetic Field\n\n\n\noptics\n\nnotes\n\n\n\n\n\n\n\n\n\nJul 22, 2026\n\n\nQi Huang\n\n\n\n\n\n\n\n\n\n\n\n\nOptics Notes\n\n\n\noptics\n\nnotes\n\n\n\n\n\n\n\n\n\nJul 22, 2026\n\n\nQi Huang\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 21, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJul 18, 2026\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
+    "text": "Optics Notes#2: The wave equation and the velocity of light\n\n\n\noptics\n\nnotes\n\nphysics\n\n\n\n\n\n\n\n\n\nJul 29, 2026\n\n\nQi Huang\n\n\n\n\n\n\n\n\n\n\n\n\nOptics Notes#1: Electromagnetic Field\n\n\n\noptics\n\nnotes\n\nphysics\n\n\n\n\n\n\n\n\n\nJul 22, 2026\n\n\nQi Huang\n\n\n\n\n\n\n\n\n\n\n\n\nOptics Notes\n\n\n\noptics\n\nnotes\n\n\n\n\n\n\n\n\n\nJul 22, 2026\n\n\nQi Huang\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 21, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJul 18, 2026\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
   }
 ]

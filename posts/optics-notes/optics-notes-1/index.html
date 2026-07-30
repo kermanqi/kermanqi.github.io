@@ -164,6 +164,7 @@ window.Quarto = {
                                 <div class="quarto-categories">
                 <div class="quarto-category">optics</div>
                 <div class="quarto-category">notes</div>
+                <div class="quarto-category">physics</div>
               </div>
                   </div>
   </div>
@@ -354,13 +355,14 @@ Figure&nbsp;1: Derivation of boundary conditions for the <strong>tangential</str
 <p>From <a href="#eq-maxwell-curl" class="quarto-xref">Equation&nbsp;1</a> it follows that <span class="math display">\[
 \mathbf{E} \cdot (\nabla \times \mathbf{H}) - \mathbf{H} \cdot (\nabla \times \mathbf{E}) = \frac{4 \pi}{c} \mathbf{j} \cdot \mathbf{E} + \frac{1}{c} \mathbf{E} \cdot \frac{\partial \mathbf{D}}{\partial t} + \frac{1}{c} \mathbf{H} \cdot \frac{\partial \mathbf{B}}{\partial t}
 \]</span> From <span class="math display">\[
-\begin{align}
+\begin{aligned}
+\\
 \nabla \cdot (\mathbf A \times \mathbf B) &amp;= \epsilon_{ijk} \partial_k (A_i B_j) \\
 &amp;= \epsilon_{ijk} [(\partial_k A_i) B_j + A_i (\partial_k B_j)] \\
 &amp;= B_j (\epsilon_{ijk} \partial_k A_i) + A_i (\epsilon_{ijk} \partial_k B_j) \\
 &amp;= B_j (\epsilon_{kij} \partial_k A_i) + A_i (-\epsilon_{kji} \partial_k B_j) \\
 &amp;= \mathbf{B} \cdot (\nabla \times \mathbf{A}) - \mathbf{A} \cdot (\nabla \times \mathbf{B})
-\end{align}
+\end{aligned}
 \]</span> We have that <span class="math display">\[
 \mathbf{E} \cdot (\nabla \times \mathbf{H}) - \mathbf{H} \cdot (\nabla \times \mathbf{E}) = - \nabla \cdot (\mathbf{E} \times \mathbf{H})
 \]</span> <span class="math display">\[

@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Qi Huang">
-<meta name="dcterms.date" content="2026-07-22">
+<meta name="dcterms.date" content="2026-07-29">
 
-<title>Optics Notes – Just Call It Action</title>
+<title>Optics Notes#2: The wave equation and the velocity of light – Just Call It Action</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -28,26 +28,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../favicon.svg" rel="icon" type="image/svg+xml">
-<script src="../../site_libs/quarto-listing/list.min.js"></script>
-<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,35 +73,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -136,7 +105,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -146,7 +115,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Just Call It Action</span>
     </a>
   </div>
@@ -157,17 +126,17 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../posts/optics-notes/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../../posts/optics-notes/index.html"> 
 <span class="menu-text">Optics Notes</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -191,10 +160,11 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Optics Notes</h1>
+      <h1 class="title">Optics Notes#2: The wave equation and the velocity of light</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">optics</div>
                 <div class="quarto-category">notes</div>
+                <div class="quarto-category">physics</div>
               </div>
                   </div>
   </div>
@@ -212,7 +182,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 22, 2026</p>
+        <p class="date">July 29, 2026</p>
       </div>
     </div>
     
@@ -223,8 +193,19 @@ window.Quarto = {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-wave-equation" id="toc-the-wave-equation" class="nav-link active" data-scroll-target="#the-wave-equation">The wave equation</a>
+  <ul class="collapse">
+  <li><a href="#maxwell-equations-in-a-source-free-medium" id="toc-maxwell-equations-in-a-source-free-medium" class="nav-link" data-scroll-target="#maxwell-equations-in-a-source-free-medium">Maxwell equations in a source-free medium</a></li>
+  <li><a href="#homogeneous-medium" id="toc-homogeneous-medium" class="nav-link" data-scroll-target="#homogeneous-medium">Homogeneous medium</a></li>
+  </ul></li>
+  <li><a href="#the-velocity-of-light" id="toc-the-velocity-of-light" class="nav-link" data-scroll-target="#the-velocity-of-light">The velocity of light</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -233,67 +214,169 @@ window.Quarto = {
 
 
 
-<p>This is a collection of Optics Notes</p>
-<!-- [Optics Notes 1](optics-notes-1/) -->
+<p>This note explains how to derive Maxwell’s wave equations.</p>
+<section id="the-wave-equation" class="level1">
+<h1>The wave equation</h1>
+<p>The Maxwell equations describe the electric and magnetic fields as a coupled system. The purpose of this note is to combine them into a single equation for one field. Once this is done, the propagation of light appears directly as a wave phenomenon.</p>
+<p>We first record two vector identities that will be used below. For a vector field, the double curl can be written in terms of its divergence and Laplacian: <span class="math display">\[
+\begin{aligned}
+\\
+[\nabla \times (\nabla \times \mathbf{u})]_i &amp;= \epsilon_{ijk} \partial_j (\epsilon_{klm} \partial_l u_m)
+\\
+&amp;= \epsilon_{kij} \epsilon_{klm} \partial_j \partial_l u_m
+\\
+&amp;= (\delta_{il} \delta_{jm} - \delta_{im} \delta_{jl}) \partial_j \partial_l u_m
+\\
+&amp;= \delta_{il} \delta_{jm} \partial_j \partial_l u_m - \delta_{im} \delta_{jl} \partial_j \partial_l u_m
+\\
+&amp;= \delta_{il} \partial_l \partial_j u_j - \delta_{im} \partial_j \partial_j u_m
+\\
+&amp;= [\nabla (\nabla \cdot \mathbf{u})]_i - [\nabla^2 \mathbf{u}]_i
+\end{aligned}
+\]</span> <span id="eq-double-curl"><span class="math display">\[
+\nabla \times (\nabla \times \mathbf{u}) = \nabla (\nabla \cdot \mathbf{u}) - \nabla^2 \mathbf{u}
+\tag{1}\]</span></span></p>
+<p>The second identity is the product rule for the curl. Here <span class="math inline">\(u\)</span> is a scalar field and <span class="math inline">\(\mathbf{v}\)</span> is a vector field: <span class="math display">\[
+\begin{aligned}
+\\
+[\nabla \times (u \mathbf{v})]_i &amp;= \epsilon_{ijk} \partial_j u v_k
+\\
+&amp;= \epsilon_{ijk} (\partial_j u) v_k + \epsilon_{ijk} u (\partial_j v_k)
+\\
+&amp;= [(\nabla u) \times \mathbf{v}]_i + [u \nabla \times \mathbf{v}]_i
+\end{aligned}
+\]</span> <span id="eq-curl-product"><span class="math display">\[
+\nabla \times (u \mathbf{v}) = (\nabla u) \times \mathbf{v} + u \nabla \times \mathbf{v}
+\tag{2}\]</span></span></p>
+<p>The first identity handles the geometry of the vector field. The second becomes important when the material parameters vary from point to point, because <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\mu\)</span> can no longer be moved through a spatial derivative.</p>
+<section id="maxwell-equations-in-a-source-free-medium" class="level2">
+<h2 class="anchored" data-anchor-id="maxwell-equations-in-a-source-free-medium">Maxwell equations in a source-free medium</h2>
+<p>We consider a region containing no free current or free charge. Thus <span class="math inline">\(\mathbf{j}=0\)</span> and <span class="math inline">\(\rho=0\)</span>. This does not mean that the electromagnetic field vanishes; it only means that the field is propagating through the region without local sources. In this case Maxwell’s equations are <span id="eq-maxwell-curl"><span class="math display">\[
+\begin{aligned}
+\nabla \times \mathbf{H}
+    - \frac{1}{c}\frac{\partial \mathbf{D}}{\partial t}
+    &amp;= \frac{4\pi}{c}\mathbf{j},\\
+\nabla \times \mathbf{E}
+    + \frac{1}{c}\frac{\partial \mathbf{B}}{\partial t}
+    &amp;= \mathbf{0},
+\end{aligned}
+\tag{3}\]</span></span> <span id="eq-maxwell-div"><span class="math display">\[
+\begin{aligned}
+\nabla \cdot \mathbf{D} &amp;= 4\pi\rho,\\
+\nabla \cdot \mathbf{B} &amp;= 0.
+\end{aligned}
+\tag{4}\]</span></span> <span id="eq-material"><span class="math display">\[
+\begin{aligned}
+\mathbf{j} &amp;= \sigma \mathbf{E},
+\\
+\mathbf{D} &amp;= \epsilon \mathbf{E},
+\\
+\mathbf{B} &amp;= \mu \mathbf{H}.
+\end{aligned}
+\tag{5}\]</span></span> The first curl equation in <a href="#eq-maxwell-curl" class="quarto-xref">Equation&nbsp;3</a>, after setting <span class="math inline">\(\mathbf{j}=\mathbf{0}\)</span>, differentiating with respect to time, and using <span class="math inline">\(\mathbf{D}=\epsilon\mathbf{E}\)</span> from <a href="#eq-material" class="quarto-xref">Equation&nbsp;5</a>, gives <span id="eq-time-ampere"><span class="math display">\[
+\begin{aligned}
+\nabla \times \frac{\partial \mathbf{H}}{\partial t}
+    - \frac{1}{c}\frac{\partial^2 \mathbf{D}}{\partial t^2}
+    &amp;= 0,\\
+\nabla \times \frac{\partial \mathbf{H}}{\partial t}
+    - \frac{\epsilon}{c}\frac{\partial^2 \mathbf{E}}{\partial t^2}
+    &amp;= 0,\\
+\end{aligned}
+\tag{6}\]</span></span> This relation connects the time variation of the magnetic vector to the second time derivative of the electric vector. The other curl equation in <a href="#eq-maxwell-curl" class="quarto-xref">Equation&nbsp;3</a> connects the two fields in the opposite direction: <span id="eq-electric-curl"><span class="math display">\[
+\begin{aligned}
+\nabla \times \mathbf{E}
+    + \frac{1}{c}\frac{\partial \mathbf{B}}{\partial t}
+    = 0
+\implies
+\nabla \times (\frac{1}{\mu} \nabla \times \mathbf{E})
+    + \frac{1}{c} \nabla \times \frac{\partial \mathbf{H}}{\partial t}
+    &amp;= 0
+\\
+\implies
+\nabla \times (\frac{1}{\mu} \nabla \times \mathbf{E})
+    + \frac{\epsilon}{c^2} \frac{\partial^2 \mathbf{E}}{\partial t^2} = 0
+\end{aligned}
+\tag{7}\]</span></span> Using <span class="math inline">\(\mathbf{B}=\mu\mathbf{H}\)</span> from <a href="#eq-material" class="quarto-xref">Equation&nbsp;5</a>, divide Faraday’s law in <a href="#eq-maxwell-curl" class="quarto-xref">Equation&nbsp;3</a> by <span class="math inline">\(\mu\)</span> and take its curl. The result contains the same term <span class="math inline">\(\nabla\times\partial_t\mathbf{H}\)</span> as <a href="#eq-time-ampere" class="quarto-xref">Equation&nbsp;6</a>. Substituting <a href="#eq-time-ampere" class="quarto-xref">Equation&nbsp;6</a> eliminates <span class="math inline">\(\mathbf{H}\)</span> and produces <a href="#eq-electric-curl" class="quarto-xref">Equation&nbsp;7</a>, an equation involving only <span class="math inline">\(\mathbf{E}\)</span>:</p>
+<p>The coefficient <span class="math inline">\(1/\mu\)</span> is inside the curl because the permeability may depend on position. Applying the product rule in <a href="#eq-curl-product" class="quarto-xref">Equation&nbsp;2</a> and the double-curl identity in <a href="#eq-double-curl" class="quarto-xref">Equation&nbsp;1</a> gives</p>
+<p><span id="eq-electric-wave-pre-div"><span class="math display">\[
+\begin{aligned}
+\nabla \times (\frac{1}{\mu} \nabla \times \mathbf{E})
+    + \frac{\epsilon}{c^2} \frac{\partial^2 \mathbf{E}}{\partial t^2} = 0
+\\
+(\nabla \frac{1}{\mu}) \times (\nabla \times \mathbf{E})
+    + \frac{1}{\mu} \nabla \times (\nabla \times \mathbf{E})
+    + \frac{\epsilon}{c^2} \frac{\partial^2 \mathbf{E}}{\partial t^2}
+    &amp;= 0
+\\
+- \mu \frac{1}{\mu^2}(\nabla \mu) \times (\nabla \times \mathbf{E})
+    + \nabla (\nabla \cdot \mathbf{E}) - \nabla^2 \mathbf{E}
+    + \frac{\epsilon \mu}{c^2} \frac{\partial^2 \mathbf{E}}{\partial t^2}
+    &amp;= 0
+\\
+\nabla^2 \mathbf{E}
+- \frac{\epsilon \mu}{c^2} \frac{\partial^2 \mathbf{E}}{\partial t^2} + (\nabla \ln{\mu}) \times (\nabla \times \mathbf{E}) - \nabla (\nabla \cdot \mathbf{E})
+    &amp;= 0
+\end{aligned}
+\tag{8}\]</span></span> The last line of <a href="#eq-electric-wave-pre-div" class="quarto-xref">Equation&nbsp;8</a> is the wave equation for <span class="math inline">\(\mathbf{E}\)</span> before using the divergence condition. Its terms have a simple origin: the Laplacian describes the spatial structure of the field, the second time derivative describes its temporal evolution, and the terms containing <span class="math inline">\(\nabla\mu\)</span> and <span class="math inline">\(\nabla\cdot\mathbf{E}\)</span> account for the material and vector-field constraints.</p>
+<p>To remove <span class="math inline">\(\nabla\cdot\mathbf{E}\)</span>, use the electric part of Gauss’s law in <a href="#eq-maxwell-div" class="quarto-xref">Equation&nbsp;4</a>. Since <span class="math inline">\(\rho=0\)</span> and <span class="math inline">\(\mathbf{D}=\epsilon\mathbf{E}\)</span> from <a href="#eq-material" class="quarto-xref">Equation&nbsp;5</a>, <span id="eq-div-product"><span class="math display">\[
+\begin{aligned}
+\nabla \cdot (u \mathbf{v}) &amp;= \partial_i (u v_i) \\
+&amp;= (\partial_i u) v_i + u (\partial_i v_i) \\
+&amp;= \mathbf{v} \cdot (\nabla u) + u \nabla \cdot \mathbf{v}
+\end{aligned}
+\tag{9}\]</span></span> Therefore, applying <a href="#eq-div-product" class="quarto-xref">Equation&nbsp;9</a> to <span class="math inline">\(\mathbf{D}=\epsilon\mathbf{E}\)</span> from <a href="#eq-material" class="quarto-xref">Equation&nbsp;5</a>, <span id="eq-div-electric-displacement"><span class="math display">\[
+\begin{aligned}
+\nabla \cdot (\epsilon \mathbf{E}) &amp;= \partial_i (\epsilon E_i) \\
+&amp;= (\partial_i \epsilon) E_i + \epsilon (\partial_i E_i) \\
+&amp;= \mathbf{E} \cdot (\nabla \epsilon) + \epsilon \nabla \cdot \mathbf{E}
+\end{aligned}
+\tag{10}\]</span></span> where <span class="math inline">\(\rho=0\)</span> has been used from <a href="#eq-maxwell-div" class="quarto-xref">Equation&nbsp;4</a>. Hence <a href="#eq-maxwell-div" class="quarto-xref">Equation&nbsp;4</a> and <a href="#eq-div-electric-displacement" class="quarto-xref">Equation&nbsp;10</a> give <span id="eq-electric-divergence-zero"><span class="math display">\[
+\mathbf{E} \cdot (\nabla \epsilon) + \epsilon \nabla \cdot \mathbf{E} = 0
+\tag{11}\]</span></span> <span id="eq-electric-divergence"><span class="math display">\[
+\begin{aligned}
+\mathbf{E} \cdot (\nabla \epsilon) &amp;+ \epsilon \nabla \cdot \mathbf{E} = 0 \\
+\nabla \cdot \mathbf{E} &amp;= - \frac{1}{\epsilon} \mathbf{E} \cdot (\nabla \epsilon)\\
+\nabla \cdot \mathbf{E} &amp;= - \mathbf{E} \cdot \nabla \ln{\epsilon}
+\end{aligned}
+\tag{12}\]</span></span></p>
+<p>Substituting <a href="#eq-electric-divergence" class="quarto-xref">Equation&nbsp;12</a> into <a href="#eq-electric-wave-pre-div" class="quarto-xref">Equation&nbsp;8</a> gives the electric-field wave equation in an inhomogeneous isotropic medium: <span id="eq-electric-wave"><span class="math display">\[
+\nabla^2 \mathbf{E}
+- \frac{\epsilon \mu}{c^2} \frac{\partial^2 \mathbf{E}}{\partial t^2} + (\nabla \ln{\mu}) \times (\nabla \times \mathbf{E}) + \nabla (\mathbf{E} \cdot \nabla \ln{\epsilon})
+    = 0
+\tag{13}\]</span></span> The two additional terms describe the effect of spatially varying material properties. The term containing <span class="math inline">\(\nabla\ln\mu\)</span> comes from the magnetic response of the medium, while the term containing <span class="math inline">\(\nabla\ln\epsilon\)</span> comes from the electric response. They vanish when the corresponding material parameter is constant.</p>
+<p>By interchanging the roles of the electric and magnetic fields, and simultaneously interchanging <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\mu\)</span>, we obtain the corresponding equation for <span class="math inline">\(\mathbf{H}\)</span>: <span id="eq-magnetic-wave"><span class="math display">\[
+\nabla^2 \mathbf{H}
+- \frac{\epsilon \mu}{c^2} \frac{\partial^2 \mathbf{H}}{\partial t^2} + (\nabla \ln{\epsilon}) \times (\nabla \times \mathbf{H}) + \nabla (\mathbf{H} \cdot \nabla \ln{\mu})
+    = 0
+\tag{14}\]</span></span> The electric and magnetic wave equations <a href="#eq-electric-wave" class="quarto-xref">Equation&nbsp;13</a> and <a href="#eq-magnetic-wave" class="quarto-xref">Equation&nbsp;14</a> are therefore not independent assumptions. They are two forms of the same Maxwell structure, related by the substitutions <span class="math inline">\(\mathbf{E}\leftrightarrow\mathbf{H}\)</span> and <span class="math inline">\(\epsilon\leftrightarrow\mu\)</span>.</p>
+</section>
+<section id="homogeneous-medium" class="level2">
+<h2 class="anchored" data-anchor-id="homogeneous-medium">Homogeneous medium</h2>
+<p>If the medium is homogeneous, <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\mu\)</span> are constants, so <span class="math inline">\(\nabla \ln{\epsilon} = \nabla \ln{\mu} = 0\)</span>. The equations reduce to</p>
+<p><span id="eq-homogeneous-wave"><span class="math display">\[
+\nabla^2 \mathbf{E} - \frac{\epsilon \mu}{c^2} \frac{\partial^2 \mathbf{E}}{\partial t^2} = 0
+\qquad
+\nabla^2 \mathbf{H} - \frac{\epsilon \mu}{c^2} \frac{\partial^2 \mathbf{H}}{\partial t^2} = 0
+\tag{15}\]</span></span> Both fields are governed by the same wave operator in <a href="#eq-homogeneous-wave" class="quarto-xref">Equation&nbsp;15</a>. Maxwell’s curl equations in <a href="#eq-maxwell-curl" class="quarto-xref">Equation&nbsp;3</a> still determine how their directions and amplitudes are related; the two equations should not be interpreted as two unrelated waves.</p>
+</section>
+</section>
+<section id="the-velocity-of-light" class="level1">
+<h1>The velocity of light</h1>
+<p>The standard wave equation for a field <span class="math inline">\(\mathbf{F}\)</span> travelling with speed <span class="math inline">\(v\)</span> is <span id="eq-standard-wave"><span class="math display">\[
+\nabla^2 \mathbf{F} - \frac{1}{v^2}\frac{\partial^2 \mathbf{F}}{\partial t^2}=0.
+\tag{16}\]</span></span> Comparing <a href="#eq-standard-wave" class="quarto-xref">Equation&nbsp;16</a> with the homogeneous-medium equations in <a href="#eq-homogeneous-wave" class="quarto-xref">Equation&nbsp;15</a> gives the propagation speed <span id="eq-light-velocity"><span class="math display">\[
+v = \frac{c}{\sqrt{\epsilon\mu}}.
+\tag{17}\]</span></span> It is convenient to define the refractive index <span id="eq-refractive-index"><span class="math display">\[
+n = \sqrt{\epsilon\mu},
+\tag{18}\]</span></span> so that, using <a href="#eq-light-velocity" class="quarto-xref">Equation&nbsp;17</a>, <span id="eq-speed-index"><span class="math display">\[
+v=\frac{c}{n}.
+\tag{19}\]</span></span></p>
+<p>In vacuum, <span class="math inline">\(\epsilon=\mu=1\)</span> in these units and the speed is <span class="math inline">\(c\)</span>. In a material, the electric and magnetic responses change the coefficient of the time-dependent term in Maxwell’s equations, and light consequently travels more slowly. This expression describes the wave speed in a homogeneous, isotropic, nondispersive medium; when <span class="math inline">\(\epsilon\)</span> or <span class="math inline">\(\mu\)</span> depends on frequency, the phase and group velocities require a separate treatment.</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1785254400000" data-listing-file-modified-sort="1785409049098" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1152">
-<div class="thumbnail"><a href="../../posts/optics-notes/optics-notes-2/index.html" class="no-external">
-
-<img loading="lazy" src="../../posts/optics-notes/optics-notes-2/The wave equation and the velocity of light.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../../posts/optics-notes/optics-notes-2/index.html" class="no-external">Optics Notes#2: The wave equation and the velocity of light</a>
-</h3>
-<div class="delink listing-description"><a href="../../posts/optics-notes/optics-notes-2/index.html" class="no-external">
-This note explains how to derive Maxwell’s wave equations.
-</a></div>
-</div>
-<div class="metadata">
-<a href="../../posts/optics-notes/optics-notes-2/index.html" class="no-external">
-<div class="listing-date">
-Jul 29, 2026
-</div>
-<div class="listing-author">
-Qi Huang
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1784649600000" data-listing-file-modified-sort="1785409049088" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1505">
-<div class="thumbnail"><a href="../../posts/optics-notes/optics-notes-1/index.html" class="no-external">
-
-<img loading="lazy" src="../../posts/optics-notes/optics-notes-1/Electromagnetic Field.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../../posts/optics-notes/optics-notes-1/index.html" class="no-external">Optics Notes#1: Electromagnetic Field</a>
-</h3>
-<div class="delink listing-description"><a href="../../posts/optics-notes/optics-notes-1/index.html" class="no-external">
-This note introduces basic properties of the electromagnetic field.
-</a></div>
-</div>
-<div class="metadata">
-<a href="../../posts/optics-notes/optics-notes-1/index.html" class="no-external">
-<div class="listing-date">
-Jul 22, 2026
-</div>
-<div class="listing-author">
-Qi Huang
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -699,5 +782,5 @@ Qi Huang
 
 
 
-<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
