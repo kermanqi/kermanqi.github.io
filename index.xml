@@ -10,7 +10,28 @@
 <atom:link href="https://justcallitaction.cfd/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog built with Quarto</description>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Tue, 28 Jul 2026 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 29 Jul 2026 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>Optics Notes#3: Scalar waves</title>
+  <dc:creator>Qi Huang</dc:creator>
+  <link>https://justcallitaction.cfd/posts/optics-notes/optics-notes-3/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+ ]]></description>
+  <category>optics</category>
+  <category>notes</category>
+  <category>physics</category>
+  <guid>https://justcallitaction.cfd/posts/optics-notes/optics-notes-3/</guid>
+  <pubDate>Wed, 29 Jul 2026 16:00:00 GMT</pubDate>
+  <media:content url="https://justcallitaction.cfd/posts/optics-notes/optics-notes-3/Scalar waves.png" medium="image" type="image/png" height="96" width="144"/>
+</item>
 <item>
   <title>Optics Notes#2: The wave equation and the velocity of light</title>
   <dc:creator>Qi Huang</dc:creator>
@@ -151,7 +172,32 @@ Figure&nbsp;1: Derivation of boundary conditions for the <strong>tangential</str
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1785254400000" data-listing-file-modified-sort="1785419068236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1152">
+<div class="quarto-post image-right" data-index="0" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1785340800000" data-listing-file-modified-sort="1785419697309" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="thumbnail"><a href="../../posts/optics-notes/optics-notes-3/index.html" class="no-external">
+
+<img loading="lazy" src="https://justcallitaction.cfd/posts/optics-notes/optics-notes-3/Scalar waves.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../posts/optics-notes/optics-notes-3/index.html" class="no-external">Optics Notes#3: Scalar waves</a>
+</h3>
+<div class="delink listing-description"><a href="../../posts/optics-notes/optics-notes-3/index.html" class="no-external">
+<!-- desc(5A0113B34292)[max=175]:posts/optics-notes/optics-notes-3/index.html -->
+</a></div>
+</div>
+<div class="metadata">
+<a href="../../posts/optics-notes/optics-notes-3/index.html" class="no-external">
+<div class="listing-date">
+Jul 30, 2026
+</div>
+<div class="listing-author">
+Qi Huang
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1785254400000" data-listing-file-modified-sort="1785419649621" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1152">
 <div class="thumbnail"><a href="../../posts/optics-notes/optics-notes-2/index.html" class="no-external">
 
 <img loading="lazy" src="https://justcallitaction.cfd/posts/optics-notes/optics-notes-2/The wave equation and the velocity of light.webp" class="thumbnail-image">
@@ -176,7 +222,7 @@ Qi Huang
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1784649600000" data-listing-file-modified-sort="1785419068235" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1505">
+<div class="quarto-post image-right" data-index="2" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1784649600000" data-listing-file-modified-sort="1785419649620" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1505">
 <div class="thumbnail"><a href="../../posts/optics-notes/optics-notes-1/index.html" class="no-external">
 
 <img loading="lazy" src="https://justcallitaction.cfd/posts/optics-notes/optics-notes-1/Electromagnetic Field.webp" class="thumbnail-image">

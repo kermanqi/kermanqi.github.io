@@ -28,6 +28,13 @@
     "text": "Homogeneous medium\nIf the medium is homogeneous, \\(\\epsilon\\) and \\(\\mu\\) are constants, so \\(\\nabla \\ln{\\epsilon} = \\nabla \\ln{\\mu} = 0\\). The equations reduce to\n\\[\n\\nabla^2 \\mathbf{E} - \\frac{\\epsilon \\mu}{c^2} \\frac{\\partial^2 \\mathbf{E}}{\\partial t^2} = 0\n\\qquad\n\\nabla^2 \\mathbf{H} - \\frac{\\epsilon \\mu}{c^2} \\frac{\\partial^2 \\mathbf{H}}{\\partial t^2} = 0\n\\tag{15}\\] Both fields are governed by the same wave operator in Equation 15. Maxwell’s curl equations in Equation 3 still determine how their directions and amplitudes are related; the two equations should not be interpreted as two unrelated waves."
   },
   {
+    "objectID": "posts/optics-notes/index.html",
+    "href": "posts/optics-notes/index.html",
+    "title": "Optics Notes",
+    "section": "",
+    "text": "This is a collection of Optics Notes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptics Notes#3: Scalar waves\n\n\n\n\n\n\n\n\nJul 30, 2026\n\n\nQi Huang\n\n\n\n\n\n\n\n\n\n\n\n\nOptics Notes#2: The wave equation and the velocity of light\n\n\n\n\n\n\n\n\nJul 29, 2026\n\n\nQi Huang\n\n\n\n\n\n\n\n\n\n\n\n\nOptics Notes#1: Electromagnetic Field\n\n\n\n\n\n\n\n\nJul 22, 2026\n\n\nQi Huang\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "posts/optics-notes/optics-notes-1/index.html",
     "href": "posts/optics-notes/optics-notes-1/index.html",
     "title": "Optics Notes#1: Electromagnetic Field",
@@ -56,17 +63,10 @@
     "text": "Electric Vector and Magnetic Vector\n\n\n\n\n\n\nFigure 1: Derivation of boundary conditions for the tangential components of \\(\\mathbf{E}\\) and \\(\\mathbf{H}\\).\n\n\n\n\\(\\mathbf{b}\\) is the unit vector perpendicular to the plane of the rectangle. It follows from Equation 1 and from Stokes’ theorem that \\[\n\\int (\\nabla \\times \\mathbf{E}) \\cdot \\mathbf{b} dS = \\int \\mathbf{E} \\cdot d \\mathbf{r} = - \\frac{1}{c} \\int \\frac{\\partial \\mathbf{B}}{\\partial t} \\cdot \\mathbf{b} dS\n\\] If the lengths \\(P_1 Q_1 = \\delta s_1\\) and \\(P_2 Q_2 = \\delta s_2\\) are small: \\[\n\\mathbf{E}^{(1)} \\cdot \\mathbf{t}_1 \\delta s_1 + \\mathbf{E}^{(2)} \\cdot \\mathbf{t}_2 \\delta s_2 + \\text{contribution from ends} = -\\frac{1}{c} \\frac{\\partial \\mathbf{B}}{\\partial t} \\cdot \\mathbf{b} \\delta s \\delta h\n\\] where \\(\\delta s\\) is the line element along which the rectangle intersects the surface. \\[\n(\\mathbf{E}^{(1)} \\cdot \\mathbf{t}_1 + \\mathbf{E}^{(2)} \\cdot \\mathbf{t}_2) \\delta s = 0\n\\] \\[\n\\mathbf{b} \\cdot [\\mathbf{n}_{12} \\times (\\mathbf{E}^{(2)} - \\mathbf{E}^{(1)})] = 0\n\\] \\[\n\\mathbf{n}_{12} \\times (\\mathbf{E}^{(2)} - \\mathbf{E}^{(1)}) = 0\n\\tag{12}\\] The tangential component of the electric vector is continuous across the boundary.\nConsider the behaviour of the tangential component of the magnetic vector. The analysis is similar, but there is an additional term if currents are present. \\[\n\\mathbf{H}^{(1)} \\cdot \\mathbf{t}_1 \\delta s_1 + \\mathbf{H}^{(2)} \\cdot \\mathbf{t}_2 \\delta s_2 + \\text{contribution from ends} = \\frac{1}{c} \\frac{\\partial \\mathbf{D}}{\\partial t} \\cdot \\mathbf{b} \\delta s \\delta h + \\frac{4 \\pi}{c} \\hat{\\mathbf{j}} \\cdot \\mathbf{b} \\delta s\n\\] When \\(\\delta h \\to 0\\), the derivation is identical to that of Equation 12. \\[\n\\mathbf{n}_{12} \\times (\\mathbf{H}^{(2)} - \\mathbf{H}^{(1)}) = \\frac{4 \\pi}{c} \\hat{\\mathbf{j}}\n\\tag{13}\\] The tangential component of the magnetic vector is discontinuous across the boundary."
   },
   {
-    "objectID": "posts/optics-notes/index.html",
-    "href": "posts/optics-notes/index.html",
-    "title": "Optics Notes",
-    "section": "",
-    "text": "This is a collection of Optics Notes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptics Notes#2: The wave equation and the velocity of light\n\n\n\n\n\n\n\n\nJul 29, 2026\n\n\nQi Huang\n\n\n\n\n\n\n\n\n\n\n\n\nOptics Notes#1: Electromagnetic Field\n\n\n\n\n\n\n\n\nJul 22, 2026\n\n\nQi Huang\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Just Call It Action",
     "section": "",
-    "text": "Optics Notes#2: The wave equation and the velocity of light\n\n\n\noptics\n\nnotes\n\nphysics\n\n\n\n\n\n\n\n\n\nJul 29, 2026\n\n\nQi Huang\n\n\n\n\n\n\n\n\n\n\n\n\nOptics Notes#1: Electromagnetic Field\n\n\n\noptics\n\nnotes\n\nphysics\n\n\n\n\n\n\n\n\n\nJul 22, 2026\n\n\nQi Huang\n\n\n\n\n\n\n\n\n\n\n\n\nOptics Notes\n\n\n\noptics\n\nnotes\n\n\n\n\n\n\n\n\n\nJul 22, 2026\n\n\nQi Huang\n\n\n\n\n\nNo matching items"
+    "text": "Optics Notes#3: Scalar waves\n\n\n\noptics\n\nnotes\n\nphysics\n\n\n\n\n\n\n\n\n\nJul 30, 2026\n\n\nQi Huang\n\n\n\n\n\n\n\n\n\n\n\n\nOptics Notes#2: The wave equation and the velocity of light\n\n\n\noptics\n\nnotes\n\nphysics\n\n\n\n\n\n\n\n\n\nJul 29, 2026\n\n\nQi Huang\n\n\n\n\n\n\n\n\n\n\n\n\nOptics Notes#1: Electromagnetic Field\n\n\n\noptics\n\nnotes\n\nphysics\n\n\n\n\n\n\n\n\n\nJul 22, 2026\n\n\nQi Huang\n\n\n\n\n\n\n\n\n\n\n\n\nOptics Notes\n\n\n\noptics\n\nnotes\n\n\n\n\n\n\n\n\n\nJul 22, 2026\n\n\nQi Huang\n\n\n\n\n\nNo matching items"
   }
 ]
