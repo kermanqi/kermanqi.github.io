@@ -1,0 +1,8 @@
+---
+title: "Optics Notes#3: Scalar waves"
+author: "Qi Huang"
+date: "2026-07-30"
+categories: [optics, notes, physics]
+image: "Scalar waves.png"
+---
+
