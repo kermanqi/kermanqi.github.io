@@ -3,7 +3,7 @@ title: "Optics Notes"
 author: "Qi Huang"
 date: "2026-07-22"
 categories: [optics, notes]
-image: "Dispersive prism.png"
+image: "Dispersive prism.webp"
 
 listing:
   contents: .

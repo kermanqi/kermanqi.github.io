@@ -3,7 +3,7 @@ title: "Optics Notes#2: The wave equation and the velocity of light"
 author: "Qi Huang"
 date: "2026-07-29"
 categories: [optics, notes, physics]
-image: "The wave equation and the velocity of light.png"
+image: "The wave equation and the velocity of light.webp"
 ---
 
 This note explains how to derive Maxwell's wave equations.

@@ -3,7 +3,7 @@ title: "Optics Notes#1: Electromagnetic Field"
 author: "Qi Huang"
 date: "2026-07-22"
 categories: [optics, notes, physics]
-image: "Electromagnetic Field.png"
+image: "Electromagnetic Field.webp"
 ---
 
 This note introduces basic properties of the electromagnetic field.
