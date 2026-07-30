@@ -57,7 +57,7 @@
   <category>physics</category>
   <guid>https://justcallitaction.cfd/posts/optics-notes/optics-notes-2/</guid>
   <pubDate>Tue, 28 Jul 2026 16:00:00 GMT</pubDate>
-  <media:content url="https://justcallitaction.cfd/posts/optics-notes/optics-notes-2/The wave equation and the velocity of light.png" medium="image" type="image/png" height="96" width="144"/>
+  <media:content url="https://justcallitaction.cfd/posts/optics-notes/optics-notes-2/The wave equation and the velocity of light.webp" medium="image" type="image/webp"/>
 </item>
 <item>
   <title>Optics Notes#1: Electromagnetic Field</title>
@@ -131,7 +131,7 @@ Figure&nbsp;1: Derivation of boundary conditions for the <strong>tangential</str
   <category>physics</category>
   <guid>https://justcallitaction.cfd/posts/optics-notes/optics-notes-1/</guid>
   <pubDate>Tue, 21 Jul 2026 16:00:00 GMT</pubDate>
-  <media:content url="https://justcallitaction.cfd/posts/optics-notes/optics-notes-1/Electromagnetic Field.png" medium="image" type="image/png" height="96" width="144"/>
+  <media:content url="https://justcallitaction.cfd/posts/optics-notes/optics-notes-1/Electromagnetic Field.webp" medium="image" type="image/webp"/>
 </item>
 <item>
   <title>Optics Notes</title>
@@ -151,10 +151,10 @@ Figure&nbsp;1: Derivation of boundary conditions for the <strong>tangential</str
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1785254400000" data-listing-file-modified-sort="1785409049098" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1152">
+<div class="quarto-post image-right" data-index="0" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1785254400000" data-listing-file-modified-sort="1785418508783" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1152">
 <div class="thumbnail"><a href="../../posts/optics-notes/optics-notes-2/index.html" class="no-external">
 
-<img loading="lazy" src="https://justcallitaction.cfd/posts/optics-notes/optics-notes-2/The wave equation and the velocity of light.png" class="thumbnail-image">
+<img loading="lazy" src="https://justcallitaction.cfd/posts/optics-notes/optics-notes-2/The wave equation and the velocity of light.webp" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -176,10 +176,10 @@ Qi Huang
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1784649600000" data-listing-file-modified-sort="1785409049088" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1505">
+<div class="quarto-post image-right" data-index="1" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1784649600000" data-listing-file-modified-sort="1785418508782" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1505">
 <div class="thumbnail"><a href="../../posts/optics-notes/optics-notes-1/index.html" class="no-external">
 
-<img loading="lazy" src="https://justcallitaction.cfd/posts/optics-notes/optics-notes-1/Electromagnetic Field.png" class="thumbnail-image">
+<img loading="lazy" src="https://justcallitaction.cfd/posts/optics-notes/optics-notes-1/Electromagnetic Field.webp" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -208,7 +208,7 @@ Qi Huang
   <category>notes</category>
   <guid>https://justcallitaction.cfd/posts/optics-notes/</guid>
   <pubDate>Tue, 21 Jul 2026 16:00:00 GMT</pubDate>
-  <media:content url="https://justcallitaction.cfd/posts/optics-notes/Dispersive prism.png" medium="image" type="image/png" height="96" width="144"/>
+  <media:content url="https://justcallitaction.cfd/posts/optics-notes/Dispersive prism.webp" medium="image" type="image/webp"/>
 </item>
 </channel>
 </rss>
