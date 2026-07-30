@@ -1,0 +1,209 @@
+---
+title: "Optics Notes#2: The wave equation and the velocity of light"
+author: "Qi Huang"
+date: "2026-07-29"
+categories: [optics, notes, physics]
+image: "The wave equation and the velocity of light.png"
+---
+
+This note explains how to derive Maxwell's wave equations.
+
+# The wave equation
+
+The Maxwell equations describe the electric and magnetic fields as a coupled system. The purpose of this note is to combine them into a single equation for one field. Once this is done, the propagation of light appears directly as a wave phenomenon.
+
+We first record two vector identities that will be used below. For a vector field, the double curl can be written in terms of its divergence and Laplacian:
+$$
+\begin{aligned}
+\\
+[\nabla \times (\nabla \times \mathbf{u})]_i &= \epsilon_{ijk} \partial_j (\epsilon_{klm} \partial_l u_m)
+\\
+&= \epsilon_{kij} \epsilon_{klm} \partial_j \partial_l u_m
+\\
+&= (\delta_{il} \delta_{jm} - \delta_{im} \delta_{jl}) \partial_j \partial_l u_m
+\\
+&= \delta_{il} \delta_{jm} \partial_j \partial_l u_m - \delta_{im} \delta_{jl} \partial_j \partial_l u_m
+\\
+&= \delta_{il} \partial_l \partial_j u_j - \delta_{im} \partial_j \partial_j u_m
+\\
+&= [\nabla (\nabla \cdot \mathbf{u})]_i - [\nabla^2 \mathbf{u}]_i
+\end{aligned}
+$$
+$$
+\nabla \times (\nabla \times \mathbf{u}) = \nabla (\nabla \cdot \mathbf{u}) - \nabla^2 \mathbf{u}
+$$ {#eq-double-curl}
+
+The second identity is the product rule for the curl. Here $u$ is a scalar field and $\mathbf{v}$ is a vector field:
+$$
+\begin{aligned}
+\\
+[\nabla \times (u \mathbf{v})]_i &= \epsilon_{ijk} \partial_j u v_k
+\\
+&= \epsilon_{ijk} (\partial_j u) v_k + \epsilon_{ijk} u (\partial_j v_k)
+\\
+&= [(\nabla u) \times \mathbf{v}]_i + [u \nabla \times \mathbf{v}]_i
+\end{aligned}
+$$
+$$
+\nabla \times (u \mathbf{v}) = (\nabla u) \times \mathbf{v} + u \nabla \times \mathbf{v}
+$$ {#eq-curl-product}
+
+The first identity handles the geometry of the vector field. The second becomes important when the material parameters vary from point to point, because $\epsilon$ and $\mu$ can no longer be moved through a spatial derivative.
+
+## Maxwell equations in a source-free medium
+
+We consider a region containing no free current or free charge. Thus $\mathbf{j}=0$ and $\rho=0$. This does not mean that the electromagnetic field vanishes; it only means that the field is propagating through the region without local sources. In this case Maxwell's equations are
+$$
+\begin{aligned}
+\nabla \times \mathbf{H}
+    - \frac{1}{c}\frac{\partial \mathbf{D}}{\partial t}
+    &= \frac{4\pi}{c}\mathbf{j},\\
+\nabla \times \mathbf{E}
+    + \frac{1}{c}\frac{\partial \mathbf{B}}{\partial t}
+    &= \mathbf{0},
+\end{aligned}
+$$ {#eq-maxwell-curl}
+$$
+\begin{aligned}
+\nabla \cdot \mathbf{D} &= 4\pi\rho,\\
+\nabla \cdot \mathbf{B} &= 0.
+\end{aligned}
+$$ {#eq-maxwell-div}
+$$
+\begin{aligned}
+\mathbf{j} &= \sigma \mathbf{E},
+\\
+\mathbf{D} &= \epsilon \mathbf{E},
+\\
+\mathbf{B} &= \mu \mathbf{H}.
+\end{aligned}
+$$ {#eq-material}
+The first curl equation in @eq-maxwell-curl, after setting $\mathbf{j}=\mathbf{0}$, differentiating with respect to time, and using $\mathbf{D}=\epsilon\mathbf{E}$ from @eq-material, gives
+$$
+\begin{aligned}
+\nabla \times \frac{\partial \mathbf{H}}{\partial t}
+    - \frac{1}{c}\frac{\partial^2 \mathbf{D}}{\partial t^2}
+    &= 0,\\
+\nabla \times \frac{\partial \mathbf{H}}{\partial t}
+    - \frac{\epsilon}{c}\frac{\partial^2 \mathbf{E}}{\partial t^2}
+    &= 0,\\
+\end{aligned}
+$$ {#eq-time-ampere}
+This relation connects the time variation of the magnetic vector to the second time derivative of the electric vector. The other curl equation in @eq-maxwell-curl connects the two fields in the opposite direction:
+$$
+\begin{aligned}
+\nabla \times \mathbf{E}
+    + \frac{1}{c}\frac{\partial \mathbf{B}}{\partial t}
+    = 0
+\implies
+\nabla \times (\frac{1}{\mu} \nabla \times \mathbf{E}) 
+    + \frac{1}{c} \nabla \times \frac{\partial \mathbf{H}}{\partial t}
+    &= 0
+\\
+\implies
+\nabla \times (\frac{1}{\mu} \nabla \times \mathbf{E})
+    + \frac{\epsilon}{c^2} \frac{\partial^2 \mathbf{E}}{\partial t^2} = 0
+\end{aligned}
+$$ {#eq-electric-curl}
+Using $\mathbf{B}=\mu\mathbf{H}$ from @eq-material, divide Faraday's law in @eq-maxwell-curl by $\mu$ and take its curl. The result contains the same term $\nabla\times\partial_t\mathbf{H}$ as @eq-time-ampere. Substituting @eq-time-ampere eliminates $\mathbf{H}$ and produces @eq-electric-curl, an equation involving only $\mathbf{E}$:
+
+The coefficient $1/\mu$ is inside the curl because the permeability may depend on position. Applying the product rule in @eq-curl-product and the double-curl identity in @eq-double-curl gives
+
+$$
+\begin{aligned}
+\nabla \times (\frac{1}{\mu} \nabla \times \mathbf{E})
+    + \frac{\epsilon}{c^2} \frac{\partial^2 \mathbf{E}}{\partial t^2} = 0
+\\
+(\nabla \frac{1}{\mu}) \times (\nabla \times \mathbf{E})
+    + \frac{1}{\mu} \nabla \times (\nabla \times \mathbf{E})
+    + \frac{\epsilon}{c^2} \frac{\partial^2 \mathbf{E}}{\partial t^2}
+    &= 0
+\\
+- \mu \frac{1}{\mu^2}(\nabla \mu) \times (\nabla \times \mathbf{E})
+    + \nabla (\nabla \cdot \mathbf{E}) - \nabla^2 \mathbf{E}
+    + \frac{\epsilon \mu}{c^2} \frac{\partial^2 \mathbf{E}}{\partial t^2}
+    &= 0
+\\
+\nabla^2 \mathbf{E}
+- \frac{\epsilon \mu}{c^2} \frac{\partial^2 \mathbf{E}}{\partial t^2} + (\nabla \ln{\mu}) \times (\nabla \times \mathbf{E}) - \nabla (\nabla \cdot \mathbf{E})
+    &= 0
+\end{aligned}
+$$ {#eq-electric-wave-pre-div}
+The last line of @eq-electric-wave-pre-div is the wave equation for $\mathbf{E}$ before using the divergence condition. Its terms have a simple origin: the Laplacian describes the spatial structure of the field, the second time derivative describes its temporal evolution, and the terms containing $\nabla\mu$ and $\nabla\cdot\mathbf{E}$ account for the material and vector-field constraints.
+
+To remove $\nabla\cdot\mathbf{E}$, use the electric part of Gauss's law in @eq-maxwell-div. Since $\rho=0$ and $\mathbf{D}=\epsilon\mathbf{E}$ from @eq-material,
+$$
+\begin{aligned}
+\nabla \cdot (u \mathbf{v}) &= \partial_i (u v_i) \\
+&= (\partial_i u) v_i + u (\partial_i v_i) \\
+&= \mathbf{v} \cdot (\nabla u) + u \nabla \cdot \mathbf{v}
+\end{aligned}
+$$ {#eq-div-product}
+Therefore, applying @eq-div-product to $\mathbf{D}=\epsilon\mathbf{E}$ from @eq-material,
+$$
+\begin{aligned}
+\nabla \cdot (\epsilon \mathbf{E}) &= \partial_i (\epsilon E_i) \\
+&= (\partial_i \epsilon) E_i + \epsilon (\partial_i E_i) \\
+&= \mathbf{E} \cdot (\nabla \epsilon) + \epsilon \nabla \cdot \mathbf{E}
+\end{aligned}
+$$ {#eq-div-electric-displacement}
+where $\rho=0$ has been used from @eq-maxwell-div. Hence @eq-maxwell-div and @eq-div-electric-displacement give
+$$
+\mathbf{E} \cdot (\nabla \epsilon) + \epsilon \nabla \cdot \mathbf{E} = 0
+$$ {#eq-electric-divergence-zero}
+$$
+\begin{aligned}
+\mathbf{E} \cdot (\nabla \epsilon) &+ \epsilon \nabla \cdot \mathbf{E} = 0 \\
+\nabla \cdot \mathbf{E} &= - \frac{1}{\epsilon} \mathbf{E} \cdot (\nabla \epsilon)\\
+\nabla \cdot \mathbf{E} &= - \mathbf{E} \cdot \nabla \ln{\epsilon}
+\end{aligned}
+$$ {#eq-electric-divergence}
+
+Substituting @eq-electric-divergence into @eq-electric-wave-pre-div gives the electric-field wave equation in an inhomogeneous isotropic medium:
+$$
+\nabla^2 \mathbf{E}
+- \frac{\epsilon \mu}{c^2} \frac{\partial^2 \mathbf{E}}{\partial t^2} + (\nabla \ln{\mu}) \times (\nabla \times \mathbf{E}) + \nabla (\mathbf{E} \cdot \nabla \ln{\epsilon})
+    = 0
+$$ {#eq-electric-wave}
+The two additional terms describe the effect of spatially varying material properties. The term containing $\nabla\ln\mu$ comes from the magnetic response of the medium, while the term containing $\nabla\ln\epsilon$ comes from the electric response. They vanish when the corresponding material parameter is constant.
+
+By interchanging the roles of the electric and magnetic fields, and simultaneously interchanging $\epsilon$ and $\mu$, we obtain the corresponding equation for $\mathbf{H}$:
+$$
+\nabla^2 \mathbf{H}
+- \frac{\epsilon \mu}{c^2} \frac{\partial^2 \mathbf{H}}{\partial t^2} + (\nabla \ln{\epsilon}) \times (\nabla \times \mathbf{H}) + \nabla (\mathbf{H} \cdot \nabla \ln{\mu})
+    = 0
+$$ {#eq-magnetic-wave}
+The electric and magnetic wave equations @eq-electric-wave and @eq-magnetic-wave are therefore not independent assumptions. They are two forms of the same Maxwell structure, related by the substitutions $\mathbf{E}\leftrightarrow\mathbf{H}$ and $\epsilon\leftrightarrow\mu$.
+
+
+## Homogeneous medium
+
+If the medium is homogeneous, $\epsilon$ and $\mu$ are constants, so $\nabla \ln{\epsilon} = \nabla \ln{\mu} = 0$. The equations reduce to
+
+$$
+\nabla^2 \mathbf{E} - \frac{\epsilon \mu}{c^2} \frac{\partial^2 \mathbf{E}}{\partial t^2} = 0
+\qquad
+\nabla^2 \mathbf{H} - \frac{\epsilon \mu}{c^2} \frac{\partial^2 \mathbf{H}}{\partial t^2} = 0
+$$ {#eq-homogeneous-wave}
+Both fields are governed by the same wave operator in @eq-homogeneous-wave. Maxwell's curl equations in @eq-maxwell-curl still determine how their directions and amplitudes are related; the two equations should not be interpreted as two unrelated waves.
+
+# The velocity of light
+
+The standard wave equation for a field $\mathbf{F}$ travelling with speed $v$ is
+$$
+\nabla^2 \mathbf{F} - \frac{1}{v^2}\frac{\partial^2 \mathbf{F}}{\partial t^2}=0.
+$$ {#eq-standard-wave}
+Comparing @eq-standard-wave with the homogeneous-medium equations in @eq-homogeneous-wave gives the propagation speed
+$$
+v = \frac{c}{\sqrt{\epsilon\mu}}.
+$$ {#eq-light-velocity}
+It is convenient to define the refractive index
+$$
+n = \sqrt{\epsilon\mu},
+$$ {#eq-refractive-index}
+so that, using @eq-light-velocity,
+$$
+v=\frac{c}{n}.
+$$ {#eq-speed-index}
+
+In vacuum, $\epsilon=\mu=1$ in these units and the speed is $c$. In a material, the electric and magnetic responses change the coefficient of the time-dependent term in Maxwell's equations, and light consequently travels more slowly. This expression describes the wave speed in a homogeneous, isotropic, nondispersive medium; when $\epsilon$ or $\mu$ depends on frequency, the phase and group velocities require a separate treatment.

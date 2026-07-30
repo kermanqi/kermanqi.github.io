@@ -2,7 +2,7 @@
 title: "Optics Notes#1: Electromagnetic Field"
 author: "Qi Huang"
 date: "2026-07-22"
-categories: [optics, notes]
+categories: [optics, notes, physics]
 image: "Electromagnetic Field.png"
 ---
 
@@ -185,13 +185,14 @@ $$
 $$
 From
 $$
-\begin{align}
+\begin{aligned}
+\\
 \nabla \cdot (\mathbf A \times \mathbf B) &= \epsilon_{ijk} \partial_k (A_i B_j) \\
 &= \epsilon_{ijk} [(\partial_k A_i) B_j + A_i (\partial_k B_j)] \\
 &= B_j (\epsilon_{ijk} \partial_k A_i) + A_i (\epsilon_{ijk} \partial_k B_j) \\
 &= B_j (\epsilon_{kij} \partial_k A_i) + A_i (-\epsilon_{kji} \partial_k B_j) \\
 &= \mathbf{B} \cdot (\nabla \times \mathbf{A}) - \mathbf{A} \cdot (\nabla \times \mathbf{B})
-\end{align}
+\end{aligned}
 $$
 We have that
 $$
