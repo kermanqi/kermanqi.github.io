@@ -21,8 +21,294 @@
 
 
 
+<p>We briefly examine the simplest solution of this equation. <img src="https://latex.codecogs.com/png.latex?%0A%5Cnabla%5E2%20V%20-%20%5Cfrac%7B1%7D%7Bv%5E2%7D%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20t%5E2%7D%20=%200%0A"></p>
+<section id="plane-waves" class="level1">
+<h1>Plane waves</h1>
+<p>A plane wave is a wave whose amplitude is constant on every plane perpendicular to a fixed propagation direction. The field can therefore change as we move along the direction of propagation, but it has the same value at all points on one such plane.</p>
+<div id="fig-boundary-conditions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-boundary-conditions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://justcallitaction.cfd/posts/optics-notes/optics-notes-3/Plane wave.png" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boundary-conditions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Propagation of a plane wave.
+</figcaption>
+</figure>
+</div>
+<p>Let <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bs%7D"> be a unit vector in the fixed propagation direction, and let <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Br%7D"> be the position vector of a point <img src="https://latex.codecogs.com/png.latex?P">. The scalar <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Br%7D%5Ccdot%5Cmathbf%7Bs%7D"> measures the position of <img src="https://latex.codecogs.com/png.latex?P"> along <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bs%7D">. We denote this coordinate by <img src="https://latex.codecogs.com/png.latex?%5Cxi">.</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AV%20=%20V(%5Cmathbf%7Br%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D,%20t)%0A"></p>
+<p>This form expresses the defining property of a plane wave: the field depends on position only through <img src="https://latex.codecogs.com/png.latex?%5Cxi">, rather than on the three Cartesian coordinates independently. Consequently, all points satisfying <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Br%7D%5Ccdot%5Cmathbf%7Bs%7D=%5Cxi"> have the same value of <img src="https://latex.codecogs.com/png.latex?V"> at a fixed time. These points form a plane whose normal is <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bs%7D">.</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7Br%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20=%20%5Cxi%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbf%7Br%7D%20=%20(x,y,z)%20%5Cqquad%20%5Cmathbf%7Bs%7D%20=%20(s_x,s_y,s_z)%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cxi%20=%20xs_x%20+%20ys_y%20+%20zs_z%0A"> Because <img src="https://latex.codecogs.com/png.latex?V"> depends on <img src="https://latex.codecogs.com/png.latex?x">, <img src="https://latex.codecogs.com/png.latex?y">, and <img src="https://latex.codecogs.com/png.latex?z"> only through the single variable <img src="https://latex.codecogs.com/png.latex?%5Cxi">, its Cartesian derivatives can be found by the chain rule. For example, changing <img src="https://latex.codecogs.com/png.latex?x"> changes <img src="https://latex.codecogs.com/png.latex?%5Cxi"> at the rate <img src="https://latex.codecogs.com/png.latex?s_x">, which gives</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20x%7D%20&amp;=%20%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20%5Cxi%7D%20%5Cfrac%7B%5Cpartial%20%5Cxi%7D%7B%5Cpartial%20x%7D%20%5C%5C%0A&amp;=%20%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20%5Cxi%7D%20%5Cfrac%7B%5Cpartial%20(xs_x%20+%20ys_y%20+%20zs_z)%7D%7B%5Cpartial%20x%7D%20%5C%5C%0A&amp;=%20s_x%20%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20%5Cxi%7D%0A%5Cend%7Baligned%7D%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20x%7D%20=%20s_x%20%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20%5Cxi%7D,%20%5Cquad%0A%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20y%7D%20=%20s_y%20%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20%5Cxi%7D,%20%5Cquad%0A%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20z%7D%20=%20s_z%20%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20%5Cxi%7D%0A"></p>
+<p>Applying the same relation twice gives the second derivatives. Since <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bs%7D"> is a fixed vector, its components are constants and can be taken outside the derivatives.</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20x%5E2%7D%0A=%0A%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20x%7D%0A%5Cleft(%0As_x%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20%5Cxi%7D%0A%5Cright)%0A=%0As_x%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20x%7D%0A%5Cleft(%0A%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20%5Cxi%7D%0A%5Cright)%0A=s_x%5E2%20%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20%5Cxi%5E2%7D%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cnabla%5E2V=(s_x%5E2+s_y%5E2+s_z%5E2)%20%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20%5Cxi%5E2%7D=%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20%5Cxi%5E2%7D%0A"> The unit-vector condition <img src="https://latex.codecogs.com/png.latex?s_x%5E2+s_y%5E2+s_z%5E2=1"> is what reduces the three-dimensional Laplacian to a one-dimensional second derivative along the propagation direction. The wave equation therefore becomes</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20%5Cxi%5E2%7D%20-%20%5Cfrac%7B1%7D%7Bv%5E2%7D%5Cfrac%7B%5Cpartial%20%5E2%20V%7D%7B%5Cpartial%20t%5E2%7D%20=%200%0A"> To solve this one-dimensional equation, introduce the characteristic variables</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cxi%20-%20v%20t%20=%20p,%20%5Cqquad%20%5Cxi%20+%20v%20t%20=%20q%0A"> The variables <img src="https://latex.codecogs.com/png.latex?p"> and <img src="https://latex.codecogs.com/png.latex?q"> move in opposite directions when time increases. They are useful because the wave equation separates naturally into a part depending only on <img src="https://latex.codecogs.com/png.latex?p"> and a part depending only on <img src="https://latex.codecogs.com/png.latex?q">. <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20%5Cxi%7D%0A&amp;=%20%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20p%7D%20%5Cfrac%7B%5Cpartial%20p%7D%7B%5Cpartial%20%5Cxi%7D%0A+%20%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20q%7D%20%5Cfrac%7B%5Cpartial%20q%7D%7B%5Cpartial%20%5Cxi%7D%5C%5C%0A&amp;=%20%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20p%7D%0A+%20%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20q%7D%0A%5Cend%7Baligned%7D%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20%5Cxi%5E2%7D%0A&amp;=%20(%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20p%7D%20+%20%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20q%7D)%0A(%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20p%7D%20+%20%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20q%7D)%5C%5C%0A&amp;=%20%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20p%5E2%7D%20+2%20%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20p%20%5Cpartial%20q%7D%20+%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20q%5E2%7D%0A%5Cend%7Baligned%7D%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20t%7D%0A&amp;=%20%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20p%7D%20%5Cfrac%7B%5Cpartial%20p%7D%7B%5Cpartial%20t%7D%0A+%20%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20q%7D%20%5Cfrac%7B%5Cpartial%20q%7D%7B%5Cpartial%20t%7D%5C%5C%0A&amp;=%20-v%20%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20p%7D%0A+%20v%20%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20q%7D%0A%5Cend%7Baligned%7D%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20t%5E2%7D%0A&amp;=%20(-v%5Cpartial_p+v%5Cpartial_q)%0A(-v%20V_p+v%20V_q)%5C%5C%0A&amp;=%20v%5E2%20(%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20p%5E2%7D%20-2%20%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20p%20%5Cpartial%20q%7D%20+%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20q%5E2%7D)%0A%5Cend%7Baligned%7D%0A"> Substituting these derivatives into the reduced wave equation, the terms involving only <img src="https://latex.codecogs.com/png.latex?p"> and only <img src="https://latex.codecogs.com/png.latex?q"> cancel, leaving</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20p%20%5Cpartial%20q%7D%20=%200%0A"> This condition says that the <img src="https://latex.codecogs.com/png.latex?p">-dependent and <img src="https://latex.codecogs.com/png.latex?q">-dependent parts are independent of one another. Integrating with respect to the two variables gives the general solution</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0AV%20&amp;=%20V_1(p)%20+%20V_2%20(q)%5C%5C%0A&amp;=%20V_1(%5Cmathbf%7Br%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20v%20t)%0A+%20V_2(%5Cmathbf%7Br%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20+%20v%20t)%0A%5Cend%7Baligned%7D%0A"> Here <img src="https://latex.codecogs.com/png.latex?V_1"> represents a disturbance propagated with velocity <img src="https://latex.codecogs.com/png.latex?v"> in the positive <img src="https://latex.codecogs.com/png.latex?%5Cxi"> direction, while <img src="https://latex.codecogs.com/png.latex?V_2"> represents a disturbance propagated with the same speed in the negative <img src="https://latex.codecogs.com/png.latex?%5Cxi"> direction. A plane wave travelling in only one direction is obtained by setting the other function to zero.</p>
+</section>
+<section id="spherical-waves" class="level1">
+<h1>Spherical waves</h1>
+<p>A spherical wave has spherical wavefronts centered on the source. Its amplitude is the same at every point on a sphere of radius <img src="https://latex.codecogs.com/png.latex?r">, so the field depends on position only through the distance from the source, rather than through the direction of <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Br%7D">. We consider the region <img src="https://latex.codecogs.com/png.latex?r%3E0">, away from the source itself. <img src="https://latex.codecogs.com/png.latex?%0AV=V(r,t)%0A"> Here <img src="https://latex.codecogs.com/png.latex?r=%7C%5Cmathbf%7Br%7D%7C=%5Csqrt%7Bx%5E2+y%5E2+z%5E2%7D">. Since <img src="https://latex.codecogs.com/png.latex?r"> depends on all three Cartesian coordinates, the derivatives of <img src="https://latex.codecogs.com/png.latex?V"> can again be obtained with the chain rule. <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20x%7D%0A=%20%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20r%7D%20%5Cfrac%7B%5Cpartial%20r%7D%7B%5Cpartial%20x%7D%0A=%20%5Cfrac%7Bx%7D%7Br%7D%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20r%7D%0A"> The factor <img src="https://latex.codecogs.com/png.latex?x/r"> is the directional derivative of the radial coordinate with respect to <img src="https://latex.codecogs.com/png.latex?x">. It is the <img src="https://latex.codecogs.com/png.latex?x">-component of the unit vector pointing away from the source. <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20x%5E2%7D%0A&amp;=%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20x%7D(%5Cfrac%7Bx%7D%7Br%7D%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20r%7D)%0A%5C%5C%0A&amp;=%5Cfrac%7Br-x%5Cfrac%7Bx%7D%7Br%7D%7D%7Br%5E2%7D%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20r%7D%0A+%20%5Cfrac%7Bx%5E2%7D%7Br%5E2%7D%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20r%5E2%7D%0A%5C%5C%0A&amp;=%5Cfrac%7Br%5E2-x%5E2%7D%7Br%5E3%7D%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20r%7D%0A+%20%5Cfrac%7Bx%5E2%7D%7Br%5E2%7D%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20r%5E2%7D%0A%5Cend%7Baligned%7D%0A"> The corresponding expressions for the <img src="https://latex.codecogs.com/png.latex?y"> and <img src="https://latex.codecogs.com/png.latex?z"> derivatives are obtained by cyclic permutation of the coordinates. Adding the three second derivatives gives the Laplacian for a spherically symmetric field: <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cnabla%5E2V%0A&amp;=%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20x%5E2%7D+%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20y%5E2%7D+%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20z%5E2%7D%0A%5C%5C%0A&amp;=%5Cfrac%7B3r%5E2-x%5E2-y%5E2-z%5E2%7D%7Br%5E3%7D%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20r%7D%0A+%20%5Cfrac%7Bx%5E2+y%5E2+z%5E2%7D%7Br%5E2%7D%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20r%5E2%7D%0A%5C%5C%0A&amp;=%5Cfrac%7B2%7D%7Br%7D%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20r%7D%0A+%20%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20r%5E2%7D%0A%5C%5C%0A&amp;=%5Cfrac%7B1%7D%7Br%7D(2%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20r%7D%0A+r%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20r%5E2%7D)%0A%5Cend%7Baligned%7D%0A"> The first term describes the change in the radial slope as the spherical surface expands, while the second term is the ordinary second derivative in the radial direction. The expression can be simplified by introducing the product <img src="https://latex.codecogs.com/png.latex?rV">. <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20r%7D(rV)%0A=%20V%20+%20r%20%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20r%7D%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7B%5Cpartial%5E2%7D%7B%5Cpartial%20r%5E2%7D(rV)%0A&amp;=%20%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20r%7D%0A+%20%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20r%7D%0A+%20r%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20r%5E2%7D%0A%5C%5C%0A&amp;=2%5Cfrac%7B%5Cpartial%20V%7D%7B%5Cpartial%20r%7D%0A+%20r%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20r%5E2%7D%0A%5Cend%7Baligned%7D%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cnabla%5E2V%20=%20%5Cfrac%7B1%7D%7Br%7D%5Cfrac%7B%5Cpartial%5E2%7D%7B%5Cpartial%20r%5E2%7D(rV)%0A"> Thus the three-dimensional Laplacian has been reduced to a one-dimensional second derivative of <img src="https://latex.codecogs.com/png.latex?rV">. Substituting this result into the scalar wave equation gives <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B1%7D%7Br%7D%5Cfrac%7B%5Cpartial%5E2%7D%7B%5Cpartial%20r%5E2%7D(rV)%20-%20%20%5Cfrac%7B1%7D%7Bv%5E2%7D%5Cfrac%7B%5Cpartial%5E2%20V%7D%7B%5Cpartial%20t%5E2%7D%20=%200%0A"> Multiplying by <img src="https://latex.codecogs.com/png.latex?r"> and using the fact that <img src="https://latex.codecogs.com/png.latex?r"> is independent of time, the equation for <img src="https://latex.codecogs.com/png.latex?rV"> has exactly the same form as the one-dimensional plane-wave equation. We can therefore replace <img src="https://latex.codecogs.com/png.latex?%5Cxi"> by <img src="https://latex.codecogs.com/png.latex?r"> and <img src="https://latex.codecogs.com/png.latex?V"> by <img src="https://latex.codecogs.com/png.latex?rV"> in the previous solution: <img src="https://latex.codecogs.com/png.latex?%0AV%20=%20%5Cfrac%7BV_1(r-vt)%7D%7Br%7D%20+%20%5Cfrac%7BV_2(r+vt)%7D%7Br%7D%0A"> The first term is an outward-propagating spherical wave and the second is an inward-propagating one. The factor <img src="https://latex.codecogs.com/png.latex?1/r"> expresses the geometric spreading of the wave: as the radius increases, the same disturbance is distributed over a larger spherical surface, so its amplitude decreases.</p>
+</section>
+<section id="harmonic-waves.-the-phase-velocity" class="level1">
+<h1>Harmonic waves. The phase velocity</h1>
+<section id="harmonic-waves" class="level2">
+<h2 class="anchored" data-anchor-id="harmonic-waves">Harmonic waves</h2>
+<p>A fixed point <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Br%7D_0"> sees the wave disturbance as a function of time only: <img src="https://latex.codecogs.com/png.latex?%0AV(%5Cmathbf%7Br%7D_0,t)=F(t)%0A"> For a periodic disturbance, the simplest important case is the sinusoidal function <span id="eq-harmonic"><img src="https://latex.codecogs.com/png.latex?%0AF(t)=a%5Ccos(%5Comega%20t+%5Cdelta)%0A%5Ctag%7B1%7D"></span> The quantities introduced in this expression are collected below.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Concept</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Fixed-point disturbance</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?V(%5Cmathbf%7Br%7D_0,t)=F(t)"></td>
+<td style="text-align: left;">At a fixed position, the disturbance depends only on time.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Periodic disturbance</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?F(t+T)=F(t)"></td>
+<td style="text-align: left;">The disturbance repeats after every period <img src="https://latex.codecogs.com/png.latex?T">.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Amplitude</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?a%3E0"></td>
+<td style="text-align: left;">The maximum value of the disturbance.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Phase</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Comega%20t+%5Cdelta"></td>
+<td style="text-align: left;">The instantaneous position of the oscillation within one cycle.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Initial phase</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdelta"></td>
+<td style="text-align: left;">The phase at <img src="https://latex.codecogs.com/png.latex?t=0">.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Angular frequency</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Comega"></td>
+<td style="text-align: left;">The phase change per unit time, measured in radians per second.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Period</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?T"></td>
+<td style="text-align: left;">The time required for one complete vibration.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Frequency</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cnu=%5Cfrac%7B%5Comega%7D%7B2%5Cpi%7D=%5Cfrac%7B1%7D%7BT%7D"></td>
+<td style="text-align: left;">The number of complete vibrations per second.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Harmonic wave</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?F(t)=a%5Ccos(%5Comega%20t+%5Cdelta)"></td>
+<td style="text-align: left;">A wave whose time dependence is sinusoidal.</td>
+</tr>
+</tbody>
+</table>
+<p>For a plane wave travelling in the direction of the unit vector <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bs%7D"> with speed <img src="https://latex.codecogs.com/png.latex?v">, replace <img src="https://latex.codecogs.com/png.latex?t"> by the retarded time <img src="https://latex.codecogs.com/png.latex?t-%5Cmathbf%7Br%7D%5Ccdot%5Cmathbf%7Bs%7D/v">. This gives <img src="https://latex.codecogs.com/png.latex?%0AV(%5Cmathbf%7Br%7D,t)%0A=a%5Ccos%5Cleft%5B%5Comega%5Cleft(t-%5Cfrac%7B%5Cmathbf%7Br%7D%5Ccdot%5Cmathbf%7Bs%7D%7D%7Bv%7D%5Cright)+%5Cdelta%5Cright%5D%0A"> The quantities describing its spatial variation are summarized in the following table.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Concept</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Plane harmonic wave</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20V(%5Cmathbf%7Br%7D,t)=a%5Ccos%5Cleft%5B%5Comega%5Cleft(t-%5Cfrac%7B%5Cmathbf%7Br%7D%5Ccdot%5Cmathbf%7Bs%7D%7D%7Bv%7D%5Cright)+%5Cdelta%5Cright%5D"></td>
+<td style="text-align: left;">A harmonic wave travelling in the direction <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bs%7D">.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Wavelength</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Clambda=vT=%5Cfrac%7B2%5Cpi%20v%7D%7B%5Comega%7D"></td>
+<td style="text-align: left;">The distance over which the phase changes by <img src="https://latex.codecogs.com/png.latex?2%5Cpi">.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Refractive index</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20n=%5Cfrac%7Bc%7D%7Bv%7D"></td>
+<td style="text-align: left;">The ratio of the speed of light in vacuum to its speed in the medium.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Reduced wavelength</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Clambda_0=cT=n%5Clambda"></td>
+<td style="text-align: left;">The wavelength of a wave with the same frequency in vacuum.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Wave number</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Ckappa=%5Cfrac%7B1%7D%7B%5Clambda_0%7D=%5Cfrac%7B%5Cnu%7D%7Bc%7D"></td>
+<td style="text-align: left;">The number of wavelengths in vacuum per unit length.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Vacuum wave number</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20k_0=2%5Cpi%5Ckappa=%5Cfrac%7B2%5Cpi%7D%7B%5Clambda_0%7D=%5Cfrac%7B%5Comega%7D%7Bc%7D"></td>
+<td style="text-align: left;">The phase change per unit length in vacuum.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Medium wave number</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20k=nk_0=%5Cfrac%7B2%5Cpi%7D%7B%5Clambda%7D=%5Cfrac%7Bn%5Comega%7D%7Bc%7D=%5Cfrac%7B%5Comega%7D%7Bv%7D"></td>
+<td style="text-align: left;">The phase change per unit length in the medium.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Wave vectors</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bk%7D=k%5Cmathbf%7Bs%7D"> and <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bk%7D_0=k_0%5Cmathbf%7Bs%7D"></td>
+<td style="text-align: left;">Vectors pointing in the propagation direction, with magnitudes <img src="https://latex.codecogs.com/png.latex?k"> and <img src="https://latex.codecogs.com/png.latex?k_0">.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Path length</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20l=%5Cfrac%7Bv%7D%7B%5Comega%7D%5Cdelta=%5Cfrac%7B%5Clambda%7D%7B2%5Cpi%7D%5Cdelta=%5Cfrac%7B%5Clambda_0%7D%7B2%5Cpi%20n%7D%5Cdelta"></td>
+<td style="text-align: left;">The distance equivalent to a phase difference <img src="https://latex.codecogs.com/png.latex?%5Cdelta">.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="complex-amplitudes" class="level2">
+<h2 class="anchored" data-anchor-id="complex-amplitudes">Complex amplitudes</h2>
+<p>A plane wave has constant amplitude on each wavefront. More generally, a real <strong><em>time-harmonic wave</em></strong> can have both amplitude and phase varying with position: <img src="https://latex.codecogs.com/png.latex?%0AV(%5Cmathbf%7Br%7D,t)=a(%5Cmathbf%7Br%7D)%5Ccos%5B%5Comega%20t-g(%5Cmathbf%7Br%7D)%5D%0A"> Here <img src="https://latex.codecogs.com/png.latex?a(%5Cmathbf%7Br%7D)%3E0"> and <img src="https://latex.codecogs.com/png.latex?g(%5Cmathbf%7Br%7D)"> are real scalar functions of position.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Concept</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Time-harmonic wave</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20V(%5Cmathbf%7Br%7D,t)=a(%5Cmathbf%7Br%7D)%5Ccos%5B%5Comega%20t-g(%5Cmathbf%7Br%7D)%5D"></td>
+<td style="text-align: left;">A real wave with a single angular frequency <img src="https://latex.codecogs.com/png.latex?%5Comega">.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Amplitude function</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?a(%5Cmathbf%7Br%7D)"></td>
+<td style="text-align: left;">Determines how the amplitude varies from point to point.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Phase function</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?g(%5Cmathbf%7Br%7D)"></td>
+<td style="text-align: left;">Determines the phase at different positions.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Constant-amplitude surfaces</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?a(%5Cmathbf%7Br%7D)=%5Ctext%7Bconstant%7D"></td>
+<td style="text-align: left;">Surfaces on which the amplitude is the same.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Cophasal surfaces</em></strong> or <strong><em>wave surfaces</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?g(%5Cmathbf%7Br%7D)=%5Ctext%7Bconstant%7D"></td>
+<td style="text-align: left;">Surfaces on which the phase is the same.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Inhomogeneous wave</em></strong></td>
+<td style="text-align: left;">Constant-amplitude surfaces do not generally coincide with cophasal surfaces.</td>
+<td style="text-align: left;">A wave whose amplitude and phase vary independently in space.</td>
+</tr>
+</tbody>
+</table>
+<p>To separate the time dependence from the spatial dependence, introduce a complex representative <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%20V"> and take its real part at the end: <img src="https://latex.codecogs.com/png.latex?%0A%5Cwidetilde%20V(%5Cmathbf%7Br%7D,t)=U(%5Cmathbf%7Br%7D)e%5E%7B-i%5Comega%20t%7D,%0A%5Cqquad%0AV(%5Cmathbf%7Br%7D,t)=%5Coperatorname%7BRe%7D%5C%7B%5Cwidetilde%20V(%5Cmathbf%7Br%7D,t)%5C%7D%0A"> The function <img src="https://latex.codecogs.com/png.latex?U(%5Cmathbf%7Br%7D)"> is the <strong><em>complex amplitude</em></strong>. It contains both the position-dependent amplitude and the position-dependent phase: <img src="https://latex.codecogs.com/png.latex?%0AU(%5Cmathbf%7Br%7D)=a(%5Cmathbf%7Br%7D)e%5E%7Big(%5Cmathbf%7Br%7D)%7D%0A"> Indeed, <img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BRe%7D%5C%7BU(%5Cmathbf%7Br%7D)e%5E%7B-i%5Comega%20t%7D%5C%7D%0A=a(%5Cmathbf%7Br%7D)%5Ccos%5B%5Comega%20t-g(%5Cmathbf%7Br%7D)%5D%0A"> so this complex representation gives exactly the real wave introduced above. The advantage is that differentiation with respect to time becomes multiplication by <img src="https://latex.codecogs.com/png.latex?-i%5Comega">.</p>
+<p>Because <img src="https://latex.codecogs.com/png.latex?e%5E%7B-i%5Comega%20t%7D"> does not depend on position, the spatial derivatives act only on <img src="https://latex.codecogs.com/png.latex?U">: <img src="https://latex.codecogs.com/png.latex?%0A%5Cnabla%5E2%5Cwidetilde%20V%0A=%5Cnabla%5E2%5Cleft(Ue%5E%7B-i%5Comega%20t%7D%5Cright)%0A=e%5E%7B-i%5Comega%20t%7D%5Cnabla%5E2U%0A"> The time derivatives are <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%5Cpartial%5Cwidetilde%20V%7D%7B%5Cpartial%20t%7D%0A=-i%5Comega%20Ue%5E%7B-i%5Comega%20t%7D%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%5Cpartial%5E2%5Cwidetilde%20V%7D%7B%5Cpartial%20t%5E2%7D%0A=(-i%5Comega)%5E2Ue%5E%7B-i%5Comega%20t%7D%0A=-%5Comega%5E2Ue%5E%7B-i%5Comega%20t%7D%0A"> Substituting these expressions into the scalar wave equation gives <img src="https://latex.codecogs.com/png.latex?%0Ae%5E%7B-i%5Comega%20t%7D%5Cnabla%5E2U%0A-%5Cfrac%7B1%7D%7Bv%5E2%7D%5Cleft(-%5Comega%5E2Ue%5E%7B-i%5Comega%20t%7D%5Cright)=0%0A"> Since <img src="https://latex.codecogs.com/png.latex?e%5E%7B-i%5Comega%20t%7D%5Cneq0">, it can be cancelled: <img src="https://latex.codecogs.com/png.latex?%0A%5Cnabla%5E2U+%5Cfrac%7B%5Comega%5E2%7D%7Bv%5E2%7DU=0%0A"> Using <img src="https://latex.codecogs.com/png.latex?n=c/v"> and <img src="https://latex.codecogs.com/png.latex?k_0=%5Comega/c">, this becomes the <strong><em>Helmholtz equation</em></strong> <img src="https://latex.codecogs.com/png.latex?%0A%5Cnabla%5E2U+n%5E2k_0%5E2U=0%0A"> For the plane wave, the spatial phase function is <img src="https://latex.codecogs.com/png.latex?%0Ag(%5Cmathbf%7Br%7D)%0A=%5Comega%5Cfrac%7B%5Cmathbf%7Br%7D%5Ccdot%5Cmathbf%7Bs%7D%7D%7Bv%7D-%5Cdelta%0A=k(%5Cmathbf%7Br%7D%5Ccdot%5Cmathbf%7Bs%7D)-%5Cdelta%0A=%5Cmathbf%7Bk%7D%5Ccdot%5Cmathbf%7Br%7D-%5Cdelta%0A"></p>
+</section>
+<section id="phase-velocity" class="level2">
+<h2 class="anchored" data-anchor-id="phase-velocity">Phase velocity</h2>
+<p>Unlike a plane harmonic wave, a general time-harmonic wave need not be periodic in space. Its phase is <img src="https://latex.codecogs.com/png.latex?%5Cphi(%5Cmathbf%7Br%7D,t)=%5Comega%20t-g(%5Cmathbf%7Br%7D)">, and a <strong><em>cophasal surface</em></strong> is defined by <img src="https://latex.codecogs.com/png.latex?g(%5Cmathbf%7Br%7D)=%5Ctext%7Bconstant%7D">. To find how fast this surface advances, compare two nearby points on the same surface: <img src="https://latex.codecogs.com/png.latex?%0A%5Comega%5C,dt-%5Cnabla%20g%5Ccdot%20d%5Cmathbf%7Br%7D=0%0A"> Let <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bq%7D"> be the unit vector in the direction of <img src="https://latex.codecogs.com/png.latex?d%5Cmathbf%7Br%7D">, and write <img src="https://latex.codecogs.com/png.latex?d%5Cmathbf%7Br%7D=%5Cmathbf%7Bq%7D%5C,ds">. The speed in this direction is therefore <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7Bds%7D%7Bdt%7D%0A=%5Cfrac%7B%5Comega%7D%7B%5Cmathbf%7Bq%7D%5Ccdot%5Cnabla%20g%7D%0A"> The cophasal surface advances normally to itself. Thus <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bq%7D"> is chosen parallel to <img src="https://latex.codecogs.com/png.latex?%5Cnabla%20g">, and the <strong><em>phase velocity</em></strong> is <img src="https://latex.codecogs.com/png.latex?%0Av%5E%7B(p)%7D(%5Cmathbf%7Br%7D)%0A=%5Cfrac%7B%5Comega%7D%7B%7C%5Cnabla%20g%7C%7D%0A"> For a plane wave, <img src="https://latex.codecogs.com/png.latex?%5Cnabla%20g=%5Cmathbf%7Bk%7D"> and <img src="https://latex.codecogs.com/png.latex?%7C%5Cnabla%20g%7C=k">. Hence <img src="https://latex.codecogs.com/png.latex?%0Av%5E%7B(p)%7D%0A=%5Cfrac%7B%5Comega%7D%7Bk%7D%0A=v%0A=%5Cfrac%7Bc%7D%7Bn%7D%0A"> If <img src="https://latex.codecogs.com/png.latex?n=%5Csqrt%7B%5Cepsilon%5Cmu%7D">, this can also be written as <img src="https://latex.codecogs.com/png.latex?v%5E%7B(p)%7D=c/%5Csqrt%7B%5Cepsilon%5Cmu%7D">. In a non-dispersive medium, this phase velocity is the constant speed appearing in the scalar wave equation; for a more general wave, it may vary from point to point.</p>
+</section>
+</section>
+<section id="wave-packets.-the-group-velocity" class="level1">
+<h1>Wave packets. The group velocity</h1>
+<p>An exactly <strong><em>monochromatic wave</em></strong> is an idealization. By the <strong><em>Fourier theorem</em></strong>, a sufficiently regular wave can be represented as a superposition of monochromatic waves with different frequencies: <img src="https://latex.codecogs.com/png.latex?%0AV(%5Cmathbf%7Br%7D,t)%0A=%5Cint_0%5E%5Cinfty%20a_%5Comega(%5Cmathbf%7Br%7D)%0A%5Ccos%5B%5Comega%20t-g_%5Comega(%5Cmathbf%7Br%7D)%5D%5C,d%5Comega%0A"> In complex notation, the same decomposition is written as <img src="https://latex.codecogs.com/png.latex?%0AV(%5Cmathbf%7Br%7D,t)%0A=%5Coperatorname%7BRe%7D%5Cleft%5C%7B%0A%5Cint_0%5E%5Cinfty%0Aa_%5Comega(%5Cmathbf%7Br%7D)%0Ae%5E%7B-i%5B%5Comega%20t-g_%5Comega(%5Cmathbf%7Br%7D)%5D%7D%5C,d%5Comega%0A%5Cright%5C%7D%0A"> A wave is <strong><em>almost monochromatic</em></strong> when its Fourier amplitudes are appreciable only in a narrow frequency interval: <img src="https://latex.codecogs.com/png.latex?%0A%5Cbar%7B%5Comega%7D-%5Cfrac%7B1%7D%7B2%7D%5CDelta%5Comega%0A%5Cleq%20%5Comega%20%5Cleq%0A%5Cbar%7B%5Comega%7D+%5Cfrac%7B1%7D%7B2%7D%5CDelta%5Comega,%0A%5Cqquad%0A%5Cfrac%7B%5CDelta%5Comega%7D%7B%5Cbar%7B%5Comega%7D%7D%5Cll1%0A"> To see how a <strong><em>wave packet</em></strong> is formed, consider two waves with nearby frequencies and wave numbers: <img src="https://latex.codecogs.com/png.latex?%0A%5Cwidetilde%20V(z,t)%0A=a%20e%5E%7B-i(%5Comega%20t-kz)%7D%0A+a%20e%5E%7B-i%5B(%5Comega+%5Cdelta%5Comega)t-(k+%5Cdelta%20k)z%5D%7D%0A"> Introducing the mean frequency and mean wave number, <img src="https://latex.codecogs.com/png.latex?%0A%5Cbar%7B%5Comega%7D=%5Comega+%5Cfrac%7B1%7D%7B2%7D%5Cdelta%5Comega,%0A%5Cqquad%0A%5Cbar%7Bk%7D=k+%5Cfrac%7B1%7D%7B2%7D%5Cdelta%20k%0A"> the superposition becomes <img src="https://latex.codecogs.com/png.latex?%0A%5Cwidetilde%20V(z,t)%0A=2a%5Ccos%5Cleft%5B%5Cfrac%7B1%7D%7B2%7D(%5Cdelta%5Comega%5C,t-%5Cdelta%20k%5C,z)%5Cright%5D%0Ae%5E%7B-i(%5Cbar%7B%5Comega%7Dt-%5Cbar%7Bk%7Dz)%7D%0A"> This factorization follows from <img src="https://latex.codecogs.com/png.latex?%0Ae%5E%7B-i%5Calpha%7D+e%5E%7B-i%5Cbeta%7D%0A=2%5Ccos%5Cleft(%5Cfrac%7B%5Calpha-%5Cbeta%7D%7B2%7D%5Cright)%0Ae%5E%7B-i(%5Calpha+%5Cbeta)/2%7D%0A"> with <img src="https://latex.codecogs.com/png.latex?%5Calpha=%5Comega%20t-kz"> and <img src="https://latex.codecogs.com/png.latex?%5Cbeta=(%5Comega+%5Cdelta%5Comega)t-(k+%5Cdelta%20k)z">. The sum of the two waves therefore separates into a slowly varying factor and a rapidly varying carrier.</p>
+<div class="quarto-embed-nb-cell">
+<div id="cell-fig-wave-group" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-08-01T19:21:02.756403Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-08-01T19:21:02.756066Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-08-01T19:21:03.011465Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-08-01T19:21:03.010863Z&quot;}}" data-tags="[&quot;fig-wave-group&quot;]" data-fig-width="9" data-fig-height="5.6" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div id="fig-wave-group" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wave-group-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://justcallitaction.cfd/posts/optics-notes/optics-notes-3/index_files/figure-html/optics-notes-3-fig-wave-group-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wave-group-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: A simple harmonic wave and a wave group formed by two nearby waves.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<a class="quarto-notebook-link" id="nblink-1" href="optics-notes-3-preview.html#cell-fig-wave-group">Source: Scalar waves</a></div>
+<p>In panel (a), the blue curve is the carrier wave <img src="https://latex.codecogs.com/png.latex?%0AV_a(z,t)=a%5Ccos(%5Cbar%7B%5Comega%7Dt-%5Cbar%7Bk%7Dz)%0A"> In panel (b), the red dashed curves are the positive and negative <strong><em>envelopes</em></strong>: <img src="https://latex.codecogs.com/png.latex?%0AV_%7B%5Cmathrm%7Benv%7D%7D%5E%7B+%7D(z,t)%0A=2a%5Ccos%5Cleft%5B%5Cfrac%7B1%7D%7B2%7D(%5Cdelta%5Comega%5C,t-%5Cdelta%20k%5C,z)%5Cright%5D,%0A%5Cqquad%0AV_%7B%5Cmathrm%7Benv%7D%7D%5E%7B-%7D(z,t)%0A=-2a%5Ccos%5Cleft%5B%5Cfrac%7B1%7D%7B2%7D(%5Cdelta%5Comega%5C,t-%5Cdelta%20k%5C,z)%5Cright%5D%0A"> The blue curve is the real wave inside these envelopes. In complex notation it is represented by <img src="https://latex.codecogs.com/png.latex?%0A%5Cwidetilde%20V_b(z,t)%0A=2a%5Ccos%5Cleft%5B%5Cfrac%7B1%7D%7B2%7D(%5Cdelta%5Comega%5C,t-%5Cdelta%20k%5C,z)%5Cright%5D%0Ae%5E%7B-i(%5Cbar%7B%5Comega%7Dt-%5Cbar%7Bk%7Dz)%7D%0A"> and the plotted physical wave is its real part, <img src="https://latex.codecogs.com/png.latex?%0AV_b(z,t)=%5Coperatorname%7BRe%7D%5C%7B%5Cwidetilde%20V_b(z,t)%5C%7D%0A=2a%5Ccos%5Cleft%5B%5Cfrac%7B1%7D%7B2%7D(%5Cdelta%5Comega%5C,t-%5Cdelta%20k%5C,z)%5Cright%5D%0A%5Ccos(%5Cbar%7B%5Comega%7Dt-%5Cbar%7Bk%7Dz)%0A"> The cosine factor is a slowly varying <strong><em>envelope</em></strong>, while the exponential factor is the rapidly oscillating carrier. The envelope maxima satisfy <img src="https://latex.codecogs.com/png.latex?%0A%5Cdelta%5Comega%5C,t-%5Cdelta%20k%5C,z=%5Ctext%7Bconstant%7D%0A"> so the envelope moves with <img src="https://latex.codecogs.com/png.latex?%0Av_%7B%5Cmathrm%20g%7D%0A=%5Cfrac%7B%5Cdelta%5Comega%7D%7B%5Cdelta%20k%7D%0A%5Clongrightarrow%0A%5Cfrac%7Bd%5Comega%7D%7Bdk%7D%0A"> This limiting value is the <strong><em>group velocity</em></strong>. It describes the motion of the wave packet or envelope, whereas the carrier moves with the <strong><em>phase velocity</em></strong> <img src="https://latex.codecogs.com/png.latex?v_%7B%5Cmathrm%7Bph%7D%7D=%5Comega/k">. In a dispersive medium, these two velocities are generally different.</p>
+<section id="one-dimensional-and-three-dimensional-wave-groups" class="level2">
+<h2 class="anchored" data-anchor-id="one-dimensional-and-three-dimensional-wave-groups">One-dimensional and three-dimensional wave groups</h2>
+<p>The one-dimensional result extends to a general three-dimensional wave. The intermediate steps are as follows.</p>
+<p>For the one-dimensional case, start from a narrow band of frequencies and write <img src="https://latex.codecogs.com/png.latex?%0A%5Cwidetilde%20V(z,t)%0A=%5Cint_%7B(%5CDelta%5Comega)%7D%0Aa_%5Comega%20e%5E%7B-i%5B%5Comega%20t-k(%5Comega)z%5D%7D%5C,d%5Comega%0A"> Taking <img src="https://latex.codecogs.com/png.latex?%5Cbar%7B%5Comega%7D"> as the mean frequency and <img src="https://latex.codecogs.com/png.latex?%5Cbar%7Bk%7D=k(%5Cbar%7B%5Comega%7D)">, factor out the mean oscillation: <img src="https://latex.codecogs.com/png.latex?%0A%5Cwidetilde%20V(z,t)%0A=A(z,t)e%5E%7B-i(%5Cbar%7B%5Comega%7Dt-%5Cbar%7Bk%7Dz)%7D%0A"> where the slowly varying <strong><em>complex amplitude</em></strong> is <img src="https://latex.codecogs.com/png.latex?%0AA(z,t)%0A=%5Cint_%7B(%5CDelta%5Comega)%7D%0Aa_%5Comega%0Ae%5E%7B-i%5B(%5Comega-%5Cbar%7B%5Comega%7D)t-(k(%5Comega)-%5Cbar%7Bk%7D)z%5D%7D%5C,d%5Comega%0A"> The amplitude of the wave group is determined by <img src="https://latex.codecogs.com/png.latex?%7CA%7C">. Because <img src="https://latex.codecogs.com/png.latex?A"> may be complex, its squared magnitude is obtained by multiplying it by its complex conjugate: <img src="https://latex.codecogs.com/png.latex?%0A%7CA(z,t)%7C%5E2=A(z,t)A%5E*(z,t)%0A"> The star means complex conjugation: <img src="https://latex.codecogs.com/png.latex?i"> changes to <img src="https://latex.codecogs.com/png.latex?-i">, and each coefficient <img src="https://latex.codecogs.com/png.latex?a_%5Comega"> is replaced by <img src="https://latex.codecogs.com/png.latex?a_%5Comega%5E*">. Thus <img src="https://latex.codecogs.com/png.latex?A%5E*"> is not a second physical wave; it is used to obtain the real, non-negative quantity <img src="https://latex.codecogs.com/png.latex?%7CA%7C%5E2">.</p>
+<p>The three-dimensional derivation has the same structure: <img src="https://latex.codecogs.com/png.latex?%0A%5Cwidetilde%20V(%5Cmathbf%7Br%7D,t)%0A=%5Cint_%7B(%5CDelta%5Comega)%7D%0Aa_%5Comega(%5Cmathbf%7Br%7D)%0Ae%5E%7B-i%5B%5Comega%20t-g_%5Comega(%5Cmathbf%7Br%7D)%5D%7D%5C,d%5Comega%0A=A(%5Cmathbf%7Br%7D,t)e%5E%7B-i%5B%5Cbar%7B%5Comega%7Dt-g_%7B%5Cbar%7B%5Comega%7D%7D(%5Cmathbf%7Br%7D)%5D%7D%0A"> where <img src="https://latex.codecogs.com/png.latex?%0AA(%5Cmathbf%7Br%7D,t)%0A=%5Cint_%7B(%5CDelta%5Comega)%7D%0Aa_%5Comega(%5Cmathbf%7Br%7D)%0Ae%5E%7B-i%5C%7B(%5Comega-%5Cbar%7B%5Comega%7D)t-%5Bg_%5Comega(%5Cmathbf%7Br%7D)-g_%7B%5Cbar%7B%5Comega%7D%7D(%5Cmathbf%7Br%7D)%5D%5C%7D%7D%5C,d%5Comega%0A"> Multiplying by the conjugate gives <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%7CA(%5Cmathbf%7Br%7D,t)%7C%5E2%0A&amp;=A(%5Cmathbf%7Br%7D,t)A%5E*(%5Cmathbf%7Br%7D,t)%5C%5C%0A&amp;=%5Cint_%7B(%5CDelta%5Comega)%7D%5Cint_%7B(%5CDelta%5Comega)%7D%0Aa_%5Comega(%5Cmathbf%7Br%7D)a_%7B%5Comega'%7D%5E*(%5Cmathbf%7Br%7D)%5C%5C%0A&amp;%5Cquad%5Ctimes%0Ae%5E%7B-i%5C%7B(%5Comega-%5Comega')t-%5Bg_%5Comega(%5Cmathbf%7Br%7D)-g_%7B%5Comega'%7D(%5Cmathbf%7Br%7D)%5D%5C%7D%7D%0A%5C,d%5Comega%5C,d%5Comega'%0A%5Cend%7Baligned%7D%0A"> For a narrow frequency interval, <img src="https://latex.codecogs.com/png.latex?%0Ag_%5Comega(%5Cmathbf%7Br%7D)-g_%7B%5Comega'%7D(%5Cmathbf%7Br%7D)%0A%5Capprox%0A(%5Comega-%5Comega')%0A%5Cleft(%5Cfrac%7B%5Cpartial%20g%7D%7B%5Cpartial%5Comega%7D%5Cright)_%7B%5Cbar%7B%5Comega%7D%7D%0A"> so the envelope depends mainly on <img src="https://latex.codecogs.com/png.latex?%0At-%5Cleft(%5Cfrac%7B%5Cpartial%20g%7D%7B%5Cpartial%5Comega%7D%5Cright)_%7B%5Cbar%7B%5Comega%7D%7D%0A"> This is the three-dimensional analogue of the one-dimensional envelope coordinate <img src="https://latex.codecogs.com/png.latex?t-(dk/d%5Comega)_%7B%5Cbar%7B%5Comega%7D%7Dz">.</p>
+<p>The resulting quantities can be compared as follows.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Quantity</th>
+<th style="text-align: left;">One-dimensional case</th>
+<th style="text-align: left;">Three-dimensional case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Complex representation</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20V(z,t)=A(z,t)e%5E%7B-i(%5Cbar%7B%5Comega%7Dt-%5Cbar%7Bk%7Dz)%7D"></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20V(%5Cmathbf%7Br%7D,t)=A(%5Cmathbf%7Br%7D,t)e%5E%7B-i%5B%5Cbar%7B%5Comega%7Dt-g(%5Cmathbf%7Br%7D)%5D%7D"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Constant-amplitude surface</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20t=%5Cleft(%5Cfrac%7Bdk%7D%7Bd%5Comega%7D%5Cright)_%7B%5Cbar%7B%5Comega%7D%7Dz"></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20t=%5Cleft%5B%5Cfrac%7B%5Cpartial%20g(%5Cmathbf%7Br%7D)%7D%7B%5Cpartial%5Comega%7D%5Cright%5D_%7B%5Cbar%7B%5Comega%7D%7D"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Group velocity</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20v_%7B%5Cmathrm%20g%7D=%5Cleft(%5Cfrac%7Bd%5Comega%7D%7Bdk%7D%5Cright)_%7B%5Cbar%7Bk%7D%7D"></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20v_%7B%5Cmathrm%20g%7D(%5Cmathbf%7Br%7D)=%5Cfrac%7B1%7D%7B%5Cleft%7C%5Cnabla%5Cleft(%5Cfrac%7B%5Cpartial%20g%7D%7B%5Cpartial%5Comega%7D%5Cright)_%7B%5Cbar%7B%5Comega%7D%7D%5Cright%7C%7D"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Phase velocity</em></strong></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20v_%7B%5Cmathrm%7Bph%7D%7D=%5Cfrac%7B%5Cbar%7B%5Comega%7D%7D%7B%5Cbar%7Bk%7D%7D"></td>
+<td style="text-align: left;"><img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20v_%7B%5Cmathrm%7Bph%7D%7D(%5Cmathbf%7Br%7D)=%5Cfrac%7B%5Cbar%7B%5Comega%7D%7D%7B%7C%5Cnabla%20g%7C_%7B%5Cbar%7B%5Comega%7D%7D%7D"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Main difference</td>
+<td style="text-align: left;">The wave varies along one spatial coordinate <img src="https://latex.codecogs.com/png.latex?z">.</td>
+<td style="text-align: left;">The amplitude and phase vary throughout space, so gradients determine the propagation direction and speed.</td>
+</tr>
+</tbody>
+</table>
+<p>In the three-dimensional case, the <strong><em>group velocity</em></strong> is normal to the constant-amplitude surface. When the wave depends only on <img src="https://latex.codecogs.com/png.latex?z">, the gradient reduces to an ordinary derivative and the three-dimensional expression becomes the one-dimensional result.</p>
 
 
+</section>
+</section>
 
  ]]></description>
   <category>optics</category>
@@ -172,7 +458,26 @@ Figure&nbsp;1: Derivation of boundary conditions for the <strong>tangential</str
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1785340800000" data-listing-file-modified-sort="1785420087765" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1785683555851" data-listing-reading-time-sort="1" data-listing-word-count-sort="96">
+<div class="thumbnail"><a href="../../posts/optics-notes/optics-notes-3/optics-notes-3.html" class="no-external">
+
+<!-- img(9CEB782EFEE6)[progressive=false, height=, lazy=true]:listing:posts/optics-notes/optics-notes-3/optics-notes-3.html -->
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../posts/optics-notes/optics-notes-3/optics-notes-3.html" class="no-external">Scalar waves</a>
+</h3>
+<div class="delink listing-description"><a href="../../posts/optics-notes/optics-notes-3/optics-notes-3.html" class="no-external">
+<!-- desc(5A0113B34292)[max=175]:posts/optics-notes/optics-notes-3/optics-notes-3.html -->
+</a></div>
+</div>
+<div class="metadata">
+<a href="../../posts/optics-notes/optics-notes-3/optics-notes-3.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1785340800000" data-listing-file-modified-sort="1785683585919" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2200">
 <div class="thumbnail"><a href="../../posts/optics-notes/optics-notes-3/index.html" class="no-external">
 
 <img loading="lazy" src="https://justcallitaction.cfd/posts/optics-notes/optics-notes-3/Scalar waves.webp" class="thumbnail-image">
@@ -197,7 +502,7 @@ Qi Huang
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1785254400000" data-listing-file-modified-sort="1785419649621" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1152">
+<div class="quarto-post image-right" data-index="2" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1785254400000" data-listing-file-modified-sort="1785419649621" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1152">
 <div class="thumbnail"><a href="../../posts/optics-notes/optics-notes-2/index.html" class="no-external">
 
 <img loading="lazy" src="https://justcallitaction.cfd/posts/optics-notes/optics-notes-2/The wave equation and the velocity of light.webp" class="thumbnail-image">
@@ -222,7 +527,7 @@ Qi Huang
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1784649600000" data-listing-file-modified-sort="1785419649620" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1505">
+<div class="quarto-post image-right" data-index="3" data-categories="b3B0aWNzJTJDbm90ZXMlMkNwaHlzaWNz" data-listing-date-sort="1784649600000" data-listing-file-modified-sort="1785419649620" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1505">
 <div class="thumbnail"><a href="../../posts/optics-notes/optics-notes-1/index.html" class="no-external">
 
 <img loading="lazy" src="https://justcallitaction.cfd/posts/optics-notes/optics-notes-1/Electromagnetic Field.webp" class="thumbnail-image">
@@ -255,6 +560,750 @@ Qi Huang
   <guid>https://justcallitaction.cfd/posts/optics-notes/</guid>
   <pubDate>Tue, 21 Jul 2026 16:00:00 GMT</pubDate>
   <media:content url="https://justcallitaction.cfd/posts/optics-notes/Dispersive prism.webp" medium="image" type="image/webp"/>
+</item>
+<item>
+  <title>Scalar waves</title>
+  <link>https://justcallitaction.cfd/posts/optics-notes/optics-notes-3/optics-notes-3.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="wave-packets" class="level2">
+<h2 class="anchored" data-anchor-id="wave-packets">Wave packets</h2>
+<p>This figure shows a simple harmonic wave and the wave group formed by two nearby waves. The upper panel contains the carrier wave, while the lower panel contains the wave group and its positive and negative envelopes.</p>
+<p>For two nearby waves, the wave group can be written schematically as</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AV_%7B%5Cmathrm%7Bgroup%7D%7D(z,t)%20=%202a%5Ccos%5Cleft%5B%5Cfrac%7B1%7D%7B2%7D(%5CDelta%5Comega%5C,t-%5CDelta%20k%5C,z)%5Cright%5D%5Ccos(%5Cbar%5Comega%20t-%5Cbar%20k%20z).%0A"></p>
+<section id="parameters-and-wave-functions" class="level3">
+<h3 class="anchored" data-anchor-id="parameters-and-wave-functions">Parameters and wave functions</h3>
+<p>The following code defines the spatial grid and evaluates the carrier, envelope, and wave group at a chosen time.</p>
+<div id="wave-functions" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-08-01T19:21:02.336041Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-08-01T19:21:02.335926Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-08-01T19:21:02.753779Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-08-01T19:21:02.752673Z&quot;}}" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> plt</span>
+<span id="cb1-3"></span>
+<span id="cb1-4"></span>
+<span id="cb1-5">a <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.0</span></span>
+<span id="cb1-6"></span>
+<span id="cb1-7">omega_bar <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.0</span>       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># central angular frequency</span></span>
+<span id="cb1-8">k_bar <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.0</span>           <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># central wave number</span></span>
+<span id="cb1-9"></span>
+<span id="cb1-10">delta_omega <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.8</span>     <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># frequency difference</span></span>
+<span id="cb1-11">delta_k <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.8</span>         <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># wave-number difference</span></span>
+<span id="cb1-12"></span>
+<span id="cb1-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Use x as a generic coordinate: t (or z).</span></span>
+<span id="cb1-14">x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.linspace(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> np.pi, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2500</span>)</span>
+<span id="cb1-15"></span>
+<span id="cb1-16"></span>
+<span id="cb1-17"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> calculate_waves(x):</span>
+<span id="cb1-18">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""Calculate the carrier, envelope, and wave group along x."""</span></span>
+<span id="cb1-19"></span>
+<span id="cb1-20">    phase <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> omega_bar <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> x</span>
+<span id="cb1-21">    envelope_phase <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> delta_omega <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> x</span>
+<span id="cb1-22"></span>
+<span id="cb1-23">    carrier <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> a <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> np.cos(phase)</span>
+<span id="cb1-24">    envelope <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> a <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> np.cos(envelope_phase)</span>
+<span id="cb1-25">    wave_group <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> envelope <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> np.cos(phase)</span>
+<span id="cb1-26"></span>
+<span id="cb1-27">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> carrier, envelope, wave_group</span></code></pre></div></div>
+</div>
+</section>
+<section id="initial-state" class="level3">
+<h3 class="anchored" data-anchor-id="initial-state">Initial state</h3>
+<p>The static figure below is the PNG output embedded in the article. It contains no Plotly or animation data.</p>
+<div id="cell-fig-wave-group" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-08-01T19:21:02.756403Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-08-01T19:21:02.756066Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-08-01T19:21:03.011465Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-08-01T19:21:03.010863Z&quot;}}" data-tags="[&quot;fig-wave-group&quot;]" data-fig-width="9" data-fig-height="5.6" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">carrier, envelope, wave_group <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> calculate_waves(x)</span>
+<span id="cb2-2"></span>
+<span id="cb2-3">fig, axes <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> plt.subplots(</span>
+<span id="cb2-4">    <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,</span>
+<span id="cb2-5">    <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,</span>
+<span id="cb2-6">    figsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.6</span>),</span>
+<span id="cb2-7">    sharex<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>,</span>
+<span id="cb2-8">    gridspec_kw<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>{<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"height_ratios"</span>: [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.38</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.62</span>]},</span>
+<span id="cb2-9">)</span>
+<span id="cb2-10"></span>
+<span id="cb2-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># (a) Simple harmonic wave</span></span>
+<span id="cb2-12">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>].plot(x, carrier, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#1f77b4"</span>, linewidth<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.5</span>)</span>
+<span id="cb2-13">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>].set_ylabel(<span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">V</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb2-14">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>].set_ylim(<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.35</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.55</span>)</span>
+<span id="cb2-15">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>].set_yticks([<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>a, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, a])</span>
+<span id="cb2-16">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>].set_yticklabels([<span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">-a</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">0</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">a</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>])</span>
+<span id="cb2-17">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>].axhline(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"black"</span>, linewidth<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.7</span>)</span>
+<span id="cb2-18">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>].text(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.985</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.88</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"(a)"</span>, transform<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>].transAxes, ha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"right"</span>)</span>
+<span id="cb2-19"></span>
+<span id="cb2-20"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># (b) Wave group and envelopes</span></span>
+<span id="cb2-21">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].plot(x, wave_group, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#1f77b4"</span>, linewidth<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.2</span>)</span>
+<span id="cb2-22">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].plot(x, envelope, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#d62728"</span>, linestyle<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"--"</span>, linewidth<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.2</span>)</span>
+<span id="cb2-23">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].plot(x, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>envelope, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#d62728"</span>, linestyle<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"--"</span>, linewidth<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.2</span>)</span>
+<span id="cb2-24">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].set_xlabel(<span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">t</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">(</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">or </span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">z</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb2-25">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].set_ylabel(<span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">V</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb2-26">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].set_ylim(<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.3</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.45</span>)</span>
+<span id="cb2-27">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].set_yticks([<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> a, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>a, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, a, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> a])</span>
+<span id="cb2-28">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].set_yticklabels([<span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">-2a</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">-a</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">0</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">a</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">2a</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>])</span>
+<span id="cb2-29">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].axhline(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"black"</span>, linewidth<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.7</span>)</span>
+<span id="cb2-30">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].text(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.985</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.98</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"(b)"</span>, transform<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].transAxes, ha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"right"</span>, va<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"top"</span>)</span>
+<span id="cb2-31"></span>
+<span id="cb2-32"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> axis <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> axes:</span>
+<span id="cb2-33">    axis.set_xlim(x.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">min</span>(), x.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">max</span>())</span>
+<span id="cb2-34">    axis.grid(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>)</span>
+<span id="cb2-35"></span>
+<span id="cb2-36"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Put x-axis ticks at the envelope zeros.</span></span>
+<span id="cb2-37">envelope_zero_positions <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> np.arange(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> np.pi <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> delta_omega</span>
+<span id="cb2-38">envelope_zero_positions <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> envelope_zero_positions[</span>
+<span id="cb2-39">    envelope_zero_positions <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> x.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">max</span>()</span>
+<span id="cb2-40">]</span>
+<span id="cb2-41"></span>
+<span id="cb2-42">x_ticks <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.concatenate(([<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>], envelope_zero_positions))</span>
+<span id="cb2-43">x_labels <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">0</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> [</span>
+<span id="cb2-44">    <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">rf"</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\f</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">rac</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{{</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">pi</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">}}{{</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\d</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">elta</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">omega</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">}}</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-45">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(envelope_zero_positions))</span>
+<span id="cb2-46">]</span>
+<span id="cb2-47">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].set_xticks(x_ticks)</span>
+<span id="cb2-48">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].set_xticklabels(x_labels)</span>
+<span id="cb2-49"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> tick <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].get_xticklabels():</span>
+<span id="cb2-50">    tick.set_fontsize(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>)</span>
+<span id="cb2-51">    tick.set_fontweight(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bold"</span>)</span>
+<span id="cb2-52"></span>
+<span id="cb2-53"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># The distance between adjacent envelope zeros is 2*pi/delta_omega.</span></span>
+<span id="cb2-54">axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].text(</span>
+<span id="cb2-55">    <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>,</span>
+<span id="cb2-56">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.28</span>,</span>
+<span id="cb2-57">    <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"adjacent zeros: </span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\f</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">rac{2</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">pi}{</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\d</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">elta</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">omega}</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">(</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">or </span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\f</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">rac{2</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">pi}{</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\d</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">elta k}</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>,</span>
+<span id="cb2-58">    transform<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>axes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].transAxes,</span>
+<span id="cb2-59">    ha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"center"</span>,</span>
+<span id="cb2-60">    va<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"top"</span>,</span>
+<span id="cb2-61">    fontsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>,</span>
+<span id="cb2-62">)</span>
+<span id="cb2-63"></span>
+<span id="cb2-64">fig.tight_layout(rect<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.06</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>])</span>
+<span id="cb2-65">plt.show()</span></code></pre></div></div>
+<div class="cell-output cell-output-display">
+<div id="fig-wave-group" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wave-group-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://justcallitaction.cfd/posts/optics-notes/optics-notes-3/optics-notes-3_files/figure-html/fig-wave-group-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wave-group-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: A simple harmonic wave and a wave group formed by two nearby waves.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <guid>https://justcallitaction.cfd/posts/optics-notes/optics-notes-3/optics-notes-3.html</guid>
+  <pubDate>Sun, 02 Aug 2026 15:14:25 GMT</pubDate>
 </item>
 </channel>
 </rss>

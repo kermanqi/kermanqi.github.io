@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../styles.css">
 </head>
@@ -164,8 +193,25 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#plane-waves" id="toc-plane-waves" class="nav-link active" data-scroll-target="#plane-waves">Plane waves</a></li>
+  <li><a href="#spherical-waves" id="toc-spherical-waves" class="nav-link" data-scroll-target="#spherical-waves">Spherical waves</a></li>
+  <li><a href="#harmonic-waves.-the-phase-velocity" id="toc-harmonic-waves.-the-phase-velocity" class="nav-link" data-scroll-target="#harmonic-waves.-the-phase-velocity">Harmonic waves. The phase velocity</a>
+  <ul class="collapse">
+  <li><a href="#harmonic-waves" id="toc-harmonic-waves" class="nav-link" data-scroll-target="#harmonic-waves">Harmonic waves</a></li>
+  <li><a href="#complex-amplitudes" id="toc-complex-amplitudes" class="nav-link" data-scroll-target="#complex-amplitudes">Complex amplitudes</a></li>
+  <li><a href="#phase-velocity" id="toc-phase-velocity" class="nav-link" data-scroll-target="#phase-velocity">Phase velocity</a></li>
+  </ul></li>
+  <li><a href="#wave-packets.-the-group-velocity" id="toc-wave-packets.-the-group-velocity" class="nav-link" data-scroll-target="#wave-packets.-the-group-velocity">Wave packets. The group velocity</a>
+  <ul class="collapse">
+  <li><a href="#one-dimensional-and-three-dimensional-wave-groups" id="toc-one-dimensional-and-three-dimensional-wave-groups" class="nav-link" data-scroll-target="#one-dimensional-and-three-dimensional-wave-groups">One-dimensional and three-dimensional wave groups</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="optics-notes-3-preview.html"><i class="bi bi-journal-code"></i>Scalar waves</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -174,8 +220,573 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<p>We briefly examine the simplest solution of this equation. <span class="math display">\[
+\nabla^2 V - \frac{1}{v^2}\frac{\partial^2 V}{\partial t^2} = 0
+\]</span></p>
+<section id="plane-waves" class="level1">
+<h1>Plane waves</h1>
+<p>A plane wave is a wave whose amplitude is constant on every plane perpendicular to a fixed propagation direction. The field can therefore change as we move along the direction of propagation, but it has the same value at all points on one such plane.</p>
+<div id="fig-boundary-conditions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-boundary-conditions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Plane wave.png" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boundary-conditions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Propagation of a plane wave.
+</figcaption>
+</figure>
+</div>
+<p>Let <span class="math inline">\(\mathbf{s}\)</span> be a unit vector in the fixed propagation direction, and let <span class="math inline">\(\mathbf{r}\)</span> be the position vector of a point <span class="math inline">\(P\)</span>. The scalar <span class="math inline">\(\mathbf{r}\cdot\mathbf{s}\)</span> measures the position of <span class="math inline">\(P\)</span> along <span class="math inline">\(\mathbf{s}\)</span>. We denote this coordinate by <span class="math inline">\(\xi\)</span>.</p>
+<p><span class="math display">\[
+V = V(\mathbf{r} \cdot \mathbf{s}, t)
+\]</span></p>
+<p>This form expresses the defining property of a plane wave: the field depends on position only through <span class="math inline">\(\xi\)</span>, rather than on the three Cartesian coordinates independently. Consequently, all points satisfying <span class="math inline">\(\mathbf{r}\cdot\mathbf{s}=\xi\)</span> have the same value of <span class="math inline">\(V\)</span> at a fixed time. These points form a plane whose normal is <span class="math inline">\(\mathbf{s}\)</span>.</p>
+<p><span class="math display">\[
+\mathbf{r} \cdot \mathbf{s} = \xi
+\]</span> <span class="math display">\[
+\mathbf{r} = (x,y,z) \qquad \mathbf{s} = (s_x,s_y,s_z)
+\]</span> <span class="math display">\[
+\xi = xs_x + ys_y + zs_z
+\]</span> Because <span class="math inline">\(V\)</span> depends on <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, and <span class="math inline">\(z\)</span> only through the single variable <span class="math inline">\(\xi\)</span>, its Cartesian derivatives can be found by the chain rule. For example, changing <span class="math inline">\(x\)</span> changes <span class="math inline">\(\xi\)</span> at the rate <span class="math inline">\(s_x\)</span>, which gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial V}{\partial x} &amp;= \frac{\partial V}{\partial \xi} \frac{\partial \xi}{\partial x} \\
+&amp;= \frac{\partial V}{\partial \xi} \frac{\partial (xs_x + ys_y + zs_z)}{\partial x} \\
+&amp;= s_x \frac{\partial V}{\partial \xi}
+\end{aligned}
+\]</span> <span class="math display">\[
+\frac{\partial}{\partial x} = s_x \frac{\partial}{\partial \xi}, \quad
+\frac{\partial}{\partial y} = s_y \frac{\partial}{\partial \xi}, \quad
+\frac{\partial}{\partial z} = s_z \frac{\partial}{\partial \xi}
+\]</span></p>
+<p>Applying the same relation twice gives the second derivatives. Since <span class="math inline">\(\mathbf{s}\)</span> is a fixed vector, its components are constants and can be taken outside the derivatives.</p>
+<p><span class="math display">\[
+\frac{\partial^2 V}{\partial x^2}
+=
+\frac{\partial}{\partial x}
+\left(
+s_x\frac{\partial V}{\partial \xi}
+\right)
+=
+s_x\frac{\partial}{\partial x}
+\left(
+\frac{\partial V}{\partial \xi}
+\right)
+=s_x^2 \frac{\partial^2 V}{\partial \xi^2}
+\]</span> <span class="math display">\[
+\nabla^2V=(s_x^2+s_y^2+s_z^2) \frac{\partial^2 V}{\partial \xi^2}=\frac{\partial^2 V}{\partial \xi^2}
+\]</span> The unit-vector condition <span class="math inline">\(s_x^2+s_y^2+s_z^2=1\)</span> is what reduces the three-dimensional Laplacian to a one-dimensional second derivative along the propagation direction. The wave equation therefore becomes</p>
+<p><span class="math display">\[
+\frac{\partial^2 V}{\partial \xi^2} - \frac{1}{v^2}\frac{\partial ^2 V}{\partial t^2} = 0
+\]</span> To solve this one-dimensional equation, introduce the characteristic variables</p>
+<p><span class="math display">\[
+\xi - v t = p, \qquad \xi + v t = q
+\]</span> The variables <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> move in opposite directions when time increases. They are useful because the wave equation separates naturally into a part depending only on <span class="math inline">\(p\)</span> and a part depending only on <span class="math inline">\(q\)</span>. <span class="math display">\[
+\begin{aligned}
+\frac{\partial V}{\partial \xi}
+&amp;= \frac{\partial V}{\partial p} \frac{\partial p}{\partial \xi}
++ \frac{\partial V}{\partial q} \frac{\partial q}{\partial \xi}\\
+&amp;= \frac{\partial V}{\partial p}
++ \frac{\partial V}{\partial q}
+\end{aligned}
+\]</span> <span class="math display">\[
+\begin{aligned}
+\frac{\partial^2 V}{\partial \xi^2}
+&amp;= (\frac{\partial}{\partial p} + \frac{\partial}{\partial q})
+(\frac{\partial V}{\partial p} + \frac{\partial V}{\partial q})\\
+&amp;= \frac{\partial^2 V}{\partial p^2} +2 \frac{\partial^2 V}{\partial p \partial q} +\frac{\partial^2 V}{\partial q^2}
+\end{aligned}
+\]</span> <span class="math display">\[
+\begin{aligned}
+\frac{\partial V}{\partial t}
+&amp;= \frac{\partial V}{\partial p} \frac{\partial p}{\partial t}
++ \frac{\partial V}{\partial q} \frac{\partial q}{\partial t}\\
+&amp;= -v \frac{\partial V}{\partial p}
++ v \frac{\partial V}{\partial q}
+\end{aligned}
+\]</span> <span class="math display">\[
+\begin{aligned}
+\frac{\partial^2 V}{\partial t^2}
+&amp;= (-v\partial_p+v\partial_q)
+(-v V_p+v V_q)\\
+&amp;= v^2 (\frac{\partial^2 V}{\partial p^2} -2 \frac{\partial^2 V}{\partial p \partial q} +\frac{\partial^2 V}{\partial q^2})
+\end{aligned}
+\]</span> Substituting these derivatives into the reduced wave equation, the terms involving only <span class="math inline">\(p\)</span> and only <span class="math inline">\(q\)</span> cancel, leaving</p>
+<p><span class="math display">\[
+\frac{\partial^2 V}{\partial p \partial q} = 0
+\]</span> This condition says that the <span class="math inline">\(p\)</span>-dependent and <span class="math inline">\(q\)</span>-dependent parts are independent of one another. Integrating with respect to the two variables gives the general solution</p>
+<p><span class="math display">\[
+\begin{aligned}
+V &amp;= V_1(p) + V_2 (q)\\
+&amp;= V_1(\mathbf{r} \cdot \mathbf{s} - v t)
++ V_2(\mathbf{r} \cdot \mathbf{s} + v t)
+\end{aligned}
+\]</span> Here <span class="math inline">\(V_1\)</span> represents a disturbance propagated with velocity <span class="math inline">\(v\)</span> in the positive <span class="math inline">\(\xi\)</span> direction, while <span class="math inline">\(V_2\)</span> represents a disturbance propagated with the same speed in the negative <span class="math inline">\(\xi\)</span> direction. A plane wave travelling in only one direction is obtained by setting the other function to zero.</p>
+</section>
+<section id="spherical-waves" class="level1">
+<h1>Spherical waves</h1>
+<p>A spherical wave has spherical wavefronts centered on the source. Its amplitude is the same at every point on a sphere of radius <span class="math inline">\(r\)</span>, so the field depends on position only through the distance from the source, rather than through the direction of <span class="math inline">\(\mathbf{r}\)</span>. We consider the region <span class="math inline">\(r&gt;0\)</span>, away from the source itself. <span class="math display">\[
+V=V(r,t)
+\]</span> Here <span class="math inline">\(r=|\mathbf{r}|=\sqrt{x^2+y^2+z^2}\)</span>. Since <span class="math inline">\(r\)</span> depends on all three Cartesian coordinates, the derivatives of <span class="math inline">\(V\)</span> can again be obtained with the chain rule. <span class="math display">\[
+\frac{\partial}{\partial x}
+= \frac{\partial}{\partial r} \frac{\partial r}{\partial x}
+= \frac{x}{r}\frac{\partial}{\partial r}
+\]</span> The factor <span class="math inline">\(x/r\)</span> is the directional derivative of the radial coordinate with respect to <span class="math inline">\(x\)</span>. It is the <span class="math inline">\(x\)</span>-component of the unit vector pointing away from the source. <span class="math display">\[
+\begin{aligned}
+\frac{\partial^2 V}{\partial x^2}
+&amp;=\frac{\partial}{\partial x}(\frac{x}{r}\frac{\partial V}{\partial r})
+\\
+&amp;=\frac{r-x\frac{x}{r}}{r^2}\frac{\partial V}{\partial r}
++ \frac{x^2}{r^2}\frac{\partial^2 V}{\partial r^2}
+\\
+&amp;=\frac{r^2-x^2}{r^3}\frac{\partial V}{\partial r}
++ \frac{x^2}{r^2}\frac{\partial^2 V}{\partial r^2}
+\end{aligned}
+\]</span> The corresponding expressions for the <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> derivatives are obtained by cyclic permutation of the coordinates. Adding the three second derivatives gives the Laplacian for a spherically symmetric field: <span class="math display">\[
+\begin{aligned}
+\nabla^2V
+&amp;=\frac{\partial^2 V}{\partial x^2}+\frac{\partial^2 V}{\partial y^2}+\frac{\partial^2 V}{\partial z^2}
+\\
+&amp;=\frac{3r^2-x^2-y^2-z^2}{r^3}\frac{\partial V}{\partial r}
++ \frac{x^2+y^2+z^2}{r^2}\frac{\partial^2 V}{\partial r^2}
+\\
+&amp;=\frac{2}{r}\frac{\partial V}{\partial r}
++ \frac{\partial^2 V}{\partial r^2}
+\\
+&amp;=\frac{1}{r}(2\frac{\partial V}{\partial r}
++r\frac{\partial^2 V}{\partial r^2})
+\end{aligned}
+\]</span> The first term describes the change in the radial slope as the spherical surface expands, while the second term is the ordinary second derivative in the radial direction. The expression can be simplified by introducing the product <span class="math inline">\(rV\)</span>. <span class="math display">\[
+\frac{\partial}{\partial r}(rV)
+= V + r \frac{\partial V}{\partial r}
+\]</span> <span class="math display">\[
+\begin{aligned}
+\frac{\partial^2}{\partial r^2}(rV)
+&amp;= \frac{\partial V}{\partial r}
++ \frac{\partial V}{\partial r}
++ r\frac{\partial^2 V}{\partial r^2}
+\\
+&amp;=2\frac{\partial V}{\partial r}
++ r\frac{\partial^2 V}{\partial r^2}
+\end{aligned}
+\]</span> <span class="math display">\[
+\nabla^2V = \frac{1}{r}\frac{\partial^2}{\partial r^2}(rV)
+\]</span> Thus the three-dimensional Laplacian has been reduced to a one-dimensional second derivative of <span class="math inline">\(rV\)</span>. Substituting this result into the scalar wave equation gives <span class="math display">\[
+\frac{1}{r}\frac{\partial^2}{\partial r^2}(rV) -  \frac{1}{v^2}\frac{\partial^2 V}{\partial t^2} = 0
+\]</span> Multiplying by <span class="math inline">\(r\)</span> and using the fact that <span class="math inline">\(r\)</span> is independent of time, the equation for <span class="math inline">\(rV\)</span> has exactly the same form as the one-dimensional plane-wave equation. We can therefore replace <span class="math inline">\(\xi\)</span> by <span class="math inline">\(r\)</span> and <span class="math inline">\(V\)</span> by <span class="math inline">\(rV\)</span> in the previous solution: <span class="math display">\[
+V = \frac{V_1(r-vt)}{r} + \frac{V_2(r+vt)}{r}
+\]</span> The first term is an outward-propagating spherical wave and the second is an inward-propagating one. The factor <span class="math inline">\(1/r\)</span> expresses the geometric spreading of the wave: as the radius increases, the same disturbance is distributed over a larger spherical surface, so its amplitude decreases.</p>
+</section>
+<section id="harmonic-waves.-the-phase-velocity" class="level1">
+<h1>Harmonic waves. The phase velocity</h1>
+<section id="harmonic-waves" class="level2">
+<h2 class="anchored" data-anchor-id="harmonic-waves">Harmonic waves</h2>
+<p>A fixed point <span class="math inline">\(\mathbf{r}_0\)</span> sees the wave disturbance as a function of time only: <span class="math display">\[
+V(\mathbf{r}_0,t)=F(t)
+\]</span> For a periodic disturbance, the simplest important case is the sinusoidal function <span id="eq-harmonic"><span class="math display">\[
+F(t)=a\cos(\omega t+\delta)
+\tag{1}\]</span></span> The quantities introduced in this expression are collected below.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Concept</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Fixed-point disturbance</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(V(\mathbf{r}_0,t)=F(t)\)</span></td>
+<td style="text-align: left;">At a fixed position, the disturbance depends only on time.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Periodic disturbance</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(F(t+T)=F(t)\)</span></td>
+<td style="text-align: left;">The disturbance repeats after every period <span class="math inline">\(T\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Amplitude</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(a&gt;0\)</span></td>
+<td style="text-align: left;">The maximum value of the disturbance.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Phase</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\omega t+\delta\)</span></td>
+<td style="text-align: left;">The instantaneous position of the oscillation within one cycle.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Initial phase</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\delta\)</span></td>
+<td style="text-align: left;">The phase at <span class="math inline">\(t=0\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Angular frequency</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\omega\)</span></td>
+<td style="text-align: left;">The phase change per unit time, measured in radians per second.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Period</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: left;">The time required for one complete vibration.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Frequency</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \nu=\frac{\omega}{2\pi}=\frac{1}{T}\)</span></td>
+<td style="text-align: left;">The number of complete vibrations per second.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Harmonic wave</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(F(t)=a\cos(\omega t+\delta)\)</span></td>
+<td style="text-align: left;">A wave whose time dependence is sinusoidal.</td>
+</tr>
+</tbody>
+</table>
+<p>For a plane wave travelling in the direction of the unit vector <span class="math inline">\(\mathbf{s}\)</span> with speed <span class="math inline">\(v\)</span>, replace <span class="math inline">\(t\)</span> by the retarded time <span class="math inline">\(t-\mathbf{r}\cdot\mathbf{s}/v\)</span>. This gives <span class="math display">\[
+V(\mathbf{r},t)
+=a\cos\left[\omega\left(t-\frac{\mathbf{r}\cdot\mathbf{s}}{v}\right)+\delta\right]
+\]</span> The quantities describing its spatial variation are summarized in the following table.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Concept</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Plane harmonic wave</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle V(\mathbf{r},t)=a\cos\left[\omega\left(t-\frac{\mathbf{r}\cdot\mathbf{s}}{v}\right)+\delta\right]\)</span></td>
+<td style="text-align: left;">A harmonic wave travelling in the direction <span class="math inline">\(\mathbf{s}\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Wavelength</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \lambda=vT=\frac{2\pi v}{\omega}\)</span></td>
+<td style="text-align: left;">The distance over which the phase changes by <span class="math inline">\(2\pi\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Refractive index</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle n=\frac{c}{v}\)</span></td>
+<td style="text-align: left;">The ratio of the speed of light in vacuum to its speed in the medium.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Reduced wavelength</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \lambda_0=cT=n\lambda\)</span></td>
+<td style="text-align: left;">The wavelength of a wave with the same frequency in vacuum.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Wave number</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \kappa=\frac{1}{\lambda_0}=\frac{\nu}{c}\)</span></td>
+<td style="text-align: left;">The number of wavelengths in vacuum per unit length.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Vacuum wave number</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle k_0=2\pi\kappa=\frac{2\pi}{\lambda_0}=\frac{\omega}{c}\)</span></td>
+<td style="text-align: left;">The phase change per unit length in vacuum.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Medium wave number</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle k=nk_0=\frac{2\pi}{\lambda}=\frac{n\omega}{c}=\frac{\omega}{v}\)</span></td>
+<td style="text-align: left;">The phase change per unit length in the medium.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Wave vectors</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\mathbf{k}=k\mathbf{s}\)</span> and <span class="math inline">\(\mathbf{k}_0=k_0\mathbf{s}\)</span></td>
+<td style="text-align: left;">Vectors pointing in the propagation direction, with magnitudes <span class="math inline">\(k\)</span> and <span class="math inline">\(k_0\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Path length</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle l=\frac{v}{\omega}\delta=\frac{\lambda}{2\pi}\delta=\frac{\lambda_0}{2\pi n}\delta\)</span></td>
+<td style="text-align: left;">The distance equivalent to a phase difference <span class="math inline">\(\delta\)</span>.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="complex-amplitudes" class="level2">
+<h2 class="anchored" data-anchor-id="complex-amplitudes">Complex amplitudes</h2>
+<p>A plane wave has constant amplitude on each wavefront. More generally, a real <strong><em>time-harmonic wave</em></strong> can have both amplitude and phase varying with position: <span class="math display">\[
+V(\mathbf{r},t)=a(\mathbf{r})\cos[\omega t-g(\mathbf{r})]
+\]</span> Here <span class="math inline">\(a(\mathbf{r})&gt;0\)</span> and <span class="math inline">\(g(\mathbf{r})\)</span> are real scalar functions of position.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Concept</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Time-harmonic wave</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle V(\mathbf{r},t)=a(\mathbf{r})\cos[\omega t-g(\mathbf{r})]\)</span></td>
+<td style="text-align: left;">A real wave with a single angular frequency <span class="math inline">\(\omega\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Amplitude function</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(a(\mathbf{r})\)</span></td>
+<td style="text-align: left;">Determines how the amplitude varies from point to point.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Phase function</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(g(\mathbf{r})\)</span></td>
+<td style="text-align: left;">Determines the phase at different positions.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Constant-amplitude surfaces</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(a(\mathbf{r})=\text{constant}\)</span></td>
+<td style="text-align: left;">Surfaces on which the amplitude is the same.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Cophasal surfaces</em></strong> or <strong><em>wave surfaces</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(g(\mathbf{r})=\text{constant}\)</span></td>
+<td style="text-align: left;">Surfaces on which the phase is the same.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Inhomogeneous wave</em></strong></td>
+<td style="text-align: left;">Constant-amplitude surfaces do not generally coincide with cophasal surfaces.</td>
+<td style="text-align: left;">A wave whose amplitude and phase vary independently in space.</td>
+</tr>
+</tbody>
+</table>
+<p>To separate the time dependence from the spatial dependence, introduce a complex representative <span class="math inline">\(\widetilde V\)</span> and take its real part at the end: <span class="math display">\[
+\widetilde V(\mathbf{r},t)=U(\mathbf{r})e^{-i\omega t},
+\qquad
+V(\mathbf{r},t)=\operatorname{Re}\{\widetilde V(\mathbf{r},t)\}
+\]</span> The function <span class="math inline">\(U(\mathbf{r})\)</span> is the <strong><em>complex amplitude</em></strong>. It contains both the position-dependent amplitude and the position-dependent phase: <span class="math display">\[
+U(\mathbf{r})=a(\mathbf{r})e^{ig(\mathbf{r})}
+\]</span> Indeed, <span class="math display">\[
+\operatorname{Re}\{U(\mathbf{r})e^{-i\omega t}\}
+=a(\mathbf{r})\cos[\omega t-g(\mathbf{r})]
+\]</span> so this complex representation gives exactly the real wave introduced above. The advantage is that differentiation with respect to time becomes multiplication by <span class="math inline">\(-i\omega\)</span>.</p>
+<p>Because <span class="math inline">\(e^{-i\omega t}\)</span> does not depend on position, the spatial derivatives act only on <span class="math inline">\(U\)</span>: <span class="math display">\[
+\nabla^2\widetilde V
+=\nabla^2\left(Ue^{-i\omega t}\right)
+=e^{-i\omega t}\nabla^2U
+\]</span> The time derivatives are <span class="math display">\[
+\frac{\partial\widetilde V}{\partial t}
+=-i\omega Ue^{-i\omega t}
+\]</span> <span class="math display">\[
+\frac{\partial^2\widetilde V}{\partial t^2}
+=(-i\omega)^2Ue^{-i\omega t}
+=-\omega^2Ue^{-i\omega t}
+\]</span> Substituting these expressions into the scalar wave equation gives <span class="math display">\[
+e^{-i\omega t}\nabla^2U
+-\frac{1}{v^2}\left(-\omega^2Ue^{-i\omega t}\right)=0
+\]</span> Since <span class="math inline">\(e^{-i\omega t}\neq0\)</span>, it can be cancelled: <span class="math display">\[
+\nabla^2U+\frac{\omega^2}{v^2}U=0
+\]</span> Using <span class="math inline">\(n=c/v\)</span> and <span class="math inline">\(k_0=\omega/c\)</span>, this becomes the <strong><em>Helmholtz equation</em></strong> <span class="math display">\[
+\nabla^2U+n^2k_0^2U=0
+\]</span> For the plane wave, the spatial phase function is <span class="math display">\[
+g(\mathbf{r})
+=\omega\frac{\mathbf{r}\cdot\mathbf{s}}{v}-\delta
+=k(\mathbf{r}\cdot\mathbf{s})-\delta
+=\mathbf{k}\cdot\mathbf{r}-\delta
+\]</span></p>
+</section>
+<section id="phase-velocity" class="level2">
+<h2 class="anchored" data-anchor-id="phase-velocity">Phase velocity</h2>
+<p>Unlike a plane harmonic wave, a general time-harmonic wave need not be periodic in space. Its phase is <span class="math inline">\(\phi(\mathbf{r},t)=\omega t-g(\mathbf{r})\)</span>, and a <strong><em>cophasal surface</em></strong> is defined by <span class="math inline">\(g(\mathbf{r})=\text{constant}\)</span>. To find how fast this surface advances, compare two nearby points on the same surface: <span class="math display">\[
+\omega\,dt-\nabla g\cdot d\mathbf{r}=0
+\]</span> Let <span class="math inline">\(\mathbf{q}\)</span> be the unit vector in the direction of <span class="math inline">\(d\mathbf{r}\)</span>, and write <span class="math inline">\(d\mathbf{r}=\mathbf{q}\,ds\)</span>. The speed in this direction is therefore <span class="math display">\[
+\frac{ds}{dt}
+=\frac{\omega}{\mathbf{q}\cdot\nabla g}
+\]</span> The cophasal surface advances normally to itself. Thus <span class="math inline">\(\mathbf{q}\)</span> is chosen parallel to <span class="math inline">\(\nabla g\)</span>, and the <strong><em>phase velocity</em></strong> is <span class="math display">\[
+v^{(p)}(\mathbf{r})
+=\frac{\omega}{|\nabla g|}
+\]</span> For a plane wave, <span class="math inline">\(\nabla g=\mathbf{k}\)</span> and <span class="math inline">\(|\nabla g|=k\)</span>. Hence <span class="math display">\[
+v^{(p)}
+=\frac{\omega}{k}
+=v
+=\frac{c}{n}
+\]</span> If <span class="math inline">\(n=\sqrt{\epsilon\mu}\)</span>, this can also be written as <span class="math inline">\(v^{(p)}=c/\sqrt{\epsilon\mu}\)</span>. In a non-dispersive medium, this phase velocity is the constant speed appearing in the scalar wave equation; for a more general wave, it may vary from point to point.</p>
+</section>
+</section>
+<section id="wave-packets.-the-group-velocity" class="level1">
+<h1>Wave packets. The group velocity</h1>
+<p>An exactly <strong><em>monochromatic wave</em></strong> is an idealization. By the <strong><em>Fourier theorem</em></strong>, a sufficiently regular wave can be represented as a superposition of monochromatic waves with different frequencies: <span class="math display">\[
+V(\mathbf{r},t)
+=\int_0^\infty a_\omega(\mathbf{r})
+\cos[\omega t-g_\omega(\mathbf{r})]\,d\omega
+\]</span> In complex notation, the same decomposition is written as <span class="math display">\[
+V(\mathbf{r},t)
+=\operatorname{Re}\left\{
+\int_0^\infty
+a_\omega(\mathbf{r})
+e^{-i[\omega t-g_\omega(\mathbf{r})]}\,d\omega
+\right\}
+\]</span> A wave is <strong><em>almost monochromatic</em></strong> when its Fourier amplitudes are appreciable only in a narrow frequency interval: <span class="math display">\[
+\bar{\omega}-\frac{1}{2}\Delta\omega
+\leq \omega \leq
+\bar{\omega}+\frac{1}{2}\Delta\omega,
+\qquad
+\frac{\Delta\omega}{\bar{\omega}}\ll1
+\]</span> To see how a <strong><em>wave packet</em></strong> is formed, consider two waves with nearby frequencies and wave numbers: <span class="math display">\[
+\widetilde V(z,t)
+=a e^{-i(\omega t-kz)}
++a e^{-i[(\omega+\delta\omega)t-(k+\delta k)z]}
+\]</span> Introducing the mean frequency and mean wave number, <span class="math display">\[
+\bar{\omega}=\omega+\frac{1}{2}\delta\omega,
+\qquad
+\bar{k}=k+\frac{1}{2}\delta k
+\]</span> the superposition becomes <span class="math display">\[
+\widetilde V(z,t)
+=2a\cos\left[\frac{1}{2}(\delta\omega\,t-\delta k\,z)\right]
+e^{-i(\bar{\omega}t-\bar{k}z)}
+\]</span> This factorization follows from <span class="math display">\[
+e^{-i\alpha}+e^{-i\beta}
+=2\cos\left(\frac{\alpha-\beta}{2}\right)
+e^{-i(\alpha+\beta)/2}
+\]</span> with <span class="math inline">\(\alpha=\omega t-kz\)</span> and <span class="math inline">\(\beta=(\omega+\delta\omega)t-(k+\delta k)z\)</span>. The sum of the two waves therefore separates into a slowly varying factor and a rapidly varying carrier.</p>
+<div class="quarto-embed-nb-cell">
+<div id="cell-fig-wave-group" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-08-01T19:21:02.756403Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-08-01T19:21:02.756066Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-08-01T19:21:03.011465Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-08-01T19:21:03.010863Z&quot;}}" data-tags="[&quot;fig-wave-group&quot;]" data-fig-width="9" data-fig-height="5.6" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div id="fig-wave-group" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wave-group-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/optics-notes-3-fig-wave-group-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wave-group-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: A simple harmonic wave and a wave group formed by two nearby waves.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<a class="quarto-notebook-link" id="nblink-1" href="optics-notes-3-preview.html#cell-fig-wave-group">Source: Scalar waves</a></div>
+<p>In panel (a), the blue curve is the carrier wave <span class="math display">\[
+V_a(z,t)=a\cos(\bar{\omega}t-\bar{k}z)
+\]</span> In panel (b), the red dashed curves are the positive and negative <strong><em>envelopes</em></strong>: <span class="math display">\[
+V_{\mathrm{env}}^{+}(z,t)
+=2a\cos\left[\frac{1}{2}(\delta\omega\,t-\delta k\,z)\right],
+\qquad
+V_{\mathrm{env}}^{-}(z,t)
+=-2a\cos\left[\frac{1}{2}(\delta\omega\,t-\delta k\,z)\right]
+\]</span> The blue curve is the real wave inside these envelopes. In complex notation it is represented by <span class="math display">\[
+\widetilde V_b(z,t)
+=2a\cos\left[\frac{1}{2}(\delta\omega\,t-\delta k\,z)\right]
+e^{-i(\bar{\omega}t-\bar{k}z)}
+\]</span> and the plotted physical wave is its real part, <span class="math display">\[
+V_b(z,t)=\operatorname{Re}\{\widetilde V_b(z,t)\}
+=2a\cos\left[\frac{1}{2}(\delta\omega\,t-\delta k\,z)\right]
+\cos(\bar{\omega}t-\bar{k}z)
+\]</span> The cosine factor is a slowly varying <strong><em>envelope</em></strong>, while the exponential factor is the rapidly oscillating carrier. The envelope maxima satisfy <span class="math display">\[
+\delta\omega\,t-\delta k\,z=\text{constant}
+\]</span> so the envelope moves with <span class="math display">\[
+v_{\mathrm g}
+=\frac{\delta\omega}{\delta k}
+\longrightarrow
+\frac{d\omega}{dk}
+\]</span> This limiting value is the <strong><em>group velocity</em></strong>. It describes the motion of the wave packet or envelope, whereas the carrier moves with the <strong><em>phase velocity</em></strong> <span class="math inline">\(v_{\mathrm{ph}}=\omega/k\)</span>. In a dispersive medium, these two velocities are generally different.</p>
+<section id="one-dimensional-and-three-dimensional-wave-groups" class="level2">
+<h2 class="anchored" data-anchor-id="one-dimensional-and-three-dimensional-wave-groups">One-dimensional and three-dimensional wave groups</h2>
+<p>The one-dimensional result extends to a general three-dimensional wave. The intermediate steps are as follows.</p>
+<p>For the one-dimensional case, start from a narrow band of frequencies and write <span class="math display">\[
+\widetilde V(z,t)
+=\int_{(\Delta\omega)}
+a_\omega e^{-i[\omega t-k(\omega)z]}\,d\omega
+\]</span> Taking <span class="math inline">\(\bar{\omega}\)</span> as the mean frequency and <span class="math inline">\(\bar{k}=k(\bar{\omega})\)</span>, factor out the mean oscillation: <span class="math display">\[
+\widetilde V(z,t)
+=A(z,t)e^{-i(\bar{\omega}t-\bar{k}z)}
+\]</span> where the slowly varying <strong><em>complex amplitude</em></strong> is <span class="math display">\[
+A(z,t)
+=\int_{(\Delta\omega)}
+a_\omega
+e^{-i[(\omega-\bar{\omega})t-(k(\omega)-\bar{k})z]}\,d\omega
+\]</span> The amplitude of the wave group is determined by <span class="math inline">\(|A|\)</span>. Because <span class="math inline">\(A\)</span> may be complex, its squared magnitude is obtained by multiplying it by its complex conjugate: <span class="math display">\[
+|A(z,t)|^2=A(z,t)A^*(z,t)
+\]</span> The star means complex conjugation: <span class="math inline">\(i\)</span> changes to <span class="math inline">\(-i\)</span>, and each coefficient <span class="math inline">\(a_\omega\)</span> is replaced by <span class="math inline">\(a_\omega^*\)</span>. Thus <span class="math inline">\(A^*\)</span> is not a second physical wave; it is used to obtain the real, non-negative quantity <span class="math inline">\(|A|^2\)</span>.</p>
+<p>The three-dimensional derivation has the same structure: <span class="math display">\[
+\widetilde V(\mathbf{r},t)
+=\int_{(\Delta\omega)}
+a_\omega(\mathbf{r})
+e^{-i[\omega t-g_\omega(\mathbf{r})]}\,d\omega
+=A(\mathbf{r},t)e^{-i[\bar{\omega}t-g_{\bar{\omega}}(\mathbf{r})]}
+\]</span> where <span class="math display">\[
+A(\mathbf{r},t)
+=\int_{(\Delta\omega)}
+a_\omega(\mathbf{r})
+e^{-i\{(\omega-\bar{\omega})t-[g_\omega(\mathbf{r})-g_{\bar{\omega}}(\mathbf{r})]\}}\,d\omega
+\]</span> Multiplying by the conjugate gives <span class="math display">\[
+\begin{aligned}
+|A(\mathbf{r},t)|^2
+&amp;=A(\mathbf{r},t)A^*(\mathbf{r},t)\\
+&amp;=\int_{(\Delta\omega)}\int_{(\Delta\omega)}
+a_\omega(\mathbf{r})a_{\omega'}^*(\mathbf{r})\\
+&amp;\quad\times
+e^{-i\{(\omega-\omega')t-[g_\omega(\mathbf{r})-g_{\omega'}(\mathbf{r})]\}}
+\,d\omega\,d\omega'
+\end{aligned}
+\]</span> For a narrow frequency interval, <span class="math display">\[
+g_\omega(\mathbf{r})-g_{\omega'}(\mathbf{r})
+\approx
+(\omega-\omega')
+\left(\frac{\partial g}{\partial\omega}\right)_{\bar{\omega}}
+\]</span> so the envelope depends mainly on <span class="math display">\[
+t-\left(\frac{\partial g}{\partial\omega}\right)_{\bar{\omega}}
+\]</span> This is the three-dimensional analogue of the one-dimensional envelope coordinate <span class="math inline">\(t-(dk/d\omega)_{\bar{\omega}}z\)</span>.</p>
+<p>The resulting quantities can be compared as follows.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Quantity</th>
+<th style="text-align: left;">One-dimensional case</th>
+<th style="text-align: left;">Three-dimensional case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Complex representation</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle V(z,t)=A(z,t)e^{-i(\bar{\omega}t-\bar{k}z)}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle V(\mathbf{r},t)=A(\mathbf{r},t)e^{-i[\bar{\omega}t-g(\mathbf{r})]}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Constant-amplitude surface</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle t=\left(\frac{dk}{d\omega}\right)_{\bar{\omega}}z\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle t=\left[\frac{\partial g(\mathbf{r})}{\partial\omega}\right]_{\bar{\omega}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><em>Group velocity</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle v_{\mathrm g}=\left(\frac{d\omega}{dk}\right)_{\bar{k}}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle v_{\mathrm g}(\mathbf{r})=\frac{1}{\left|\nabla\left(\frac{\partial g}{\partial\omega}\right)_{\bar{\omega}}\right|}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><em>Phase velocity</em></strong></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle v_{\mathrm{ph}}=\frac{\bar{\omega}}{\bar{k}}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle v_{\mathrm{ph}}(\mathbf{r})=\frac{\bar{\omega}}{|\nabla g|_{\bar{\omega}}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Main difference</td>
+<td style="text-align: left;">The wave varies along one spatial coordinate <span class="math inline">\(z\)</span>.</td>
+<td style="text-align: left;">The amplitude and phase vary throughout space, so gradients determine the propagation direction and speed.</td>
+</tr>
+</tbody>
+</table>
+<p>In the three-dimensional case, the <strong><em>group velocity</em></strong> is normal to the constant-amplitude surface. When the wave depends only on <span class="math inline">\(z\)</span>, the gradient reduces to an ordinary derivative and the three-dimensional expression becomes the one-dimensional result.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
